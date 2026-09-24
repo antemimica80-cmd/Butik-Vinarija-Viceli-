@@ -1,0 +1,19 @@
+{
+  "name": "vicelic-website",
+  "private": true,
+  "type": "module",
+  "description": "Boutique Winery Vicelić — Dingač, Pelješac. Static bilingual website.",
+  "scripts": {
+    "build": "node src/images.mjs && node src/build.mjs",
+    "preview": "node src/images.mjs && node src/build.mjs --preview",
+    "images": "node src/images.mjs",
+    "map": "node src/map.mjs",
+    "serve": "node src/serve.mjs",
+    "dev": "npm run build && npm run serve"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.4",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  }
+}
