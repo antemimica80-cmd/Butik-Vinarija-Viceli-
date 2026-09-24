@@ -1,0 +1,213 @@
+@import 'tailwindcss';
+
+/* ───────────────────────────── Design tokens ─────────────────────────────
+   Built from the place: limestone, basalt, Plavac, bleached sun, the Adriatic.
+   Contrast (WCAG): basalt/bone 15.3 · ink-soft/bone 5.9 · sun-deep/bone 4.8
+   stone-light/basalt 6.9 · sun/basalt 6.8 · sun-pale/basalt 11.1 · bone/plavac 13.8
+   `sun` and `stone` are NOT for text on light surfaces (2.2 / 3.0).
+   ────────────────────────────────────────────────────────────────────────── */
+@theme {
+  --color-bone: #ede7dc;
+  --color-limestone: #f7f4ee;
+  --color-stone: #8c857a;
+  --color-stone-light: #a39c90;
+  --color-ink-soft: #5c564d;
+  --color-basalt: #121110;
+  --color-charcoal: #1e1c1a;
+  --color-plavac: #3b0a12;
+  --color-plavac-deep: #22060a;
+  --color-sun: #b8975a;
+  --color-sun-pale: #d9c49c;
+  --color-sun-deep: #7a6130;
+  --color-adriatic: #0e2a3d;
+
+  --font-display: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* Fluid type scale — big, confident display sizes */
+  --text-label: 0.6875rem;
+  --text-label--letter-spacing: 0.26em;
+  --text-display-xl: clamp(3.5rem, 1.6rem + 8.4vw, 10rem);
+  --text-display-xl--line-height: 0.92;
+  --text-display-l: clamp(2.75rem, 1.6rem + 5vw, 6.5rem);
+  --text-display-l--line-height: 0.98;
+  --text-display-m: clamp(2.125rem, 1.4rem + 3vw, 4.25rem);
+  --text-display-m--line-height: 1.04;
+  --text-display-s: clamp(1.625rem, 1.2rem + 1.6vw, 2.5rem);
+  --text-display-s--line-height: 1.12;
+  --text-lede: clamp(1.1875rem, 1rem + 0.6vw, 1.5rem);
+  --text-lede--line-height: 1.5;
+
+  --ease-weighted: cubic-bezier(0.22, 0.61, 0.2, 1);
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --breakpoint-xs: 25rem;
+}
+
+:root {
+  --gutter: clamp(1.25rem, 0.6rem + 3vw, 4rem);
+  --nav-h: 4.5rem;
+  --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    scroll-padding-top: var(--nav-h);
+  }
+  body {
+    background: var(--color-bone);
+    color: var(--color-basalt);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    font-feature-settings: 'kern', 'liga';
+  }
+  ::selection {
+    background: var(--color-plavac);
+    color: var(--color-bone);
+  }
+  :focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 4px;
+  }
+  h1, h2, h3, h4, [class*='text-display-'] {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    font-optical-sizing: auto;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+}
+
+@layer components {
+  /* Small-caps label: generous tracking, used as section "stations" and eyebrows */
+  .label {
+    font-family: var(--font-sans);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: var(--text-label--letter-spacing);
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  .container-x {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+  /* Sun and shade: alternating section surfaces */
+  .surface-sun { background: var(--color-bone); color: var(--color-basalt); }
+  .surface-limestone { background: var(--color-limestone); color: var(--color-basalt); }
+  .surface-shade { background: var(--color-basalt); color: var(--color-bone); }
+  .surface-cellar { background: var(--color-plavac-deep); color: var(--color-bone); }
+  .surface-plavac { background: var(--color-plavac); color: var(--color-bone); }
+
+  /* Stone / paper grain — subtle, never kitsch */
+  .grain { position: relative; isolation: isolate; }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: var(--grain);
+    opacity: 0.09;
+    mix-blend-mode: multiply;
+  }
+  .surface-shade.grain::after,
+  .surface-cellar.grain::after,
+  .surface-plavac.grain::after {
+    opacity: 0.16;
+    mix-blend-mode: soft-light;
+  }
+
+  /* Hairline rule */
+  .rule { height: 1px; background: currentColor; opacity: 0.18; border: 0; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 3.25rem;
+    padding: 0 1.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background-color 0.5s var(--ease-weighted), color 0.5s var(--ease-weighted),
+      border-color 0.5s var(--ease-weighted);
+  }
+  .btn-primary { background: var(--color-plavac); color: var(--color-bone); }
+  .btn-primary:hover { background: var(--color-plavac-deep); }
+  .btn-sun { background: var(--color-sun-pale); color: var(--color-basalt); }
+  .btn-sun:hover { background: var(--color-bone); }
+  .btn-ghost { border: 1px solid currentColor; }
+  .btn-ghost:hover { background: var(--color-basalt); border-color: var(--color-basalt); color: var(--color-bone); }
+  :is(.surface-shade, .surface-cellar, .surface-plavac, .on-dark) .btn-ghost:hover {
+    background: var(--color-bone); border-color: var(--color-bone); color: var(--color-basalt);
+  }
+  .btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding-block: 0.4rem;
+    background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 100% 1px;
+    transition: background-size 0.6s var(--ease-weighted);
+  }
+  .btn-link:hover { background-size: 0% 1px; background-position: 100% 100%; }
+}
+
+/* ───────────────────────────── Motion ─────────────────────────────
+   Slow, weighted, cinematic. Nothing bouncy. */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 2.5rem, 0);
+  transition: opacity 1.4s var(--ease-weighted), transform 1.6s var(--ease-settle);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal[data-visible='true'] { opacity: 1; transform: none; }
+.reveal-fade { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* No-JS: never hide content */
+html:not([data-js]) .reveal { opacity: 1; transform: none; }
+
+/* ───────────────────── Age gate & consent (pre-paint) ─────────────────────
+   An inline script sets html[data-age-ok] before first paint, so returning
+   visitors never see a flash of the gate. */
+html[data-age-ok] #age-gate,
+html:not([data-js]) #age-gate { display: none; }
+html[data-js]:not([data-age-ok]) body { overflow: hidden; }
+html:not([data-age-ok]) #consent-banner,
+html[data-consent] #consent-banner { display: none; }
+
+/* Entrances for overlays */
+@keyframes rise-in {
+  from { opacity: 0; transform: translate3d(0, 1.5rem, 0); }
+  to { opacity: 1; transform: none; }
+}
+.menu-item { animation: rise-in 0.9s var(--ease-settle) both; }
+.gate-in { animation: rise-in 1.4s var(--ease-settle) 0.15s both; }
