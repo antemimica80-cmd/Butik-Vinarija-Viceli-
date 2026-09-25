@@ -6,6 +6,7 @@ import { visitPage as V } from '@content/visit';
 import { home } from '@content/home';
 import { site } from '@content/site';
 import { MapBlock } from '@/components/ui/MapBlock';
+import { ImageSlot } from '@/components/ui/ImageSlot';
 import { Reveal } from '@/components/ui/Reveal';
 import { ArrowRight, WhatsAppIcon } from '@/components/ui/icons';
 import { alternates, jsonLd, wineryLd } from '@/lib/seo';
@@ -42,6 +43,17 @@ export default async function VisitPage({ params }: PageProps<'/[locale]/visit'>
             <a href={site.phoneHref} className="btn btn-ghost">
               {l(V.call)} · {site.phone}
             </a>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="surface-sun grain pt-16 md:pt-28">
+        <div className="container-x grid gap-6 md:grid-cols-12">
+          <Reveal className="md:col-span-7">
+            <ImageSlot id="ridge-view" ratio="9/8" sizes="(min-width: 768px) 55vw, 100vw" />
+          </Reveal>
+          <Reveal delay={150} className="md:col-span-5">
+            <ImageSlot id="guests-couple" ratio="4/5" sizes="(min-width: 768px) 40vw, 100vw" />
           </Reveal>
         </div>
       </section>

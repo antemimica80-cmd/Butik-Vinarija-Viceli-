@@ -43,8 +43,8 @@ export default async function ShopPage({ params }: PageProps<'/[locale]/shop'>) 
               return (
                 <Reveal as="li" key={p.slug} delay={i * 100} className={p.kind === 'gift' ? 'surface-plavac' : 'bg-limestone'}>
                   <Link href={{ pathname: '/shop/[slug]', params: { slug: p.slug } }} className="group flex h-full flex-col p-6 md:p-8">
-                    <div className="mx-auto w-2/5 max-w-36 transition-transform duration-[1.2s] ease-[var(--ease-settle)] group-hover:-translate-y-2">
-                      <ImageSlot id={p.bottleSlot as ImageSlotId} compact sizes="144px" />
+                    <div className="mx-auto w-3/5 max-w-48 transition-transform duration-[1.2s] ease-[var(--ease-settle)] group-hover:-translate-y-2">
+                      <ImageSlot id={p.bottleSlot as ImageSlotId} compact sizes="(min-width: 1024px) 192px, 60vw" />
                     </div>
                     <p className={`label mt-10 ${p.kind === 'gift' ? 'text-sun-pale' : 'text-sun-deep'}`}>{wine ? l(wine.style) : l(S.giftEyebrow)}</p>
                     <h2 className="mt-3 text-display-s font-light">{p.name}</h2>

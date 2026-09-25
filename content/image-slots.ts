@@ -148,39 +148,39 @@ export const imageSlots = {
   },
   'bottle-dingac': {
     kind: 'image',
-    ratio: '2/5',
-    tone: 'sun',
+    ratio: '2/3',
+    tone: 'shade',
     shot: 'Dingač bottle, straight-on packshot, no props. Transparent PNG or bone background.',
     light: 'Soft studio light, one clean highlight.',
     alt: {
-      en: 'Bottle of Vicelić Dingač.',
-      hr: 'Boca vina Vicelić Dingač.', // REVIEW
+      en: 'A bottle of Vicelić Dingač with its gold label, in the cellar.',
+      hr: 'Boca vina Vicelić Dingač sa zlatnom etiketom, u podrumu.', // REVIEW
     },
-    src: null,
+    src: '/media/bottle-dingac.jpg',
   },
   'bottle-plavac': {
     kind: 'image',
-    ratio: '2/5',
-    tone: 'sun',
+    ratio: '2/3',
+    tone: 'shade',
     shot: 'Plavac Mali bottle packshot, same setup as Dingač.',
     light: 'Soft studio light.',
     alt: {
-      en: 'Bottle of Vicelić Plavac Mali.',
-      hr: 'Boca vina Vicelić Plavac mali.', // REVIEW
+      en: 'A bottle of Vicelić Plavac Mali with its red label, in the cellar.',
+      hr: 'Boca vina Vicelić Plavac mali s crvenom etiketom, u podrumu.', // REVIEW
     },
-    src: null,
+    src: '/media/bottle-plavac-mali.jpg',
   },
   'bottle-rose': {
     kind: 'image',
-    ratio: '2/5',
-    tone: 'sun',
+    ratio: '2/3',
+    tone: 'shade',
     shot: 'Opolo Rosé bottle packshot, same setup.',
     light: 'Soft studio light.',
     alt: {
-      en: 'Bottle of Vicelić Opolo Rosé.',
-      hr: 'Boca vina Vicelić Opolo rosé.', // REVIEW
+      en: 'A bottle of Vicelić Opolo Rosé, pale salmon in colour, in the cellar.',
+      hr: 'Boca vina Vicelić Opolo rosé, blijedo lososove boje, u podrumu.', // REVIEW
     },
-    src: null,
+    src: '/media/bottle-opolo-rose.jpg',
   },
   'tasting-table': {
     kind: 'image',
@@ -253,6 +253,30 @@ export const imageSlots = {
       hr: 'Dvoje gostiju nazdravlja crnim vinom pod krovom terase.', // REVIEW
     },
     src: '/media/guests-toast-couple.jpg',
+  },
+  'gift-box': {
+    kind: 'image',
+    ratio: '2/3',
+    tone: 'shade',
+    shot: 'Wine in wooden gift boxes. TODO: replace with a real photo of the three-wine box before launch.',
+    light: 'Warm cellar light.',
+    alt: {
+      en: 'Bottles of Vicelić Dingač in wooden gift boxes.',
+      hr: 'Boce vina Vicelić Dingač u drvenim poklon kutijama.', // REVIEW
+    },
+    src: '/media/gift-box-dingac.jpg',
+  },
+  'dingac-highlights': {
+    kind: 'image',
+    ratio: '2/3',
+    tone: 'shade',
+    shot: 'Dingač bottle with tasting characteristics. TODO: the "top 1%" claim on this image is unverified — replace or confirm before launch.',
+    light: 'Cellar.',
+    alt: {
+      en: 'A bottle of Vicelić Dingač with its tasting profile.',
+      hr: 'Boca vina Vicelić Dingač s profilom okusa.', // REVIEW
+    },
+    src: '/media/dingac-highlights.jpg',
   },
 } satisfies Record<string, ImageSlotDef>;
 

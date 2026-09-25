@@ -27,6 +27,8 @@ export type Product = {
   name: string;
   kind: 'wine' | 'gift';
   bottleSlot: string;
+  /** Optional extra image on the product page. */
+  detailSlot?: string;
   summary: L;
   formats: Format[];
 };
@@ -42,7 +44,7 @@ export const giftBox: Product = {
   slug: 'gift-box',
   name: 'The Three Suns Box', // REVIEW — name to confirm with the owner
   kind: 'gift',
-  bottleSlot: 'bottle-dingac',
+  bottleSlot: 'gift-box',
   summary: {
     en: 'All three wines — Dingač, Plavac Mali and Opolo Rosé — in a wooden box.',
     hr: 'Sva tri vina — Dingač, Plavac mali i Opolo rosé — u drvenoj kutiji.', // REVIEW

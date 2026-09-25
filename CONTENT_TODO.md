@@ -10,7 +10,7 @@ Real photography only. Drop files into `public/media/` and set `src` on the slot
 guests toasting (The Slope), cheese & prosciutto (Keeper's Table), pouring wine (Dingač Private);
 a couple toasting is uploaded and not yet placed.
 - 🟡 Higher-resolution originals (current files are ~1180 px wide; the hero is shown up to 1440+ px)
-- 🔴 The bottle images uploaded so far appear AI-generated (label typos, 1024×1536) — kept out of the site in `media-inbox/`. Real packshots needed.
+- 🔴 The bottle, gift-box and "Dingač highlights" images appear AI-generated (label typos such as "VEHUNSKO", 1024×1536). Used in the proposal at the owner's request — replace with real packshots before launch. The "top 1% of all wines" claim on dingac-highlights.jpg is unverified.
 - 🔴 Who is the man serving cheese in `serving-cheese-prosciutto.jpg`? (Not labelled as Mateo until confirmed.)
 - ✅ Logo seal in use (header, age gate, footer, favicon). ⚪ A vector (SVG) version would be sharper at large sizes
 - 🟡 `hero-video` — ridge-to-sea descent, 12–20 s loop (the aerial still is used until then)

@@ -240,8 +240,8 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
               {wines.map((w, i) => (
                 <Reveal as="li" key={w.slug} delay={i * 150} className="bg-plavac-deep">
                   <Link href={{ pathname: '/wines/[slug]', params: { slug: w.slug } }} className="group flex h-full flex-col p-6 md:p-8">
-                    <div className="mx-auto w-2/5 max-w-40 transition-transform duration-[1.2s] ease-[var(--ease-settle)] group-hover:-translate-y-2">
-                      <ImageSlot id={w.bottleSlot as ImageSlotId} compact sizes="160px" />
+                    <div className="mx-auto w-3/5 max-w-56 transition-transform duration-[1.2s] ease-[var(--ease-settle)] group-hover:-translate-y-2">
+                      <ImageSlot id={w.bottleSlot as ImageSlotId} compact sizes="(min-width: 768px) 224px, 60vw" />
                     </div>
                     <p className="label mt-10 text-sun">{l(w.style)}</p>
                     <h3 className="mt-3 text-display-m font-light">{w.name}</h3>
