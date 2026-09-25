@@ -23,11 +23,26 @@ export function SiteHeader() {
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
+  // Over sections marked data-nav-tone="dark" (the hero, the tunnel) the header goes transparent.
+  const [overDark, setOverDark] = useState<boolean | null>(null);
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      const probe = 36;
+      const dark = Array.from(document.querySelectorAll<HTMLElement>('[data-nav-tone="dark"]')).some((el) => {
+        const r = el.getBoundingClientRect();
+        return r.top <= probe && r.bottom >= probe;
+      });
+      setOverDark(dark);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener('vicelic:navtone', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('vicelic:navtone', onScroll);
+    };
   }, []);
 
   // Mobile menu: lock scroll, trap focus, close on Escape
@@ -62,7 +77,8 @@ export function SiteHeader() {
     };
   }, [open]);
 
-  const overlay = overlayPaths.has(pathname) && !scrolled;
+  // Before hydration, fall back to the per-page default so the first paint matches the hero.
+  const overlay = overDark ?? (overlayPaths.has(pathname) && !scrolled);
 
   return (
     <>

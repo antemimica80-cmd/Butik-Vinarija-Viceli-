@@ -211,3 +211,78 @@ html[data-consent] #consent-banner { display: none; }
 }
 .menu-item { animation: rise-in 0.9s var(--ease-settle) both; }
 .gate-in { animation: rise-in 1.4s var(--ease-settle) 0.15s both; }
+
+/* ───────────────────────────── Signature: the descent ───────────────────────────── */
+.altitude { opacity: 0; transition: opacity 1s var(--ease-weighted); }
+.altitude[data-visible='true'] { opacity: 1; }
+.altitude li { opacity: 0.35; }
+.altitude li[data-active='true'] { opacity: 1; }
+
+/* ───────────────────────────── Signature: the tunnel ───────────────────────────── */
+.tunnel { height: 340vh; }
+html[data-js] .tunnel {
+  --t-intro: 0; --t-intro-out: 0; --t-l1: 0; --t-l2: 0; --t-open: 0; --t-glare: 1; --t-emerge: 0;
+}
+.tunnel-walls { opacity: calc(0.55 * (1 - var(--t-open, 0))); }
+.tunnel-intro {
+  opacity: calc(var(--t-intro, 1) * (1 - var(--t-intro-out, 0)));
+  transform: translate3d(0, calc((1 - var(--t-intro, 1)) * 2rem), 0);
+}
+.tunnel-exit {
+  clip-path: circle(calc(var(--t-open, 1) * 80vmax + 0.35vmin) at 50% 50%);
+  will-change: clip-path;
+}
+.tunnel-glare { opacity: var(--t-glare, 0); }
+.tunnel-emerge {
+  opacity: var(--t-emerge, 1);
+  transform: translate3d(0, calc((1 - var(--t-emerge, 1)) * 3rem), 0);
+}
+/* Reduced motion / no JS: the same story, stacked and still */
+@media (prefers-reduced-motion: reduce) {
+  html .tunnel { height: auto; }
+  html .tunnel .tunnel-stage { position: relative; height: auto; }
+  html .tunnel .tunnel-words { position: relative; padding-block: 8rem; }
+  html .tunnel .tunnel-intro, html .tunnel .tunnel-line { opacity: 1 !important; transform: none; }
+  html .tunnel .tunnel-exit { position: relative; clip-path: none; height: 80svh; }
+  html .tunnel .tunnel-glare { opacity: 0; }
+  html .tunnel .tunnel-emerge { opacity: 1; transform: none; }
+}
+html:not([data-js]) .tunnel { height: auto; }
+html:not([data-js]) .tunnel-stage { position: relative; height: auto; }
+html:not([data-js]) .tunnel-words { position: relative; padding-block: 8rem; }
+html:not([data-js]) .tunnel-exit { position: relative; height: 80svh; }
+
+/* ───────────────────────────── Signature: three suns ───────────────────────────── */
+.three-suns .ts-ray { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.three-suns .ts-labels { opacity: 0; transition: opacity 1.6s var(--ease-weighted) 3.6s; }
+.three-suns .ts-halo { transform-box: fill-box; transform-origin: center; animation: ts-halo 7s ease-in-out infinite; }
+.three-suns .ts-shimmer { animation: ts-shimmer 3.6s ease-in-out infinite; }
+.three-suns[data-visible='true'] .ts-labels { opacity: 1; }
+.three-suns[data-visible='true'] .ts-ray-1 { animation: ts-draw 2.2s var(--ease-weighted) 0.3s forwards, ts-breathe 6s ease-in-out 3s infinite; }
+.three-suns[data-visible='true'] .ts-ray-2 { animation: ts-draw 2.8s var(--ease-weighted) 1.3s forwards, ts-breathe 6s ease-in-out 4.5s infinite; }
+.three-suns .ts-ray-3 { transform-box: fill-box; transform-origin: bottom; }
+.three-suns[data-visible='true'] .ts-ray-3 { animation: ts-draw 1.4s var(--ease-weighted) 2.8s forwards, ts-rise 3.2s ease-in-out 4.4s infinite alternate; }
+.three-suns[data-visible='true'] .ts-ray-3:nth-child(2) { animation-delay: 3s, 5s; }
+.three-suns[data-visible='true'] .ts-ray-3:nth-child(3) { animation-delay: 3.2s, 4.8s; }
+.three-suns[data-visible='true'] .ts-ray-3:nth-child(4) { animation-delay: 3.4s, 5.4s; }
+@keyframes ts-draw { to { stroke-dashoffset: 0; } }
+@keyframes ts-breathe { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+@keyframes ts-rise { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-7px); opacity: 0.35; } }
+@keyframes ts-shimmer { 0%, 100% { opacity: 0.25; transform: translateX(-3px); } 50% { opacity: 0.85; transform: translateX(3px); } }
+@keyframes ts-halo { 0%, 100% { transform: scale(1); opacity: 0.25; } 50% { transform: scale(1.1); opacity: 0.5; } }
+@media (prefers-reduced-motion: reduce) {
+  .three-suns .ts-ray { stroke-dashoffset: 0; animation: none !important; }
+  .three-suns .ts-labels { opacity: 1; transition: none; }
+  .three-suns .ts-shimmer, .three-suns .ts-halo { animation: none; }
+}
+html:not([data-js]) .three-suns .ts-ray { stroke-dashoffset: 0; }
+html:not([data-js]) .three-suns .ts-labels { opacity: 1; }
+
+/* ───────────────────────────── Hero video ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
+}
+/* The descent keeps a left rail for the altitude line on large screens */
+@media (min-width: 64rem) {
+  [data-descent] .container-x { padding-left: max(var(--gutter), 8.5rem); }
+}

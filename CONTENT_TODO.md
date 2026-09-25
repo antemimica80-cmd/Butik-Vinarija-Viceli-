@@ -22,8 +22,8 @@ Real photography only. Drop files into `public/media/` and set `src` on the slot
 - 🟡 Confirm VAT registration (assumed: yes, 25% included in prices)
 - 🟡 Opening hours and season (currently "all year, winter by appointment")
 
-## History claims (content/history-claims.ts — stage 3)
-Each claim will carry a `source` field and `verified: false` until confirmed.
+## History claims (content/history-claims.ts)
+Each claim has a `source` field (currently TODO) and `verified: false`. The home page shows them as written — confirm or correct the wording, too.
 - 🔴 1935: Vicelić wine exported to Prague
 - 🔴 1961: Dingač, the first Croatian wine with a protected designation of origin
 - 🔴 1973: growers dig the Dingač tunnel by hand
@@ -52,6 +52,14 @@ Proposal values chosen for the pitch. The owner must confirm them all.
 - 🔴 Shipping rates per zone (Croatia, EU)
 - 🔴 **EU shipping of wine**: excise duty is due in the buyer's country, and a tax representative is usually required. The owner must confirm this is in place before EU zones are switched on.
 - 🟡 Technical sheet details for Plavac Mali and Opolo Rosé (confirm against labels)
+- 🟡 Parcel names for Plavac Mali and Opolo Rosé (`TBD` in content/wines.ts)
+- 🟡 Food pairing for Dingač (`TBD` — not stated on vicelic.hr)
+
+## Home page (content/home.ts)
+- 🟡 "The silence" beat (war, collectivisation) — confirm the family's story in these words
+- 🟡 Year of "The return" (Mateo's replanting)
+- 🟡 Route descriptions from Dubrovnik, Ston and Split, and real driving times (`~TODO`)
+- ⚪ All English copy is a proposal in the brand voice — the owner should read it once end to end
 
 ## Reviews
 - 🟡 Real Tripadvisor/Google reviews with permission (placeholders are clearly marked)

@@ -55,7 +55,7 @@ export default async function DesignPage({ params }: PageProps<'/[locale]/design
 
   return (
     <>
-      <section className="surface-shade grain pt-[calc(var(--nav-h)+4rem)] pb-20 md:pt-[calc(var(--nav-h)+7rem)] md:pb-28">
+      <section data-nav-tone="dark" className="surface-shade grain pt-[calc(var(--nav-h)+4rem)] pb-20 md:pt-[calc(var(--nav-h)+7rem)] md:pb-28">
         <div className="container-x">
           <p className="label text-sun">Stage 1 · Design system</p>
           <h1 className="mt-6 text-display-xl font-light">Stone, sun, silence, weight.</h1>
