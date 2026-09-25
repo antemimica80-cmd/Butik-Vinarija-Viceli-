@@ -2,15 +2,17 @@
 
 import { useState, type FormEvent } from 'react';
 import { experiencePage } from '@content/booking';
+import { STATIC_PREVIEW, staticNotice } from '@/lib/static';
 
 export function TradeForm({ locale }: { locale: 'en' | 'hr' }) {
   const t = experiencePage.trade;
   const l = (x: { en: string; hr: string }) => x[locale];
-  const [state, setState] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle');
+  const [state, setState] = useState<'idle' | 'loading' | 'sent' | 'error' | 'preview'>('idle');
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
+    if (STATIC_PREVIEW) return setState('preview');
     setState('loading');
     const res = await fetch('/api/enquiry', {
       method: 'POST',
@@ -68,6 +70,11 @@ export function TradeForm({ locale }: { locale: 'en' | 'hr' }) {
         <button type="submit" className="btn btn-sun" disabled={state === 'loading'}>
           {l(t.submit)}
         </button>
+        {state === 'preview' && (
+          <p className="mt-3 text-sm text-sun-pale" role="status">
+            {staticNotice[locale]}
+          </p>
+        )}
         {state === 'error' && (
           <p className="mt-3 text-sm text-sun-pale" role="alert">
             {locale === 'hr' ? 'Provjerite polja i pokušajte ponovno.' : 'Please check the fields and try again.'}

@@ -4,6 +4,9 @@ import { absolute } from '@/lib/seo';
 import { wines } from '@content/wines';
 import { products } from '@/lib/shop/catalog';
 
+/** Plain file, also in the static export. */
+export const dynamic = 'force-static';
+
 type Href = Parameters<typeof absolute>[1];
 
 export default function sitemap(): MetadataRoute.Sitemap {

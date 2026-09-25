@@ -21,6 +21,14 @@ npm run dev                  # http://localhost:3000 → /en
 | `node scripts/e2e-booking.mjs` / `node scripts/e2e-shop.mjs` | Book a tasting / buy wine end to end in a real browser (demo payment) |
 | `node scripts/a11y.mjs` | axe-core WCAG 2.1 AA audit of the main pages |
 
+## Static preview on GitHub Pages
+
+`node scripts/build-static.mjs` builds a static copy of the site into `./out` (all pages, both
+languages, animations, calendar computed in the browser, cart). Payments, emails, stored bookings
+and `/admin` need a server, so in the preview those steps show a "preview of the design" notice.
+`.github/workflows/pages.yml` builds and publishes it on every push. One-time setup: the
+repository must be public (or on GitHub Pro), and Settings → Pages → Source must be "GitHub Actions".
+
 ## Preview on Vercel (no configuration needed)
 
 Import the GitHub repo at vercel.com → Add New → Project → Deploy. With no environment

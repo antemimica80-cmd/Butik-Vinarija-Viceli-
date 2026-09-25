@@ -6,6 +6,7 @@ import type { Format } from '@content/products';
 import { Link } from '@/i18n/navigation';
 import { addToCart } from '@/lib/cart';
 import { fill, formatEur } from '@/lib/format';
+import { STATIC_PREVIEW } from '@/lib/static';
 
 /** Format picker + quantity + add to cart, with live stock. */
 export function AddToCart({ formats, locale }: { formats: Format[]; locale: 'en' | 'hr' }) {
@@ -17,6 +18,7 @@ export function AddToCart({ formats, locale }: { formats: Format[]; locale: 'en'
   const format = formats.find((f) => f.sku === sku)!;
 
   useEffect(() => {
+    if (STATIC_PREVIEW) return;
     fetch('/api/shop/stock', { cache: 'no-store' })
       .then((r) => r.json() as Promise<{ stock: Record<string, number> }>)
       .then((j) => setStock(j.stock))

@@ -8,3 +8,5 @@ next-env.d.ts
 screenshots/
 .vercel
 .data/
+out/
+.static-stash/

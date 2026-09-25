@@ -1,6 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { siteUrl } from '@/lib/seo';
 
+/** Plain file, also in the static export. */
+export const dynamic = 'force-static';
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {

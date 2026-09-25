@@ -9,6 +9,7 @@ import { setQty, useCart } from '@/lib/cart';
 import { priceCart } from '@/lib/shop/catalog';
 import { fill, formatEur } from '@/lib/format';
 import { ImageSlot } from '@/components/ui/ImageSlot';
+import { STATIC_PREVIEW, staticNotice } from '@/lib/static';
 
 export function CartView({ locale, demo }: { locale: 'en' | 'hr'; demo: boolean }) {
   const l = (x: { en: string; hr: string }) => x[locale];
@@ -22,6 +23,7 @@ export function CartView({ locale, demo }: { locale: 'en' | 'hr'; demo: boolean 
 
   // Returning from an abandoned Stripe payment: cancel that pending order.
   useEffect(() => {
+    if (STATIC_PREVIEW) return;
     const p = new URLSearchParams(location.search);
     const o = p.get('cancelled');
     const t = p.get('t');
@@ -41,6 +43,10 @@ export function CartView({ locale, demo }: { locale: 'en' | 'hr'; demo: boolean 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
+    if (STATIC_PREVIEW) {
+      setStatus({ kind: 'error', message: l(staticNotice) });
+      return;
+    }
     setStatus({ kind: 'loading' });
     try {
       const res = await fetch('/api/shop/checkout', {

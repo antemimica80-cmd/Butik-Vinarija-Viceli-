@@ -6,7 +6,10 @@ import { Link } from '@/i18n/navigation';
 import { track } from '@/lib/analytics';
 import { fill, formatEur } from '@/lib/format';
 import { formatDate, todayIn } from '@/lib/booking/time';
-import type { Day } from '@/lib/booking/slots';
+import { monthAvailability, type Day } from '@/lib/booking/slots';
+import { STATIC_PREVIEW, staticNotice } from '@/lib/static';
+import { experiences as allExperiences } from '@content/experiences';
+import { availability as rules } from '@content/availability';
 import { ArrowRight } from '@/components/ui/icons';
 
 export type WidgetExperience = {
@@ -83,6 +86,7 @@ export function BookingWidget({ locale, experiences, today: builtToday, demo }: 
 
   // Returning from an abandoned payment: release the held seats straight away.
   useEffect(() => {
+    if (STATIC_PREVIEW) return;
     const p = new URLSearchParams(location.search);
     const b = p.get('cancelled');
     const t = p.get('t');
@@ -96,8 +100,14 @@ export function BookingWidget({ locale, experiences, today: builtToday, demo }: 
   useEffect(() => {
     let live = true;
     const key = `${slug}|${month}`;
-    fetch(`/api/availability?experience=${slug}&month=${month}`, { cache: 'no-store' })
-      .then((r) => r.json() as Promise<{ days: Day[] }>)
+    const source: Promise<{ days: Day[] }> = STATIC_PREVIEW
+      ? Promise.resolve({
+          // No server in the preview: same rules, computed in the browser, nothing booked yet.
+          days: monthAvailability(allExperiences.find((e) => e.slug === slug)!, month, { rules, now: new Date(), taken: new Map(), blocked: new Set() }),
+        })
+      : fetch(`/api/availability?experience=${slug}&month=${month}`, { cache: 'no-store' })
+          .then((r) => r.json() as Promise<{ days: Day[] }>);
+    source
       .then((json) => {
         if (!live) return;
         setLoaded({ key, days: json.days });
@@ -157,6 +167,10 @@ export function BookingWidget({ locale, experiences, today: builtToday, demo }: 
     if (!ready || !date || !time) return;
     const form = new FormData(e.currentTarget);
     begin();
+    if (STATIC_PREVIEW) {
+      setStatus({ kind: 'error', message: l(staticNotice) });
+      return;
+    }
     setStatus({ kind: 'loading' });
     try {
       const res = await fetch('/api/booking/checkout', {
@@ -194,6 +208,10 @@ export function BookingWidget({ locale, experiences, today: builtToday, demo }: 
   async function submitRequest(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
+    if (STATIC_PREVIEW) {
+      setReq({ kind: 'error', message: l(staticNotice) });
+      return;
+    }
     setReq({ kind: 'loading' });
     const res = await fetch('/api/enquiry', {
       method: 'POST',

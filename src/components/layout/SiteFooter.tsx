@@ -4,6 +4,7 @@ import { site } from '@content/site';
 import { navItems } from './nav-items';
 import { Wordmark } from './Wordmark';
 import { CookieSettingsButton } from './CookieSettingsButton';
+import { STATIC_PREVIEW, staticNotice } from '@/lib/static';
 
 const legal = [
   { slug: 'terms', key: 'terms' },
@@ -103,6 +104,9 @@ export function SiteFooter() {
         <div className="flex flex-col gap-6 text-xs text-stone-light md:flex-row md:items-end md:justify-between">
           <Wordmark className="text-bone" />
           <p className="max-w-md md:text-right">
+            {STATIC_PREVIEW && (
+              <span className="mb-3 block text-sun-pale">{staticNotice[locale === 'hr' ? 'hr' : 'en']}</span>
+            )}
             {t('footer.responsible')}
             <br />© {year} {site.legalName}. {t('footer.rights')}
           </p>

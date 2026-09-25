@@ -15,6 +15,7 @@ import { SiteFooter } from '@/components/layout/SiteFooter';
 import { FloatingActions } from '@/components/layout/FloatingActions';
 import { AgeGate } from '@/components/layout/AgeGate';
 import { ConsentBanner } from '@/components/layout/ConsentBanner';
+import { FontFaces } from '@/components/layout/FontFaces';
 
 const siteUrl = resolveSiteUrl();
 const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
@@ -50,8 +51,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
     <html lang={locale} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: prePaintScript }} />
-        <link rel="preload" href="/fonts/newsreader-display-latin-normal.woff2" as="font" type="font/woff2" crossOrigin="" />
-        <link rel="preload" href="/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossOrigin="" />
+        <FontFaces />
       </head>
       <body>
         <NextIntlClientProvider>
