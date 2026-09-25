@@ -42,7 +42,7 @@ export const wineSchema = z.object({
     area: z.string(),
     variety: z.string(),
     rootstock: z.string(),
-    density: z.string(),
+    density: localized,
     training: localized,
     harvest: localized,
     fermentation: localized,

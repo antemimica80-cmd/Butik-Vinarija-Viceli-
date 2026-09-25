@@ -22,7 +22,7 @@ export const wines = [
       area: '3.5 ha',
       variety: 'Plavac Mali',
       rootstock: 'Richter 110',
-      density: '10,000 vines/ha',
+      density: { en: '10,000 vines/ha', hr: '10.000 trsova/ha' }, // REVIEW
       training: { en: 'En gobelet', hr: 'Gobelet' },
       harvest: { en: 'By hand, with selection', hr: 'Ručna berba i selekcija' }, // REVIEW
       fermentation: {
@@ -63,7 +63,7 @@ export const wines = [
       area: '1 ha',
       variety: 'Plavac Mali',
       rootstock: 'Richter 110',
-      density: '10,000 vines/ha',
+      density: { en: '10,000 vines/ha', hr: '10.000 trsova/ha' }, // REVIEW
       training: { en: 'En gobelet', hr: 'Gobelet' },
       harvest: { en: 'By hand', hr: 'Ručna berba' },
       fermentation: { en: 'Wild yeast', hr: 'Divlji kvasci' },
@@ -101,7 +101,7 @@ export const wines = [
       area: '0.8 ha',
       variety: 'Plavac Mali',
       rootstock: 'Richter 110',
-      density: '9,000 vines/ha',
+      density: { en: '9,000 vines/ha', hr: '9.000 trsova/ha' }, // REVIEW
       training: { en: 'En gobelet', hr: 'Gobelet' },
       harvest: { en: 'By hand', hr: 'Ručna berba' },
       fermentation: { en: 'Wild yeast. Short skin contact.', hr: 'Divlji kvasci. Kratka maceracija.' }, // REVIEW
@@ -125,3 +125,54 @@ export const wines = [
 ] satisfies Wine[];
 
 export const totalBottles = wines.reduce((n, w) => n + w.sheet.bottles, 0);
+
+/** Labels for the wine overview and the dossier pages. */
+export const winesCopy = {
+  overview: {
+    eyebrow: { en: 'The Wines', hr: 'Vina' },
+    title: { en: 'Three wines. One grape. No shortcuts.', hr: 'Tri vina. Jedna sorta. Bez prečaca.' }, // REVIEW
+    lede: {
+      en: 'Plavac Mali from three different grounds of the same family: the steep stone of Dingač, a deeper red soil, and limestone terraces. Wild yeast, nothing added, very little of each.',
+      hr: 'Plavac mali s tri različita tla iste obitelji: strmi kamen Dingača, dublja crvenica i vapnenačke terase. Divlji kvasci, ništa dodano, vrlo malo svakoga.', // REVIEW
+    },
+    open: { en: 'Open the dossier', hr: 'Otvorite dosje' }, // REVIEW
+    total: { en: 'bottles in all, the three wines together', hr: 'boca ukupno, sva tri vina zajedno' }, // REVIEW
+  },
+  dossier: { en: 'Dossier', hr: 'Dosje' },
+  estate: { en: 'Estate file', hr: 'Spis imanja' }, // REVIEW
+  vintage: { en: 'Current vintage', hr: 'Trenutna berba' },
+  price: { en: 'Price', hr: 'Cijena' },
+  tbd: { en: 'to be confirmed', hr: 'za potvrdu' },
+  tasting: { en: 'Tasting note', hr: 'Opis okusa' }, // REVIEW
+  sheet: { en: 'Technical sheet', hr: 'Tehnički list' },
+  serve: { en: 'Serving', hr: 'Posluživanje' },
+  fields: {
+    parcel: { en: 'Parcel', hr: 'Položaj' },
+    soil: { en: 'Soil', hr: 'Tlo' },
+    area: { en: 'Area', hr: 'Površina' },
+    variety: { en: 'Variety', hr: 'Sorta' },
+    rootstock: { en: 'Rootstock', hr: 'Podloga' },
+    density: { en: 'Density', hr: 'Gustoća sadnje' },
+    training: { en: 'Training', hr: 'Uzgoj' },
+    harvest: { en: 'Harvest', hr: 'Berba' },
+    fermentation: { en: 'Fermentation', hr: 'Fermentacija' },
+    ageing: { en: 'Ageing', hr: 'Dozrijevanje' },
+    bottles: { en: 'Bottles produced', hr: 'Proizvedeno boca' },
+    glass: { en: 'Glass', hr: 'Čaša' },
+    temperature: { en: 'Temperature', hr: 'Temperatura' },
+    pairing: { en: 'At the table', hr: 'Uz jelo' }, // REVIEW
+    drink: { en: 'Drink', hr: 'Pijenje' }, // REVIEW
+  },
+  method: {
+    en: 'Certified organic · Hand-harvested · Wild yeast · No enzymes, no additives',
+    hr: 'Ekološki certificirano · Ručna berba · Divlji kvasci · Bez enzima i dodataka', // REVIEW
+  },
+  bottlesLine: { en: 'bottles.', hr: 'boca.' },
+  worldwide: { en: 'Worldwide.', hr: 'Na cijelom svijetu.' }, // REVIEW
+  buy: { en: 'Buy bottles', hr: 'Kupite boce' },
+  taste: { en: 'Taste it on the slope', hr: 'Kušajte ga na obronku' }, // REVIEW
+  shopSoon: { en: 'Online shop: prices to be confirmed.', hr: 'Web-trgovina: cijene za potvrdu.' }, // REVIEW
+  prev: { en: 'Previous dossier', hr: 'Prethodni dosje' },
+  next: { en: 'Next dossier', hr: 'Sljedeći dosje' },
+  all: { en: 'All wines', hr: 'Sva vina' },
+};
