@@ -10,6 +10,7 @@ import { ImageSlot } from '@/components/ui/ImageSlot';
 import { Reveal } from '@/components/ui/Reveal';
 import { ArrowRight } from '@/components/ui/icons';
 import { Seal } from '@/components/wines/Seal';
+import { OrganicBadge } from '@/components/ui/OrganicBadge';
 import { formatEur } from '@/lib/format';
 import { absolute, alternates, jsonLd } from '@/lib/seo';
 import { productLd } from '@/lib/shop/ld';
@@ -114,6 +115,7 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
           {/* The file */}
           <div className="lg:col-span-8">
             <Reveal immediate>
+              {w.slug === 'dingac' && <OrganicBadge locale={locale} className="mb-6" />}
               <p className="label text-sun-deep">{l(w.style)}</p>
               <h1 className="mt-5 text-display-xl font-light">{w.name}</h1>
               <p className="mt-8 max-w-2xl text-lede text-ink-soft">{l(w.summary)}</p>

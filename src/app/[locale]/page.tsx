@@ -10,7 +10,8 @@ import { AltitudeLine } from '@/components/signature/AltitudeLine';
 import { Tunnel } from '@/components/signature/Tunnel';
 import { ThreeSuns } from '@/components/signature/ThreeSuns';
 import { BottleCounter } from '@/components/signature/BottleCounter';
-import { home, stations, type StationId } from '@content/home';
+import { home, organic, stations, type StationId } from '@content/home';
+import { Leaf, OrganicBadge } from '@/components/ui/OrganicBadge';
 import { historyClaims, type ClaimId } from '@content/history-claims';
 import { wines } from '@content/wines';
 import { experiences } from '@content/experiences';
@@ -89,6 +90,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
         <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-basalt via-basalt/40 to-basalt/10" />
         <div aria-hidden className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-basalt/70 to-transparent md:h-56" />
         <div className="container-x relative pt-[var(--nav-h)] pb-40 md:pb-28">
+          <OrganicBadge locale={locale} tone="dark" className="gate-in mb-6 bg-basalt/30 backdrop-blur-sm" />
           <p className="label gate-in text-sun-pale">{t('home.heroEyebrow')}</p>
           <h1 className="gate-in mt-6 max-w-5xl text-display-xl font-light">{t('masterLine')}</h1>
           <div className="gate-in mt-10 flex flex-col gap-3 sm:flex-row">
@@ -225,6 +227,36 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
             </div>
           </div>
         </Station>
+
+        {/* ── The only certified organic Dingač ────────────────── */}
+        <section className="surface-limestone grain py-24 md:py-36" aria-labelledby="organic-title">
+          <div className="container-x grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
+            <Reveal className="lg:col-span-6">
+              <OrganicBadge locale={locale} />
+              <h2 id="organic-title" className="mt-8 text-display-l font-light">
+                <span className="block">{organic.title[locale][0]}</span>
+                <span className="block text-sun-deep italic">{organic.title[locale][1]}</span>
+              </h2>
+              <p className="mt-8 max-w-xl text-lede text-ink-soft">{l(organic.body)}</p>
+              <ul className="mt-10 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+                {organic.points.map((pt) => (
+                  <li key={pt.en} className="flex items-center gap-3 border-t border-basalt/15 pt-4">
+                    <span className="text-sun-deep">
+                      <Leaf size={16} />
+                    </span>
+                    {l(pt)}
+                  </li>
+                ))}
+              </ul>
+              <Link href={{ pathname: '/wines/[slug]', params: { slug: 'dingac' } }} className="btn-link mt-10">
+                {l(organic.cta)} <ArrowRight size={14} />
+              </Link>
+            </Reveal>
+            <Reveal delay={150} className="mx-auto w-full max-w-md lg:col-span-5 lg:col-start-8">
+              <ImageSlot id="dingac-organic" sizes="(min-width: 1024px) 36vw, 90vw" />
+            </Reveal>
+          </div>
+        </section>
 
         {/* ── Cellar: the wines ────────────────────────────────── */}
         <Station id="cellar" className="surface-cellar py-24 md:py-40">

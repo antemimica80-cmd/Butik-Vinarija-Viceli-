@@ -14,8 +14,8 @@ export const wines = [
     bottleSlot: 'bottle-dingac',
     dossierSlot: 'dingac-glow',
     summary: {
-      en: 'The estate wine. Old gobelet vines on shallow red soil and white stone, above the sea.',
-      hr: 'Vino imanja. Stari trsovi u gobeletu na plitkoj crvenici i bijelom kamenu, iznad mora.', // REVIEW
+      en: 'The estate wine — and the only Dingač with organic certification. Old gobelet vines on shallow red soil and white stone, above the sea.',
+      hr: 'Vino imanja — i jedini Dingač s ekološkim certifikatom. Stari trsovi u gobeletu na plitkoj crvenici i bijelom kamenu, iznad mora.', // REVIEW
     },
     sheet: {
       parcel: { en: 'Dingač', hr: 'Dingač' },

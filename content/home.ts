@@ -17,6 +17,23 @@ export const stations = [
 
 export type StationId = (typeof stations)[number]['id'];
 
+export const organic = {
+  claim: 'only-organic-dingac' as ClaimId,
+  badge: { en: 'The only certified organic Dingač', hr: 'Jedini ekološki certificirani Dingač' }, // REVIEW
+  title: { en: ['The only Dingač', 'grown organically.'], hr: ['Jedini Dingač', 'uzgojen ekološki.'] }, // REVIEW
+  body: {
+    en: 'On a slope where every vine is tended by hand, we went one step further: no synthetic pesticides, no herbicides, no artificial fertilisers — certified and inspected. Of all the wines that carry the name Dingač, ours is the only one with organic certification.',
+    hr: 'Na obronku gdje se svaki trs njeguje rukama, otišli smo korak dalje: bez sintetičkih pesticida, bez herbicida, bez umjetnih gnojiva — certificirano i nadzirano. Od svih vina koja nose ime Dingač, naše je jedino s ekološkim certifikatom.', // REVIEW
+  },
+  points: [
+    { en: 'No synthetic pesticides', hr: 'Bez sintetičkih pesticida' },
+    { en: 'No herbicides', hr: 'Bez herbicida' },
+    { en: 'Living soil, natural cover crops', hr: 'Živo tlo, prirodni pokrov' }, // REVIEW
+    { en: 'Wild yeast, nothing added', hr: 'Divlji kvasci, ništa dodano' },
+  ],
+  cta: { en: 'Read the Dingač dossier', hr: 'Pročitajte dosje Dingača' }, // REVIEW
+};
+
 export const home = {
   ridge: {
     title: { en: 'The grand cru of the Adriatic.', hr: 'Grand cru Jadrana.' }, // REVIEW

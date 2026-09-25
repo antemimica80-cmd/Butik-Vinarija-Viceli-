@@ -6,7 +6,7 @@ const hr: Messages = {
     siteName: 'Butik vinarija Vicelić', // REVIEW
     defaultTitle: 'Vicelić — Dingač, Pelješac. Tri sunca. Jedna obitelj.', // REVIEW
     defaultDescription:
-      'Obiteljska ekološki certificirana vinarija na obroncima Dingača na Pelješcu. Vođene degustacije iznad Jadrana, s rezervacijom online.', // REVIEW
+      'Jedini ekološki certificirani Dingač. Obiteljska vinarija na obroncima Dingača na Pelješcu — vođene degustacije iznad Jadrana, s rezervacijom online.', // REVIEW
   },
   masterLine: 'Tri sunca. Jedna obitelj.', // REVIEW
   nav: {

@@ -12,7 +12,7 @@ a couple toasting is uploaded and not yet placed.
 - 🟡 Higher-resolution originals (current files are ~1180 px wide; the hero is shown up to 1440+ px)
 - 🔴 The bottle, gift-box and "Dingač highlights" images appear AI-generated (label typos such as "VEHUNSKO", 1024×1536). Used in the proposal at the owner's request — replace with real packshots before launch. The "top 1% of all wines" claim on dingac-highlights.jpg is unverified.
 - 🔴 The two videos (Dingač glowing label, three wines on a table), the three "trio" images and the "Certified organic" infographic also appear AI-generated. Used in the proposal at the owner's request — replace before launch.
-- 🔴 Unverified claim on dingac-organic.jpg: "The only Dingač with eco certification" — confirm or remove before launch.
+- ✅ "The only Dingač with organic certification" — confirmed (25 Sep 2026); now highlighted on home, Dingač page, dossier and shop. 🔴 Add certifying body + certificate number (history-claims.ts → only-organic-dingac) and to the imprint.
 - 🔴 Who is the man serving cheese in `serving-cheese-prosciutto.jpg`? (Not labelled as Mateo until confirmed.)
 - ✅ Logo seal in use (header, age gate, footer, favicon). ⚪ A vector (SVG) version would be sharper at large sizes
 - 🟡 `hero-video` — ridge-to-sea descent, 12–20 s loop (the aerial still is used until then)

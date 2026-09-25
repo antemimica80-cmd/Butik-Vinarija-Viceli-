@@ -47,6 +47,16 @@ export const historyClaims = {
     source: 'TODO: local history source for the Dingač tunnel (year and how it was dug)',
     verified: false,
   },
+  'only-organic-dingac': {
+    year: 'Organic',
+    yearHr: 'Ekološki',
+    text: {
+      en: 'Vicelić is the only Dingač with organic certification.',
+      hr: 'Vicelić je jedini Dingač s ekološkim certifikatom.', // REVIEW
+    },
+    source: 'Confirmed by the proposal author (25 Sep 2026). TODO: certifying body and certificate number.',
+    verified: true,
+  },
   'prague-1935': {
     year: '1935',
     text: {

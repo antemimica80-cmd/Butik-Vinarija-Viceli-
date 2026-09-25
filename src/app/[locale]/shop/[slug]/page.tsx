@@ -10,6 +10,7 @@ import { products } from '@/lib/shop/catalog';
 import { ImageSlot } from '@/components/ui/ImageSlot';
 import { AddToCart } from '@/components/shop/AddToCart';
 import { ArrowRight } from '@/components/ui/icons';
+import { OrganicBadge } from '@/components/ui/OrganicBadge';
 import { absolute, alternates, jsonLd } from '@/lib/seo';
 import { productLd } from '@/lib/shop/ld';
 
@@ -56,6 +57,7 @@ export default async function ProductPage({ params }: PageProps<'/[locale]/shop/
             ))}
           </div>
           <div className="min-w-0 md:col-span-7 lg:col-span-6">
+            {p.slug === 'dingac' && <OrganicBadge locale={locale} className="mb-6" />}
             <p className="label text-sun-deep">{wine ? l(wine.style) : l(S.giftEyebrow)}</p>
             <h1 className="mt-4 text-display-l font-light">{p.name}</h1>
             <p className="mt-6 text-lede text-ink-soft">{l(p.summary)}</p>

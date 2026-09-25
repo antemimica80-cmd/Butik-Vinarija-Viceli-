@@ -4,7 +4,8 @@ import type { Locale } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { dingacPage as D } from '@content/dingac';
 import { historyClaims, type ClaimId } from '@content/history-claims';
-import { home } from '@content/home';
+import { home, organic } from '@content/home';
+import { OrganicBadge } from '@/components/ui/OrganicBadge';
 import { ImageSlot } from '@/components/ui/ImageSlot';
 import { Reveal } from '@/components/ui/Reveal';
 import { ArrowRight } from '@/components/ui/icons';
@@ -128,6 +129,10 @@ export default async function DingacPage({ params }: PageProps<'/[locale]/dingac
             </h2>
             <p className="mt-6 text-lede text-bone/80">{l(historyClaims[D.protected.claim].text)}</p>
             <p className="mt-8 border-l border-sun/60 pl-5 text-bone/70">{l(D.protected.positioning)}</p>
+            <div className="mt-10 border-t border-bone/15 pt-8">
+              <OrganicBadge locale={locale} tone="dark" />
+              <p className="mt-5 text-lede text-bone/85">{l(historyClaims[organic.claim].text)}</p>
+            </div>
           </Reveal>
         </div>
       </section>

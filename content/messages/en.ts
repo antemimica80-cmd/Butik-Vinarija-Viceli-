@@ -7,7 +7,7 @@ const en = {
     siteName: 'Vicelić Boutique Winery',
     defaultTitle: 'Vicelić — Dingač, Pelješac. Three suns. One family.',
     defaultDescription:
-      'A certified-organic family winery on the Dingač slopes of Pelješac, Croatia. Guided tastings above the Adriatic, bookable online.',
+      'The only certified organic Dingač. A family winery on the Dingač slopes of Pelješac, Croatia — guided tastings above the Adriatic, bookable online.',
   },
   masterLine: 'Three suns. One family.',
   nav: {
