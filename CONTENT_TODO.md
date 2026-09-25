@@ -33,7 +33,7 @@ Each claim has a `source` field (currently TODO) and `verified: false`. The home
 - 🟡 Mateo's own words for a quote on the Family page
 - 🟡 Altitude range of the slope used by "the descent" (currently 350 m → 0 m)
 
-## Tastings (content/experiences.ts — stage 4)
+## Tastings (content/experiences.ts, content/availability.ts, content/booking.ts)
 Proposal values chosen for the pitch. The owner must confirm them all.
 - 🔴 Prices: The Slope €45 · The Keeper's Table €95 · Dingač Private €220 (per person)
 - 🔴 Wines per tier: 3 / 3 / 4
@@ -43,6 +43,13 @@ Proposal values chosen for the pitch. The owner must confirm them all.
 - 🟡 Children welcome, grape juice, free (proposal)
 - 🟡 Transport partner name, contact and price for the Dubrovnik/Ston transfer
 - 🔴 Real driving time from Dubrovnik and from Ston
+- 🔴 "What to expect" minute-by-minute schedule for each tasting (proposal text)
+- 🔴 Can two tastings run at the same time? (currently yes — separate capacity; `sharedCapacity` in availability.ts)
+- 🟡 Blackout dates (harvest, holidays) and winter slot times
+- 🟡 Lead time (12 h) and how far ahead guests may book (270 days)
+- 🔴 FAQ: accessibility answer (TODO in content/booking.ts)
+- 🟡 FAQ: dietary, cancellation, transport, designated driver — confirm wording
+- 🟡 Trade enquiries: who answers, and the promised reply time (one working day)
 
 ## Wines & shop (stages 5–6)
 - 🔴 All bottle prices (`TBD`)
@@ -73,6 +80,10 @@ Proposal values chosen for the pitch. The owner must confirm them all.
 - 🟡 Every string marked `// REVIEW` in `content/messages/hr.ts` and elsewhere needs a native speaker's check.
 
 ## Accounts (when moving from proposal to production)
+- Stripe test keys first (`sk_test_…`, `pk_test_…`, webhook secret) — until then the site runs in demo-payment mode
+- Neon/Postgres `DATABASE_URL` (local builds use an embedded database in `.data/`)
+- Resend API key + verified sending domain; `WINERY_NOTIFY_EMAIL` for booking notifications
+- `ADMIN_PASSWORD` for /admin
 - Stripe account in the OPG's name (cards + Apple Pay + Google Pay)
 - Hosting (Vercel Pro recommended for a commercial site)
 - Domain / DNS for vicelic.hr, and a sending address for confirmations

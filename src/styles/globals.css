@@ -286,3 +286,8 @@ html:not([data-js]) .three-suns .ts-labels { opacity: 1; }
 @media (min-width: 64rem) {
   [data-descent] .container-x { padding-left: max(var(--gutter), 8.5rem); }
 }
+
+/* Booking: while the mobile summary bar is up, the WhatsApp button sits above it */
+@media (max-width: 63.99rem) {
+  html[data-booking-bar] .wa-fab { bottom: calc(5.25rem + env(safe-area-inset-bottom)); }
+}

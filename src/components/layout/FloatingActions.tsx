@@ -5,8 +5,8 @@ import { Link, usePathname } from '@/i18n/navigation';
 import { ArrowRight, WhatsAppIcon } from '@/components/ui/icons';
 import { site } from '@content/site';
 
-/** Pages where the sticky booking bar would duplicate the page's own booking widget. */
-const hideBookBarOn = new Set(['/experience']);
+/** Pages where the sticky booking bar would duplicate the page's own booking flow. */
+const hideBookBarOn = (p: string) => p === '/experience' || p.startsWith('/experience/');
 
 /**
  * Persistent actions: a sticky "Book a tasting" bar on mobile and a floating
@@ -15,7 +15,7 @@ const hideBookBarOn = new Set(['/experience']);
 export function FloatingActions() {
   const t = useTranslations();
   const pathname = usePathname();
-  const showBar = !hideBookBarOn.has(pathname);
+  const showBar = !hideBookBarOn(pathname);
   const wa = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(t('whatsapp.prefill'))}`;
 
   return (
@@ -25,7 +25,7 @@ export function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t('whatsapp.label')}
-        className={`fixed right-4 z-30 inline-flex size-13 items-center justify-center rounded-full bg-basalt text-bone shadow-[0_8px_30px_rgb(0_0_0/0.25)] ring-1 ring-bone/15 transition-transform duration-500 hover:scale-105 md:right-6 md:bottom-6 ${
+        className={`wa-fab fixed right-4 z-30 inline-flex size-13 items-center justify-center rounded-full bg-basalt text-bone shadow-[0_8px_30px_rgb(0_0_0/0.25)] ring-1 ring-bone/15 transition-transform duration-500 hover:scale-105 md:right-6 md:bottom-6 ${
           showBar ? 'bottom-[calc(4.75rem+env(safe-area-inset-bottom))]' : 'bottom-[calc(1rem+env(safe-area-inset-bottom))]'
         }`}
       >

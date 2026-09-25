@@ -46,6 +46,13 @@ export const experiences = [
       { name: winter, from: '11-01', to: '03-31', days: everyDay, slots: ['12:00'], onRequestOnly: true },
     ],
     capacityPerSlot: 12,
+    schedule: [
+      { minute: 0, text: { en: 'Welcome on the terrace. A glass of Opolo Rosé.', hr: 'Dobrodošlica na terasi. Čaša Opolo roséa.' } }, // REVIEW
+      { minute: 10, text: { en: 'Dingač in front of you: the slope, the stone, the three suns.', hr: 'Dingač pred vama: obronak, kamen, tri sunca.' } }, // REVIEW
+      { minute: 25, text: { en: 'Plavac Mali, slightly cool. How the grape changes with the soil.', hr: 'Plavac mali, lagano rashlađen. Kako se sorta mijenja s tlom.' } }, // REVIEW
+      { minute: 45, text: { en: 'Dingač. The estate wine, and why it ages.', hr: 'Dingač. Vino imanja i zašto može odležati.' } }, // REVIEW
+      { minute: 65, text: { en: 'Questions, bottles to take home, the view.', hr: 'Pitanja, boce za ponijeti, pogled.' } }, // REVIEW
+    ],
     imageSlot: 'tasting-table',
     proposalValues: true,
   },
@@ -87,6 +94,13 @@ export const experiences = [
       { name: winter, from: '11-01', to: '03-31', days: everyDay, slots: ['13:00'], onRequestOnly: true },
     ],
     capacityPerSlot: 10,
+    schedule: [
+      { minute: 0, text: { en: 'Welcome. Opolo Rosé with Ston oysters (in season).', hr: 'Dobrodošlica. Opolo rosé uz stonske kamenice (u sezoni).' } }, // REVIEW
+      { minute: 20, text: { en: 'To the family table. The story of the estate.', hr: 'Za obiteljski stol. Priča o imanju.' } }, // REVIEW
+      { minute: 40, text: { en: 'Plavac Mali with Pelješac cheese.', hr: 'Plavac mali uz pelješki sir.' } }, // REVIEW
+      { minute: 70, text: { en: 'Dingač with prosciutto.', hr: 'Dingač uz pršut.' } }, // REVIEW
+      { minute: 100, text: { en: 'Slow finish. Coffee, questions, the last of the light.', hr: 'Polagani završetak. Kava, pitanja, posljednje svjetlo.' } }, // REVIEW
+    ],
     imageSlot: 'keepers-table-food',
     proposalValues: true,
   },
@@ -126,6 +140,13 @@ export const experiences = [
       { name: winter, from: '11-01', to: '03-31', days: everyDay, slots: ['11:00'], onRequestOnly: true },
     ],
     capacityPerSlot: 6,
+    schedule: [
+      { minute: 0, text: { en: 'Meet the winemaker. Into the Dingač vineyard.', hr: 'Susret s vinarom. Odlazak u vinograd Dingač.' } }, // REVIEW
+      { minute: 20, text: { en: 'Walk among the gobelet vines on the slope. Stone, soil, sea.', hr: 'Šetnja među trsovima u gobeletu. Kamen, tlo, more.' } }, // REVIEW
+      { minute: 75, text: { en: 'The cellar. Barrel tasting of the vintage to come.', hr: 'Podrum. Kušanje iz bačve buduće berbe.' } }, // REVIEW
+      { minute: 110, text: { en: 'The full flight: Opolo Rosé, Plavac Mali, Dingač.', hr: 'Cijeli niz: Opolo rosé, Plavac mali, Dingač.' } }, // REVIEW
+      { minute: 160, text: { en: 'Time with the family. Nothing rushed.', hr: 'Vrijeme s obitelji. Bez žurbe.' } }, // REVIEW
+    ],
     imageSlot: 'vine-gobelet',
     proposalValues: true,
   },

@@ -18,6 +18,41 @@ npm run dev                  # http://localhost:3000 → /en
 | `npm run typecheck` / `npm run lint` | TypeScript / ESLint |
 | `npm run screenshots` | With `npm start` running: screenshots at 390 px and 1440 px into `screenshots/` |
 
+## Booking
+
+Real availability, built in (`src/lib/booking/`): seasons, weekly slots, capacity per slot,
+blackout dates, a 12 h lead time and a booking horizon — all from `content/experiences.ts`
+and `content/availability.ts`.
+
+1. The guest picks a tasting, a date, a time and the number of guests (children free).
+2. `POST /api/booking/checkout` re-checks availability and **holds the seats for 35 min**
+   inside a transaction with a per-slot lock, so the last seats can never be sold twice.
+3. Payment: **Stripe Checkout** (EUR, cards + Apple Pay / Google Pay) when `STRIPE_SECRET_KEY`
+   is set; otherwise a **demo checkout** page so the whole flow can be shown without keys.
+4. On payment (Stripe webhook, or the success page if the webhook is late) the booking is
+   confirmed once, and the guest and the winery get an email with an `.ics` invitation,
+   WhatsApp link and directions.
+5. Abandoned or expired payments release the seats.
+
+Winter seasons marked `onRequestOnly` show a request form instead of payment.
+`/admin` (Basic auth, `ADMIN_PASSWORD`) lists bookings and blocks dates or single slots.
+
+**Stripe test mode**
+```bash
+# .env.local
+STRIPE_SECRET_KEY=sk_test_…
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_…
+STRIPE_WEBHOOK_SECRET=whsec_…   # from: stripe listen --forward-to localhost:3000/api/stripe/webhook
+```
+Test card: `4242 4242 4242 4242`, any future date, any CVC.
+
+`npm test` runs the availability unit tests; `node scripts/e2e-booking.mjs` books a tasting
+end to end in a real browser (needs `npm start` running).
+
+**Why not Bókun / FareHarbor now?** Only the website and WhatsApp sell tastings today. The
+booking code sits behind one module (`src/lib/booking/store.ts`), so moving to Bókun when
+Viator / GetYourGuide are added means replacing that module, not the pages.
+
 ## Where things live
 
 - `content/` — **all copy and data**. Edit here, never in components.

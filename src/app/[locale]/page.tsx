@@ -282,7 +282,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
                         <span className="text-display-s font-light">€{e.pricePerPerson}</span>
                         <span className={`ml-2 text-sm ${e.tier === 3 ? 'text-stone-light' : 'text-ink-soft'}`}>{l(home.sea.perPerson)}</span>
                       </p>
-                      <Link href="/experience" className={`btn min-h-11 px-5 ${e.tier === 3 ? 'btn-sun' : 'btn-primary'}`}>
+                      <Link href={{ pathname: '/experience', hash: `book=${e.slug}` }} className={`btn min-h-11 px-5 ${e.tier === 3 ? 'btn-sun' : 'btn-primary'}`}>
                         {l(home.sea.book)}
                       </Link>
                     </div>

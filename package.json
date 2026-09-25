@@ -10,21 +10,27 @@
     "typecheck": "tsc --noEmit",
     "check:content": "tsx scripts/check-content.ts",
     "screenshots": "tsx scripts/screenshot.ts",
-    "prebuild": "npm run check:content"
+    "prebuild": "npm run check:content",
+    "test": "vitest run"
   },
   "dependencies": {
+    "@electric-sql/pglite": "^0.5.8",
     "@fontsource-variable/hanken-grotesk": "^5.3.0",
     "@fontsource-variable/newsreader": "^5.3.0",
     "@fontsource/ibm-plex-mono": "^5.3.0",
     "next": "^16.3.6",
     "next-intl": "^4.14.7",
+    "pg": "^8.23.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
+    "server-only": "^0.0.1",
+    "stripe": "^22.6.2",
     "zod": "^4.6.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.6.2",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "eslint": "^9.39.5",
@@ -33,6 +39,7 @@
     "postcss": "^8.5.28",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.2"
   }
 }

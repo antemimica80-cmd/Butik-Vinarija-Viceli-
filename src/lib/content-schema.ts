@@ -84,6 +84,8 @@ export const experienceSchema = z.object({
     }),
   ),
   capacityPerSlot: z.number().int().positive(),
+  /** What to expect, minute by minute. */
+  schedule: z.array(z.object({ minute: z.number().int().min(0), text: localized })),
   imageSlot: z.string().min(1),
   proposalValues: z.boolean(),
 });

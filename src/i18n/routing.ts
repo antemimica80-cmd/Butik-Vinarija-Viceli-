@@ -11,6 +11,8 @@ export const routing = defineRouting({
   pathnames: {
     '/': '/',
     '/experience': { en: '/experience', hr: '/degustacije' },
+    '/experience/checkout': { en: '/experience/checkout', hr: '/degustacije/placanje' },
+    '/experience/booked': { en: '/experience/booked', hr: '/degustacije/potvrda' },
     '/dingac': '/dingac',
     '/family': { en: '/family', hr: '/obitelj' },
     '/wines': { en: '/wines', hr: '/vina' },
