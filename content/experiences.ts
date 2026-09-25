@@ -147,7 +147,7 @@ export const experiences = [
       { minute: 110, text: { en: 'The full flight: Opolo Rosé, Plavac Mali, Dingač.', hr: 'Cijeli niz: Opolo rosé, Plavac mali, Dingač.' } }, // REVIEW
       { minute: 160, text: { en: 'Time with the family. Nothing rushed.', hr: 'Vrijeme s obitelji. Bez žurbe.' } }, // REVIEW
     ],
-    imageSlot: 'vine-gobelet',
+    imageSlot: 'private-pour',
     proposalValues: true,
   },
 ] satisfies Experience[];

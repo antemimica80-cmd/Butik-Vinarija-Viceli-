@@ -31,10 +31,10 @@ export const imageSlots = {
     shot: 'Poster frame / fallback for the hero video. Same composition.',
     light: 'Dawn, low sun from the east.',
     alt: {
-      en: 'Terraced vines on the Dingač slope above the sea.',
-      hr: 'Terasasti vinogradi na obronku Dingača iznad mora.', // REVIEW
+      en: 'The Dingač slope from above: terraced vineyards falling from the mountain to the sea.',
+      hr: 'Dingač iz zraka: terasasti vinogradi koji se spuštaju od planine do mora.', // REVIEW
     },
-    src: null,
+    src: '/media/dingac-aerial.jpg',
   },
   'ridge-view': {
     kind: 'image',
@@ -43,10 +43,10 @@ export const imageSlots = {
     shot: 'From the ridge road looking south: slope, sea, Mljet on the horizon.',
     light: 'Midday haze is acceptable — it tells the truth about the heat.',
     alt: {
-      en: 'View from the Dingač ridge over the vineyards to the open sea.',
-      hr: 'Pogled s grebena Dingača preko vinograda na otvoreno more.', // REVIEW
+      en: 'Vines and the tasting terrace above the sea, an island on the horizon.',
+      hr: 'Loza i terasa za degustaciju iznad mora, otok na obzoru.', // REVIEW
     },
-    src: null,
+    src: '/media/terrace-sea-view.jpg',
   },
   'stone-macro': {
     kind: 'image',
@@ -93,10 +93,10 @@ export const imageSlots = {
     shot: 'Emerging from the tunnel: the slope and the sea in full light.',
     light: 'Full sun, high key.',
     alt: {
-      en: 'The vineyard slope and the sea in full sun at the tunnel exit.',
-      hr: 'Vinogradi i more na punom suncu na izlazu iz tunela.', // REVIEW
+      en: 'The vineyard slope in full sun, running down to the sea.',
+      hr: 'Vinogradi na obronku na punom suncu, sve do mora.', // REVIEW
     },
-    src: null,
+    src: '/media/dingac-slope-sea.jpg',
   },
   'mateo-portrait': {
     kind: 'image',
@@ -184,15 +184,15 @@ export const imageSlots = {
   },
   'tasting-table': {
     kind: 'image',
-    ratio: '3/2',
+    ratio: '4/5',
     tone: 'sun',
     shot: 'The tasting table set with glasses, sea view behind. Guests optional, hands only.',
     light: 'Golden hour.',
     alt: {
-      en: 'A tasting table set with glasses above the sea.',
-      hr: 'Stol za degustaciju s čašama iznad mora.', // REVIEW
+      en: 'Guests raising glasses of red wine at the tasting table.',
+      hr: 'Gosti nazdravljaju crnim vinom za stolom za degustaciju.', // REVIEW
     },
-    src: null,
+    src: '/media/guests-toast-table.jpg',
   },
   'keepers-table-food': {
     kind: 'image',
@@ -201,10 +201,10 @@ export const imageSlots = {
     shot: 'Overhead: Pelješac cheese, prosciutto, Ston oysters beside a glass of Plavac.',
     light: 'Natural daylight, soft shadows.',
     alt: {
-      en: 'Local cheese, prosciutto and Ston oysters served with the wines.',
-      hr: 'Domaći sir, pršut i stonske kamenice poslužene uz vina.', // REVIEW
+      en: 'Local cheese and prosciutto being served above the vineyards and the sea.',
+      hr: 'Posluživanje domaćeg sira i pršuta iznad vinograda i mora.', // REVIEW
     },
-    src: null,
+    src: '/media/serving-cheese-prosciutto.jpg',
   },
   'road-peljesac': {
     kind: 'image',
@@ -217,6 +217,42 @@ export const imageSlots = {
       hr: 'Cesta preko poluotoka Pelješca.', // REVIEW
     },
     src: null,
+  },
+  'dingac-slope': {
+    kind: 'image',
+    ratio: '3/2',
+    tone: 'sun',
+    shot: 'The Dingač slope running down to the sea (hero of the Dingač page).',
+    light: 'Full sun.',
+    alt: {
+      en: 'The vineyard slope of Dingač in full sun, running down to the sea.',
+      hr: 'Vinogradi Dingača na punom suncu, sve do mora.', // REVIEW
+    },
+    src: '/media/dingac-slope-sea.jpg',
+  },
+  'private-pour': {
+    kind: 'image',
+    ratio: '4/5',
+    tone: 'sun',
+    shot: 'Wine being poured into a glass during a private tasting.',
+    light: 'Soft daylight.',
+    alt: {
+      en: 'Red wine being poured into a glass.',
+      hr: 'Točenje crnog vina u čašu.', // REVIEW
+    },
+    src: '/media/pouring-wine.jpg',
+  },
+  'guests-couple': {
+    kind: 'image',
+    ratio: '4/5',
+    tone: 'sun',
+    shot: 'Two guests toasting under the wooden roof of the terrace.',
+    light: 'Soft daylight.',
+    alt: {
+      en: 'Two guests toasting with red wine under the terrace roof.',
+      hr: 'Dvoje gostiju nazdravlja crnim vinom pod krovom terase.', // REVIEW
+    },
+    src: '/media/guests-toast-couple.jpg',
   },
 } satisfies Record<string, ImageSlotDef>;
 

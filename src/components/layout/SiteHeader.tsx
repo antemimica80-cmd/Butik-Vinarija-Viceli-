@@ -87,7 +87,7 @@ export function SiteHeader() {
       </a>
       <header
         className={`fixed inset-x-0 top-0 z-40 transition-[background-color,color,box-shadow] duration-700 ease-[var(--ease-weighted)] ${
-          overlay ? 'on-dark bg-transparent text-bone' : 'bg-bone/95 text-basalt shadow-[0_1px_0_rgb(18_17_16/0.08)] backdrop-blur-sm'
+          overlay ? `on-dark text-bone ${scrolled ? 'bg-basalt/90 backdrop-blur-sm' : 'bg-transparent'}` : 'bg-bone/95 text-basalt shadow-[0_1px_0_rgb(18_17_16/0.08)] backdrop-blur-sm'
         }`}
       >
         <div className="container-x flex h-[var(--nav-h)] items-center justify-between gap-6">

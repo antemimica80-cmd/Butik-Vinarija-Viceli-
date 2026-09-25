@@ -49,8 +49,9 @@ export default async function DingacPage({ params }: PageProps<'/[locale]/dingac
     <>
       {/* ── Hero ── */}
       <section data-nav-tone="dark" className="surface-shade relative flex min-h-[92svh] items-end overflow-hidden">
-        <ImageSlot id="ridge-view" fill priority labelTop className="opacity-80" />
+        <ImageSlot id="dingac-slope" fill priority labelTop className="opacity-80" />
         <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-basalt via-basalt/50 to-basalt/10" />
+        <div aria-hidden className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-basalt/70 to-transparent md:h-56" />
         <div className="container-x relative pt-[var(--nav-h)] pb-20 md:pb-28">
           <p className="label gate-in text-sun-pale">{l(D.hero.eyebrow)}</p>
           <h1 className="gate-in mt-6 text-[clamp(5rem,2rem+16vw,16rem)] leading-[0.85] font-light tracking-[-0.03em]">{l(D.hero.title)}</h1>

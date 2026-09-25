@@ -5,12 +5,20 @@ Legend: 🔴 blocks launch · 🟡 needed for a convincing proposal · ⚪ nice 
 
 ## Photography & video (content/image-slots.ts)
 Real photography only. Drop files into `public/media/` and set `src` on the slot.
-- 🟡 `hero-video` — ridge-to-sea descent, 12–20 s loop + poster frame (`hero-still`)
-- 🟡 `ridge-view`, `stone-macro`, `vine-gobelet`
-- 🟡 `tunnel-interior`, `tunnel-exit` — the Dingač tunnel
+
+✅ In use: aerial of Dingač (hero), terrace & sea (ridge), slope to the sea (tunnel exit, Dingač hero),
+guests toasting (The Slope), cheese & prosciutto (Keeper's Table), pouring wine (Dingač Private);
+a couple toasting is uploaded and not yet placed.
+- 🟡 Higher-resolution originals (current files are ~1180 px wide; the hero is shown up to 1440+ px)
+- 🔴 The bottle images uploaded so far appear AI-generated (label typos, 1024×1536) — kept out of the site in `media-inbox/`. Real packshots needed.
+- 🔴 Who is the man serving cheese in `serving-cheese-prosciutto.jpg`? (Not labelled as Mateo until confirmed.)
+- 🟡 Logo file (SVG or transparent PNG) to replace the typographic wordmark
+- 🟡 `hero-video` — ridge-to-sea descent, 12–20 s loop (the aerial still is used until then)
+- 🟡 `stone-macro`, `vine-gobelet`
+- 🟡 `tunnel-interior` — the Dingač tunnel
 - 🟡 `mateo-portrait`, `hands-harvest`, `cellar-barrels`
 - 🟡 `bottle-dingac`, `bottle-plavac`, `bottle-rose` — straight packshots
-- 🟡 `tasting-table`, `keepers-table-food`, `road-peljesac`
+- 🟡 `road-peljesac`
 - ⚪ `archive-1935` — only if a real document or photograph exists
 - 🔴 Written permission to use every photo (photographer credit if required)
 - ⚪ Estate logo as SVG (the site currently uses a typographic wordmark)

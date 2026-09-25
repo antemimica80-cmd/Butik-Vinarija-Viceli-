@@ -87,6 +87,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       <section data-nav-tone="dark" className="surface-shade relative flex min-h-[100svh] items-end overflow-hidden">
         <HeroVideo />
         <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-basalt via-basalt/40 to-basalt/10" />
+        <div aria-hidden className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-basalt/70 to-transparent md:h-56" />
         <div className="container-x relative pt-[var(--nav-h)] pb-40 md:pb-28">
           <p className="label gate-in text-sun-pale">{t('home.heroEyebrow')}</p>
           <h1 className="gate-in mt-6 max-w-5xl text-display-xl font-light">{t('masterLine')}</h1>
@@ -290,7 +291,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
             <ul className="mt-16 grid gap-6 md:mt-20 lg:grid-cols-3">
               {experiences.map((e, i) => (
                 <Reveal as="li" key={e.slug} delay={i * 150} className={`flex flex-col ${e.tier === 3 ? 'surface-shade' : 'bg-bone'}`}>
-                  <ImageSlot id={e.imageSlot as ImageSlotId} compact sizes="(min-width: 1024px) 33vw, 100vw" />
+                  <ImageSlot id={e.imageSlot as ImageSlotId} compact ratio="4/5" sizes="(min-width: 1024px) 33vw, 100vw" />
                   <div className="flex flex-1 flex-col p-6 md:p-8">
                     <p className={`font-mono text-xs ${e.tier === 3 ? 'text-sun' : 'text-sun-deep'}`}>{['I', 'II', 'III'][e.tier - 1]}</p>
                     <h3 className="mt-3 text-display-s font-light">{e.name}</h3>
