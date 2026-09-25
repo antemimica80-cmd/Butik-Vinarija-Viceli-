@@ -64,6 +64,14 @@ Proposal values chosen for the pitch. The owner must confirm them all.
 - 🟡 Parcel names for Plavac Mali and Opolo Rosé (`TBD` in content/wines.ts)
 - 🟡 Food pairing for Dingač (`TBD` — not stated on vicelic.hr)
 
+## Dingač & Family pages (content/dingac.ts, content/family.ts)
+- 🔴 Sources for the footnoted claims on /dingac (the Sources list shows "to be added" until then)
+- 🟡 Confirm the descriptive copy: "too steep for machines", gobelet training, roots in rock, the stone giving heat back at night
+- 🔴 Mateo's own words for the quote on /family (clearly marked placeholder)
+- 🔴 Years for "The return" (replanting) and organic certification (shown as "year TBD")
+- 🟡 Confirm "war and collectivisation" as the family's story, in those words
+- 🟡 Archive document or photo for 1935, if one exists
+
 ## Home page (content/home.ts)
 - 🟡 "The silence" beat (war, collectivisation) — confirm the family's story in these words
 - 🟡 Year of "The return" (Mateo's replanting)
