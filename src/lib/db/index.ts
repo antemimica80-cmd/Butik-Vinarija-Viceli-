@@ -1,4 +1,5 @@
 import 'server-only';
+import { dataDir } from '@/lib/site-url';
 
 /**
  * Database access. Production: Postgres via DATABASE_URL (e.g. Neon from the
@@ -105,7 +106,7 @@ async function createDriver(): Promise<Driver> {
   }
 
   const { PGlite } = await import('@electric-sql/pglite');
-  const dir = process.env.PGLITE_DIR ?? '.data/pglite';
+  const dir = process.env.PGLITE_DIR ?? `${dataDir()}/pglite`;
   if (dir !== 'memory') await (await import('node:fs/promises')).mkdir(dir, { recursive: true });
   const db = dir === 'memory' ? new PGlite() : new PGlite(dir);
   await db.exec(SCHEMA);

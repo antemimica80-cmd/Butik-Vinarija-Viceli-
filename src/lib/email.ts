@@ -1,5 +1,6 @@
 import 'server-only';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { dataDir } from './site-url';
 
 export type Attachment = { filename: string; content: string; contentType: string };
 export type Mail = { to: string; subject: string; html: string; text: string; replyTo?: string; attachments?: Attachment[] };
@@ -39,7 +40,7 @@ export async function sendMail(mail: Mail): Promise<{ id: string; mode: 'resend'
     return { id, mode: 'resend' };
   }
 
-  const dir = '.data/outbox';
+  const dir = `${dataDir()}/outbox`;
   await mkdir(dir, { recursive: true });
   const id = `${new Date().toISOString().replace(/[:.]/g, '-')}-${mail.to.replace(/[^a-z0-9]/gi, '_')}`;
   const header = `<!-- To: ${mail.to} | Subject: ${mail.subject} | Attachments: ${(mail.attachments ?? []).map((a) => a.filename).join(', ')} -->\n`;

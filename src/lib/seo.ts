@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { getPathname } from '@/i18n/navigation';
 import { routing, type Locale } from '@/i18n/routing';
 import { site } from '@content/site';
+import { resolveSiteUrl } from './site-url';
 
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000').replace(/\/$/, '');
+export const siteUrl = resolveSiteUrl();
 
 type Href = Parameters<typeof getPathname>[0]['href'];
 

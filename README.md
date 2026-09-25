@@ -21,6 +21,14 @@ npm run dev                  # http://localhost:3000 → /en
 | `node scripts/e2e-booking.mjs` / `node scripts/e2e-shop.mjs` | Book a tasting / buy wine end to end in a real browser (demo payment) |
 | `node scripts/a11y.mjs` | axe-core WCAG 2.1 AA audit of the main pages |
 
+## Preview on Vercel (no configuration needed)
+
+Import the GitHub repo at vercel.com → Add New → Project → Deploy. With no environment
+variables the site runs in proposal mode: demo payments, emails written to a temporary outbox,
+and an embedded database in `/tmp` — so test bookings and orders on a preview are **temporary**
+(they disappear when the server instance restarts). Set `ADMIN_PASSWORD` to open `/admin`.
+For real use add the variables from `.env.example` (Postgres, Stripe, Resend).
+
 ## Booking
 
 Real availability, built in (`src/lib/booking/`): seasons, weekly slots, capacity per slot,

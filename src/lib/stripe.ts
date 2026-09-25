@@ -1,5 +1,6 @@
 import 'server-only';
 import Stripe from 'stripe';
+import { resolveSiteUrl } from './site-url';
 
 /**
  * Stripe is used only when a real key is configured (test mode: sk_test_…).
@@ -19,5 +20,5 @@ export function stripe(): Stripe {
 }
 
 export function siteUrl() {
-  return (process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000').replace(/\/$/, '');
+  return resolveSiteUrl();
 }

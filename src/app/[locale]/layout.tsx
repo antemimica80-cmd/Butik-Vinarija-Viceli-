@@ -9,13 +9,14 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing, type Locale } from '@/i18n/routing';
 import { prePaintScript } from '@/lib/consent';
+import { resolveSiteUrl } from '@/lib/site-url';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { FloatingActions } from '@/components/layout/FloatingActions';
 import { AgeGate } from '@/components/layout/AgeGate';
 import { ConsentBanner } from '@/components/layout/ConsentBanner';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+const siteUrl = resolveSiteUrl();
 const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 
 export function generateStaticParams() {
