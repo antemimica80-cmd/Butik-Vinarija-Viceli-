@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AGE_COOKIE, setCookie } from '@/lib/consent';
 import { Wordmark } from './Wordmark';
 import { LocaleSwitch } from './LocaleSwitch';
+import { LogoSeal } from './LogoSeal';
 
 /**
  * 18+ gate on first visit. Always server-rendered; hidden by CSS
@@ -34,11 +35,12 @@ export function AgeGate() {
       className="surface-shade grain fixed inset-0 z-[60] flex flex-col overflow-y-auto"
     >
       <div className="container-x flex h-[var(--nav-h)] shrink-0 items-center justify-between">
-        <Wordmark />
+        <Wordmark seal={false} />
         <LocaleSwitch />
       </div>
       <div className="container-x flex flex-1 flex-col justify-center py-12">
         <div className="gate-in max-w-2xl">
+          <LogoSeal label="Boutique Winery Vicelić" className="mb-10 size-28 text-bone/90 md:size-36" />
           <p className="label text-sun">{t('eyebrow')}</p>
           {!denied ? (
             <>

@@ -12,7 +12,7 @@ a couple toasting is uploaded and not yet placed.
 - 🟡 Higher-resolution originals (current files are ~1180 px wide; the hero is shown up to 1440+ px)
 - 🔴 The bottle images uploaded so far appear AI-generated (label typos, 1024×1536) — kept out of the site in `media-inbox/`. Real packshots needed.
 - 🔴 Who is the man serving cheese in `serving-cheese-prosciutto.jpg`? (Not labelled as Mateo until confirmed.)
-- 🟡 Logo file (SVG or transparent PNG) to replace the typographic wordmark
+- ✅ Logo seal in use (header, age gate, footer, favicon). ⚪ A vector (SVG) version would be sharper at large sizes
 - 🟡 `hero-video` — ridge-to-sea descent, 12–20 s loop (the aerial still is used until then)
 - 🟡 `stone-macro`, `vine-gobelet`
 - 🟡 `tunnel-interior` — the Dingač tunnel

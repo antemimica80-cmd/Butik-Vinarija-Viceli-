@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation';
 import { site } from '@content/site';
 import { navItems } from './nav-items';
 import { Wordmark } from './Wordmark';
+import { LogoSeal } from './LogoSeal';
 import { CookieSettingsButton } from './CookieSettingsButton';
 import { STATIC_PREVIEW, staticNotice } from '@/lib/static';
 
@@ -21,7 +22,10 @@ export function SiteFooter() {
   return (
     <footer className="surface-shade grain pb-[calc(5rem+env(safe-area-inset-bottom))] lg:pb-0">
       <div className="container-x pt-20 pb-12 md:pt-28">
-        <p className="font-display max-w-3xl text-display-m font-light">{t('masterLine')}</p>
+        <div className="flex items-center justify-between gap-8">
+          <p className="font-display max-w-3xl text-display-m font-light">{t('masterLine')}</p>
+          <LogoSeal label="Boutique Winery Vicelić" className="hidden size-28 text-bone/80 sm:inline-block md:size-36" />
+        </div>
         <p className="mt-6 max-w-md text-stone-light">{t('footer.tagline')}</p>
 
         <hr className="rule mt-16 mb-12" />
@@ -102,7 +106,7 @@ export function SiteFooter() {
         <hr className="rule mt-16 mb-8" />
 
         <div className="flex flex-col gap-6 text-xs text-stone-light md:flex-row md:items-end md:justify-between">
-          <Wordmark className="text-bone" />
+          <Wordmark seal={false} className="text-bone" />
           <p className="max-w-md md:text-right">
             {STATIC_PREVIEW && (
               <span className="mb-3 block text-sun-pale">{staticNotice[locale === 'hr' ? 'hr' : 'en']}</span>

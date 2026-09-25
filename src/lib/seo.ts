@@ -41,6 +41,8 @@ export function wineryLd(locale: Locale) {
       addressCountry: a.countryCode,
     },
     ...(a.geo ? { geo: { '@type': 'GeoCoordinates', latitude: a.geo.lat, longitude: a.geo.lng } } : {}),
+    logo: `${siteUrl}/media/logo-seal.png`,
+    image: `${siteUrl}/media/dingac-aerial.jpg`,
     sameAs: [site.instagram.url],
     founder: { '@type': 'Person', name: site.winemaker },
     areaServed: ['Dubrovnik', 'Pelješac', 'Ston', 'Korčula'],
