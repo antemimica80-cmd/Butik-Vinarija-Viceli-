@@ -5,8 +5,42 @@
 type L = { en: string; hr: string };
 
 export const experiencePage = {
-  eyebrow: { en: 'Tastings on Dingač', hr: 'Degustacije na Dingaču' }, // REVIEW
-  title: { en: 'The Experience', hr: 'Iskustvo' }, // REVIEW
+  eyebrow: { en: 'The Experience', hr: 'Degustacije' }, // REVIEW
+  title: { en: 'The Experience', hr: 'Degustacije' }, // REVIEW — used for the page title / SEO
+  heroTitle: { en: ['Taste Dingač', 'where it is born.'], hr: ['Kušajte Dingač', 'ondje gdje nastaje.'] }, // REVIEW
+  heroLede: {
+    en: 'Three tastings on the slope above the Adriatic. Choose a date, pay securely, and the family will be waiting.',
+    hr: 'Tri degustacije na obronku iznad Jadrana. Odaberite datum, platite sigurno, a obitelj vas čeka.', // REVIEW
+  },
+  heroCta: { en: 'Book a tasting', hr: 'Rezerviraj degustaciju' },
+  heroSecondary: { en: 'The three tastings', hr: 'Tri degustacije' }, // REVIEW
+  metaWines: { en: 'wines', hr: 'vina' },
+  metaGuests: { en: 'guests', hr: 'gostiju' },
+  metaFood: { en: 'local food', hr: 'domaća hrana' }, // REVIEW
+  metaPrivate: { en: 'private', hr: 'privatno' },
+  bookNamed: { en: 'Book {name}', hr: 'Rezerviraj {name}' },
+  viewExperience: { en: 'View the experience', hr: 'Pogledajte iskustvo' }, // REVIEW
+  hideExperience: { en: 'Close', hr: 'Zatvori' },
+  signature: {
+    label: { en: 'The signature experience', hr: 'Ekskluzivno iskustvo' }, // REVIEW
+    detail: { en: 'Private · max {max} guests', hr: 'Privatno · najviše {max} gostiju' }, // REVIEW
+  },
+  bookingEyebrow: { en: 'Reserve', hr: 'Rezervacija' },
+  bookingTitle: { en: 'Choose your day on the slope.', hr: 'Odaberite svoj dan na obronku.' }, // REVIEW
+  whereOverlay: {
+    en: ['Above the Adriatic.', 'On the southern slopes of Pelješac.'],
+    hr: ['Iznad Jadrana.', 'Na južnim obroncima Pelješca.'], // REVIEW
+  },
+  route: [
+    { name: { en: 'Dubrovnik', hr: 'Dubrovnik' }, time: { en: 'start', hr: 'polazak' } },
+    { name: { en: 'Ston', hr: 'Ston' }, time: { en: '~TODO min', hr: '~TODO min' } },
+    { name: { en: 'Dingač', hr: 'Dingač' }, time: { en: '~TODO min', hr: '~TODO min' } },
+  ],
+  tradeBanner: {
+    label: { en: 'For hotels, concierges & private drivers', hr: 'Za hotele, concierge službe i privatne vozače' }, // REVIEW
+    text: { en: 'Trade bookings and private arrangements.', hr: 'Partnerske rezervacije i privatni dogovori.' }, // REVIEW
+    cta: { en: 'Enquire', hr: 'Upit' },
+  },
   lede: {
     en: 'Three tastings, one slope. Choose a date, choose a time, pay securely. You will have a confirmation in your inbox before you close this page.',
     hr: 'Tri degustacije, jedan obronak. Odaberite datum i vrijeme, platite sigurno. Potvrda će vam stići e-poštom prije nego zatvorite ovu stranicu.', // REVIEW
@@ -89,6 +123,9 @@ export const widget = {
   total: { en: 'Total', hr: 'Ukupno' },
   vat: { en: 'VAT included', hr: 'PDV uključen' },
   pay: { en: 'Pay {total} securely', hr: 'Platite {total} sigurno' }, // REVIEW
+  bookSecurely: { en: 'Book securely', hr: 'Rezerviraj sigurno' }, // REVIEW
+  book: { en: 'Book', hr: 'Rezerviraj' },
+  guestsCount: { en: '{n} guests', hr: 'gostiju: {n}' }, // REVIEW
   paying: { en: 'Opening secure payment…', hr: 'Otvaramo sigurno plaćanje…' }, // REVIEW
   secure: { en: 'Card, Apple Pay or Google Pay · processed by Stripe', hr: 'Kartica, Apple Pay ili Google Pay · obrađuje Stripe' }, // REVIEW
   demoNote: { en: 'Demo mode — no real payment is taken.', hr: 'Demo način — ne naplaćuje se stvarno.' },
@@ -177,28 +214,28 @@ export const faq: { q: L; a: L }[] = [
     },
   },
   {
-    q: { en: 'Is the estate accessible?', hr: 'Je li imanje pristupačno?' }, // REVIEW
+    q: { en: 'Accessibility', hr: 'Pristupačnost' }, // REVIEW
     a: {
       en: 'TODO: owner to describe step-free access to the terrace and the cellar, and whether the vineyard walk suits limited mobility.',
       hr: 'TODO: vlasnik treba opisati pristup bez stepenica do terase i podruma te je li šetnja vinogradom prikladna za osobe smanjene pokretljivosti.',
     },
   },
   {
-    q: { en: 'Dietary needs?', hr: 'Posebna prehrana?' }, // REVIEW
+    q: { en: 'Dietary requirements', hr: 'Posebna prehrana' }, // REVIEW
     a: {
       en: "Tell us in the booking notes — vegetarian, no shellfish, allergies. The Keeper's Table is adapted for you.",
       hr: 'Navedite u napomeni uz rezervaciju — vegetarijanska prehrana, bez školjaka, alergije. Keeper’s Table prilagodit ćemo vama.', // REVIEW
     },
   },
   {
-    q: { en: 'What if we need to cancel?', hr: 'Što ako moramo otkazati?' }, // REVIEW
+    q: { en: 'Cancellation', hr: 'Otkazivanje' }, // REVIEW
     a: {
       en: 'Cancel 48 hours or more before your tasting and we refund you in full. Later than that, the booking cannot be refunded, but we will always try to move you to another day.',
       hr: 'Otkažete li najkasnije 48 sati prije degustacije, vraćamo cijeli iznos. Nakon toga povrat nije moguć, ali uvijek ćemo vas pokušati premjestiti na drugi dan.', // REVIEW
     },
   },
   {
-    q: { en: 'How do we get there from Dubrovnik?', hr: 'Kako doći iz Dubrovnika?' }, // REVIEW
+    q: { en: 'Getting here', hr: 'Kako doći' }, // REVIEW
     a: {
       en: 'By car along the coast to Ston, then along the Pelješac road (~TODO min). No car? Our transfer partner collects from Dubrovnik and Ston — mention it when you book.',
       hr: 'Automobilom uz obalu do Stona, zatim cestom kroz Pelješac (~TODO min). Nemate automobil? Naš partner za prijevoz dolazi po vas u Dubrovnik i Ston — navedite to pri rezervaciji.', // REVIEW

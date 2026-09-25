@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     unoptimized: isStatic,
   },
-  ...(isStatic ? { output: 'export' as const, trailingSlash: true, basePath } : {}),
+  ...(isStatic ? { output: 'export' as const, trailingSlash: true, basePath, distDir: '.next-static' } : {}),
 };
 
 export default withNextIntl(nextConfig);

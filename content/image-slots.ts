@@ -290,6 +290,19 @@ export const imageSlots = {
     },
     src: '/media/dingac-highlights.jpg',
   },
+  'experience-hero': {
+    kind: 'image',
+    ratio: '16/9',
+    mobileRatio: '3/4',
+    tone: 'shade',
+    shot: 'The tasting terrace above the sea — hero of the Experience page.',
+    light: 'Afternoon.',
+    alt: {
+      en: 'Vines and the tasting terrace above the Adriatic, an island on the horizon.',
+      hr: 'Loza i terasa za degustaciju iznad Jadrana, otok na obzoru.', // REVIEW
+    },
+    src: '/media/terrace-sea-view.jpg',
+  },
 } satisfies Record<string, ImageSlotDef>;
 
 export type ImageSlotId = keyof typeof imageSlots;

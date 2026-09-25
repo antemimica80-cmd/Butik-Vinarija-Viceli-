@@ -257,7 +257,7 @@ export function BookingWidget({ locale, experiences, today: builtToday, demo }: 
               <label
                 key={e.slug}
                 className={`flex cursor-pointer flex-col gap-1 border p-4 transition-colors duration-500 has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-offset-2 ${
-                  e.slug === slug ? 'border-plavac bg-plavac text-bone' : 'border-basalt/20 bg-limestone hover:border-basalt/50'
+                  e.slug === slug ? 'border-plavac bg-plavac text-bone' : 'border-transparent bg-bone hover:border-basalt/30'
                 }`}
               >
                 <input type="radio" name="experience" value={e.slug} checked={e.slug === slug} onChange={() => chooseExperience(e.slug)} className="sr-only" />
@@ -276,7 +276,7 @@ export function BookingWidget({ locale, experiences, today: builtToday, demo }: 
         {/* 02 — date */}
         <fieldset>
           {stepLabel(2, l(w.chooseDate))}
-          <div className="mt-5 border border-basalt/15 bg-limestone p-4 sm:p-6">
+          <div className="mt-5 max-w-xl bg-bone p-4 sm:p-6">
             <div className="flex items-center justify-between">
               <button type="button" onClick={() => setMonth(shiftMonth(month, -1))} disabled={!canPrev} aria-label={l(w.prevMonth)} className="inline-flex size-11 items-center justify-center disabled:opacity-25">
                 <ArrowRight size={18} className="rotate-180" />
@@ -418,60 +418,56 @@ export function BookingWidget({ locale, experiences, today: builtToday, demo }: 
             </div>
           </fieldset>
         )}
+
+        {/* 05 — details (inputs belong to the summary form via form="booking-form") */}
+        {day?.status !== 'request' && (
+          <fieldset ref={detailsRef} className="scroll-mt-[calc(var(--nav-h)+2rem)]">
+            {stepLabel(5, l(w.details))}
+            <div className="mt-5 grid max-w-xl gap-5 sm:grid-cols-2">
+              <Field form="booking-form" label={l(w.name)} name="name" required autoComplete="name" invalid={invalid('name')} />
+              <Field form="booking-form" label={l(w.email)} name="email" type="email" required autoComplete="email" invalid={invalid('email')} />
+              <Field form="booking-form" label={l(w.phone)} name="phone" type="tel" autoComplete="tel" hint={l(w.phoneHint)} />
+              <Field form="booking-form" label={l(w.notes)} name="notes" />
+            </div>
+          </fieldset>
+        )}
       </div>
 
-      {/* Summary + details + pay */}
+      {/* Sticky booking summary */}
       {day?.status !== 'request' && (
-        <form onSubmit={submit} className="self-start lg:sticky lg:top-[calc(var(--nav-h)+1.5rem)]" noValidate>
-          <div className="surface-shade grain p-6 sm:p-8">
+        <form id="booking-form" onSubmit={submit} className="self-start lg:sticky lg:top-[calc(var(--nav-h)+2rem)]" noValidate>
+          <div className="surface-shade grain p-8 md:p-10">
             <p className="label text-sun">{l(w.title)}</p>
-            <p className="mt-4 text-display-s font-light">{exp.name}</p>
-            <dl className="mt-6 space-y-3 border-t border-bone/15 pt-5 text-sm">
-              <div className="flex justify-between gap-4">
-                <dt className="text-stone-light">{l(w.chooseDate)}</dt>
-                <dd className="text-right">{date ? formatDate(date, locale, { weekday: 'short', day: 'numeric', month: 'short' }) : '—'}</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-stone-light">{l(w.chooseTime)}</dt>
-                <dd className="font-mono">{time ?? '—'}</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-stone-light">{l(w.guests)}</dt>
-                <dd>
-                  {adults} × {money(exp.price)}
-                  {children > 0 && ` + ${children} ${l(w.childrenLabel).toLowerCase()}`}
-                </dd>
-              </div>
-            </dl>
-            <div className="mt-5 flex items-baseline justify-between border-t border-bone/15 pt-5">
-              <span className="label text-stone-light">{l(w.total)}</span>
-              <span className="text-right">
-                <span className="text-display-s font-light">{money(total)}</span>
-                <span className="block text-xs text-stone-light">{l(w.vat)}</span>
+            <p className="mt-6 text-display-s leading-tight font-light uppercase tracking-[0.04em]">{exp.name}</p>
+            <p className="mt-4 text-lg" style={{ fontFamily: 'var(--font-display)' }}>
+              {date ? formatDate(date, locale, { day: 'numeric', month: 'long' }) : <span className="text-bone/40">{l(w.chooseDate)}</span>}
+              {' · '}
+              {time ? <span className="font-mono text-base">{time}</span> : <span className="text-bone/40">{l(w.chooseTime)}</span>}
+            </p>
+            <p className="mt-1 text-sm text-stone-light">
+              {fill(l(w.guestsCount), { n: guests })}
+              {children > 0 && ` · ${adults} × ${money(exp.price)}`}
+            </p>
+
+            <p className="mt-10 text-[clamp(2.75rem,2rem+2vw,3.75rem)] leading-none font-light" style={{ fontFamily: 'var(--font-display)' }}>
+              {money(total)}
+            </p>
+            <p className="mt-2 text-xs text-stone-light">{l(w.vat)}</p>
+
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
+            <label className={`mt-8 flex gap-3 text-xs leading-relaxed ${invalid('terms') ? 'text-sun-pale' : 'text-bone/70'}`}>
+              <input type="checkbox" name="terms" required className="mt-0.5 size-4 shrink-0 accent-[var(--color-sun)]" />
+              <span>
+                {l(w.terms).split('{terms}')[0]}
+                <Link href={{ pathname: '/legal/[slug]', params: { slug: 'terms' } }} className="underline underline-offset-4" target="_blank">
+                  {l(w.termsLink)}
+                </Link>
+                {l(w.terms).split('{terms}')[1]}
               </span>
-            </div>
+            </label>
 
-            <fieldset ref={detailsRef} className="mt-8 space-y-4" disabled={!ready}>
-              <legend className="label mb-4 text-sun">{l(w.details)}</legend>
-              <Field dark label={l(w.name)} name="name" required autoComplete="name" invalid={invalid('name')} />
-              <Field dark label={l(w.email)} name="email" type="email" required autoComplete="email" invalid={invalid('email')} />
-              <Field dark label={l(w.phone)} name="phone" type="tel" autoComplete="tel" hint={l(w.phoneHint)} />
-              <Field dark label={l(w.notes)} name="notes" as="textarea" />
-              <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
-              <label className={`flex gap-3 text-sm leading-relaxed ${invalid('terms') ? 'text-sun-pale' : 'text-bone/80'}`}>
-                <input type="checkbox" name="terms" required className="mt-1 size-4 shrink-0 accent-[var(--color-sun)]" />
-                <span>
-                  {l(w.terms).split('{terms}')[0]}
-                  <Link href={{ pathname: '/legal/[slug]', params: { slug: 'terms' } }} className="underline underline-offset-4" target="_blank">
-                    {l(w.termsLink)}
-                  </Link>
-                  {l(w.terms).split('{terms}')[1]}
-                </span>
-              </label>
-            </fieldset>
-
-            <button type="submit" disabled={!ready || status.kind === 'loading'} className="btn btn-sun mt-8 w-full disabled:cursor-not-allowed disabled:opacity-40">
-              {status.kind === 'loading' ? l(w.paying) : fill(l(w.pay), { total: money(total) })}
+            <button type="submit" disabled={!ready || status.kind === 'loading'} className="btn btn-sun mt-6 w-full disabled:cursor-not-allowed disabled:opacity-40">
+              {status.kind === 'loading' ? l(w.paying) : l(w.bookSecurely)}
             </button>
             <p className="mt-3 text-center text-xs text-stone-light">{demo ? l(w.demoNote) : l(w.secure)}</p>
             <div aria-live="assertive">
@@ -485,19 +481,35 @@ export function BookingWidget({ locale, experiences, today: builtToday, demo }: 
         </form>
       )}
 
-      {/* Mobile: a sticky summary once a time is chosen */}
+      {/* Mobile: "€190 · Book" once a time is chosen */}
       {ready && (
-        <div className="fixed inset-x-0 bottom-0 z-30 flex items-center justify-between gap-4 bg-plavac px-[var(--gutter)] py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] text-bone lg:hidden">
+        <div className="fixed inset-x-0 bottom-0 z-30 flex items-center justify-between gap-4 bg-basalt px-[var(--gutter)] py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] text-bone lg:hidden">
           <span className="text-sm">
-            <span className="block font-mono text-xs text-bone/70">
+            <span className="block font-mono text-xs text-bone/60">
               {date && formatDate(date, locale, { day: 'numeric', month: 'short' })} · {time} · {guests}
             </span>
-            <span className="text-lg" style={{ fontFamily: 'var(--font-display)' }}>
+            <span className="text-xl" style={{ fontFamily: 'var(--font-display)' }}>
               {money(total)}
             </span>
           </span>
-          <button type="button" className="btn btn-sun min-h-11 px-5" onClick={() => detailsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
-            {l(w.details)}
+          <button
+            type="button"
+            className="btn btn-sun min-h-11 px-6"
+            onClick={() => {
+              const form = document.getElementById('booking-form') as HTMLFormElement | null;
+              const name = document.getElementById('f-name') as HTMLInputElement | null;
+              const email = document.getElementById('f-email') as HTMLInputElement | null;
+              const terms = form?.querySelector<HTMLInputElement>('input[name="terms"]');
+              if (!name?.value || !email?.value) {
+                detailsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(() => (name?.value ? email : name)?.focus({ preventScroll: true }), 500);
+              } else if (!terms?.checked) {
+                form?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                setTimeout(() => terms?.focus({ preventScroll: true }), 500);
+              } else form?.requestSubmit();
+            }}
+          >
+            {l(w.book)}
           </button>
         </div>
       )}
@@ -561,6 +573,7 @@ function Field({
   invalid,
   dark,
   options,
+  form,
 }: {
   label: string;
   name: string;
@@ -572,6 +585,7 @@ function Field({
   invalid?: boolean;
   dark?: boolean;
   options?: string[];
+  form?: string;
 }) {
   const id = `f-${name}`;
   const cls = `mt-1.5 w-full border bg-transparent px-3 py-3 text-base outline-none transition-colors focus:border-current ${
@@ -584,7 +598,7 @@ function Field({
         {required && <span aria-hidden> *</span>}
       </label>
       {as === 'textarea' ? (
-        <textarea id={id} name={name} rows={2} className={cls} />
+        <textarea id={id} name={name} rows={2} className={cls} form={form} />
       ) : as === 'select' ? (
         <select id={id} name={name} className={`${cls} ${dark ? '' : 'bg-limestone'}`}>
           {options?.map((o) => (
@@ -592,7 +606,7 @@ function Field({
           ))}
         </select>
       ) : (
-        <input id={id} name={name} type={type} required={required} autoComplete={autoComplete} aria-invalid={invalid || undefined} className={cls} />
+        <input id={id} name={name} type={type} required={required} autoComplete={autoComplete} aria-invalid={invalid || undefined} className={cls} form={form} />
       )}
       {hint && <p className={`mt-1 text-xs ${dark ? 'text-stone-light' : 'text-ink-soft'}`}>{hint}</p>}
     </div>

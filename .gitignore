@@ -10,3 +10,4 @@ screenshots/
 .data/
 out/
 .static-stash/
+.next-static/

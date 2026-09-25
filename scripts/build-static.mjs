@@ -58,10 +58,15 @@ const hrPaths = {
   legal: 'pravno',
 };
 
+// The export build also writes into .next — keep the normal server build safe.
+const serverBuildBackup = '.next-server-backup';
+rmSync(serverBuildBackup, { recursive: true, force: true });
+if (existsSync('.next')) renameSync('.next', serverBuildBackup);
+
 moveAside();
 try {
   rmSync('out', { recursive: true, force: true });
-  rmSync('.next', { recursive: true, force: true });
+  rmSync('.next-static', { recursive: true, force: true });
   execSync('npx next build', {
     stdio: 'inherit',
     env: {
@@ -74,7 +79,11 @@ try {
   });
 } finally {
   restore();
+  rmSync('.next', { recursive: true, force: true });
+  if (existsSync(serverBuildBackup)) renameSync(serverBuildBackup, '.next');
 }
+// With output: 'export' and a custom distDir, Next writes the export into distDir.
+if (!existsSync('out') && existsSync('.next-static/en')) renameSync('.next-static', 'out');
 
 // Localised Croatian folders: /hr/experience → /hr/degustacije, etc. (keep both).
 for (const [from, to] of Object.entries(hrPaths)) {
