@@ -49,11 +49,11 @@ export default async function ProductPage({ params }: PageProps<'/[locale]/shop/
             <div className="mx-auto w-3/4 max-w-80 md:w-full">
               <ImageSlot id={p.bottleSlot as ImageSlotId} priority sizes="(min-width: 768px) 30vw, 75vw" />
             </div>
-            {p.detailSlot && (
-              <div className="mx-auto mt-6 w-3/4 max-w-80 md:w-full">
-                <ImageSlot id={p.detailSlot as ImageSlotId} sizes="(min-width: 768px) 30vw, 75vw" />
+            {p.detailSlots?.map((id) => (
+              <div key={id} className="mx-auto mt-6 w-3/4 max-w-80 md:w-full">
+                <ImageSlot id={id as ImageSlotId} sizes="(min-width: 768px) 30vw, 75vw" />
               </div>
-            )}
+            ))}
           </div>
           <div className="min-w-0 md:col-span-7 lg:col-span-6">
             <p className="label text-sun-deep">{wine ? l(wine.style) : l(S.giftEyebrow)}</p>

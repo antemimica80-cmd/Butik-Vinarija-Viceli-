@@ -27,8 +27,8 @@ export type Product = {
   name: string;
   kind: 'wine' | 'gift';
   bottleSlot: string;
-  /** Optional extra image on the product page. */
-  detailSlot?: string;
+  /** Optional extra images on the product page. */
+  detailSlots?: string[];
   summary: L;
   formats: Format[];
 };

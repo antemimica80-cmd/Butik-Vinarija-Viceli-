@@ -303,6 +303,80 @@ export const imageSlots = {
     },
     src: '/media/terrace-sea-view.jpg',
   },
+  'dingac-glow': {
+    kind: 'video',
+    ratio: '29/43',
+    tone: 'shade',
+    shot: 'Dingač bottle, label glowing (6 s loop). TODO: appears AI-generated, replace before launch.',
+    light: 'Cellar light.',
+    alt: {
+      en: 'A bottle of Vicelić Dingač, its gold label catching the light.',
+      hr: 'Boca vina Vicelić Dingač, zlatna etiketa hvata svjetlo.', // REVIEW
+    },
+    src: '/media/dingac-glow.mp4',
+    poster: '/media/dingac-glow-poster.jpg',
+  },
+  'three-wines': {
+    kind: 'video',
+    ratio: '29/43',
+    tone: 'shade',
+    shot: 'The three wines on a candlelit table (6 s loop). TODO: appears AI-generated, replace before launch.',
+    light: 'Cellar light.',
+    alt: {
+      en: 'The three Vicelić wines, Dingač, Plavac Mali and Opolo Rosé, on a candlelit table.',
+      hr: 'Tri vina Vicelić, Dingač, Plavac mali i Opolo rosé, na stolu uz svijeće.', // REVIEW
+    },
+    src: '/media/three-wines.mp4',
+    poster: '/media/three-wines-poster.jpg',
+  },
+  'dingac-trio': {
+    kind: 'image',
+    ratio: '2/3',
+    tone: 'shade',
+    shot: 'Three Dingač bottles spelling the name.',
+    light: 'Cellar light.',
+    alt: {
+      en: 'Three bottles of Vicelić Dingač side by side.',
+      hr: 'Tri boce vina Vicelić Dingač jedna do druge.', // REVIEW
+    },
+    src: '/media/dingac-trio.jpg',
+  },
+  'plavac-trio': {
+    kind: 'image',
+    ratio: '2/3',
+    tone: 'shade',
+    shot: 'Three Plavac Mali bottles spelling the name.',
+    light: 'Cellar light.',
+    alt: {
+      en: 'Three bottles of Vicelić Plavac Mali side by side.',
+      hr: 'Tri boce vina Vicelić Plavac mali jedna do druge.', // REVIEW
+    },
+    src: '/media/plavac-trio.jpg',
+  },
+  'rose-trio': {
+    kind: 'image',
+    ratio: '2/3',
+    tone: 'shade',
+    shot: 'Three Opolo Rosé bottles spelling the name.',
+    light: 'Cellar light.',
+    alt: {
+      en: 'Three bottles of Vicelić Opolo Rosé side by side.',
+      hr: 'Tri boce vina Vicelić Opolo rosé jedna do druge.', // REVIEW
+    },
+    src: '/media/rose-trio.jpg',
+  },
+  'dingac-organic': {
+    kind: 'image',
+    ratio: '2/3',
+    tone: 'shade',
+    shot: 'Certified organic Dingač infographic. TODO: the only-Dingač-with-eco-certification claim is unverified.',
+    light: 'Cellar light.',
+    alt: {
+      en: 'A bottle of Vicelić Dingač with the EU organic logo: no synthetic pesticides, no herbicides, living soil.',
+      hr: 'Boca vina Vicelić Dingač s EU oznakom za ekološku proizvodnju: bez sintetičkih pesticida, bez herbicida, živo tlo.', // REVIEW
+    },
+    src: '/media/dingac-organic.jpg',
+  },
 } satisfies Record<string, ImageSlotDef>;
 
 export type ImageSlotId = keyof typeof imageSlots;

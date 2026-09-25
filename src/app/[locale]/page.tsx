@@ -231,10 +231,17 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
           <div className="container-x">
             <Reveal>
               <StationLabel id="cellar" locale={locale} tone="dark" />
-              <h2 id="st-cellar" className="mt-8 text-display-l font-light">
-                {l(home.cellar.title)}
-              </h2>
-              <p className="mt-6 text-lede text-bone/75">{l(home.cellar.lede)}</p>
+              <div className="grid items-end gap-12 md:grid-cols-12">
+                <div className="md:col-span-7">
+                  <h2 id="st-cellar" className="mt-8 text-display-l font-light">
+                    {l(home.cellar.title)}
+                  </h2>
+                  <p className="mt-6 text-lede text-bone/75">{l(home.cellar.lede)}</p>
+                </div>
+                <div className="mx-auto w-3/4 max-w-xs md:col-span-4 md:col-start-9 md:w-full">
+                  <ImageSlot id="three-wines" sizes="(min-width: 768px) 320px, 75vw" />
+                </div>
+              </div>
             </Reveal>
             <ul className="mt-16 grid gap-px bg-bone/10 md:mt-24 md:grid-cols-3">
               {wines.map((w, i) => (

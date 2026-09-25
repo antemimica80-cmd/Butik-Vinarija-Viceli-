@@ -40,6 +40,29 @@ export function ImageSlot({ id, sizes = '100vw', priority, className = '', fill,
   } as CSSProperties;
   const frame = fill ? 'absolute inset-0' : 'relative aspect-[var(--rm)] md:aspect-[var(--r)]';
 
+  if (slot.src && slot.kind === 'video') {
+    const poster = 'poster' in slot && slot.poster ? `${BASE_PATH}${slot.poster}` : undefined;
+    return (
+      <div className={`${frame} overflow-hidden bg-basalt ${className}`} style={style}>
+        {poster && <Image src={poster} alt="" fill sizes={sizes} priority={priority} className="object-cover" aria-hidden />}
+        <video
+          className="hero-video absolute inset-0 size-full object-cover"
+          poster={poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label={slot.alt[locale]}
+        >
+          {/* H.264 for Safari/Chrome, VP9 fallback for browsers without H.264 */}
+          <source src={`${BASE_PATH}${slot.src}`} type="video/mp4" />
+          <source src={`${BASE_PATH}${slot.src.replace(/\.mp4$/, '.webm')}`} type="video/webm" />
+        </video>
+      </div>
+    );
+  }
+
   if (slot.src) {
     return (
       <div className={`${frame} overflow-hidden ${className}`} style={style}>

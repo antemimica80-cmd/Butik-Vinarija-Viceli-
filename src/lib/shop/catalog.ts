@@ -9,7 +9,7 @@ export const products: Product[] = [
     name: w.name,
     kind: 'wine' as const,
     bottleSlot: w.bottleSlot,
-    detailSlot: w.slug === 'dingac' ? 'dingac-highlights' : undefined,
+    detailSlots: ({ dingac: ['dingac-trio', 'dingac-features', 'dingac-highlights'], 'plavac-mali': ['plavac-trio'], 'opolo-rose': ['rose-trio'] } as Record<string, string[]>)[w.slug],
     summary: w.summary,
     formats: [caseOf(w.slug, 1), caseOf(w.slug, 3), caseOf(w.slug, 6)],
   })),
