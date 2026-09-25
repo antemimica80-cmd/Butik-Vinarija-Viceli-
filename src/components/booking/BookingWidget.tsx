@@ -243,7 +243,7 @@ export function BookingWidget({ locale, experiences, today: builtToday, demo }: 
                 }`}
               >
                 <input type="radio" name="experience" value={e.slug} checked={e.slug === slug} onChange={() => chooseExperience(e.slug)} className="sr-only" />
-                <span className="font-mono text-[0.6875rem] opacity-70">{['I', 'II', 'III'][e.tier - 1]}</span>
+                <span className="font-mono text-xs opacity-70">{['I', 'II', 'III'][e.tier - 1]}</span>
                 <span className="text-lg leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
                   {e.name}
                 </span>
@@ -272,7 +272,7 @@ export function BookingWidget({ locale, experiences, today: builtToday, demo }: 
             </div>
             <div className="mt-4 grid grid-cols-7 text-center" aria-hidden>
               {l(w.weekdaysShort).map((d) => (
-                <span key={d} className="label py-2 text-[0.625rem] text-ink-soft">
+                <span key={d} className="label py-2 text-xs text-ink-soft">
                   {d}
                 </span>
               ))}

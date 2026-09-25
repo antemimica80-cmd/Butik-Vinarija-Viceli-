@@ -11,6 +11,8 @@ import { Reveal } from '@/components/ui/Reveal';
 import { ArrowRight } from '@/components/ui/icons';
 import { Seal } from '@/components/wines/Seal';
 import { formatEur } from '@/lib/format';
+import { absolute, alternates, jsonLd } from '@/lib/seo';
+import { productLd } from '@/lib/shop/ld';
 
 export const dynamicParams = false;
 
@@ -23,7 +25,11 @@ export async function generateMetadata({ params }: PageProps<'/[locale]/wines/[s
   const w = wines.find((x) => x.slug === slug);
   if (!w) return {};
   const l = (x: { en: string; hr: string }) => x[locale as Locale];
-  return { title: `${w.name} — ${l(W.dossier)}`, description: `${l(w.summary)} ${l(w.tasting)}` };
+  return {
+    title: `${w.name} — ${l(W.dossier)}`,
+    description: `${l(w.summary)} ${l(w.tasting)}`,
+    alternates: alternates(locale as Locale, { pathname: '/wines/[slug]', params: { slug } }),
+  };
 }
 
 type L = { en: string; hr: string };
@@ -68,10 +74,11 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(productLd(w.slug, locale, absolute(locale, { pathname: '/wines/[slug]', params: { slug: w.slug } })))} />
       {/* ── File header ── */}
       <section className="surface-limestone grain pt-[calc(var(--nav-h)+2.5rem)] md:pt-[calc(var(--nav-h)+4rem)]">
         <div className="container-x">
-          <div className="flex flex-wrap items-center justify-between gap-4 border-y border-basalt/20 py-3 font-mono text-[0.6875rem] tracking-[0.14em] text-ink-soft uppercase">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-y border-basalt/20 py-3 font-mono text-xs tracking-[0.14em] text-ink-soft uppercase">
             <span>
               {l(W.estate)} · Vicelić · Dingač, Pelješac
             </span>
@@ -87,17 +94,17 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
           {/* Bottle */}
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">
-              <Reveal className="relative mx-auto w-1/2 max-w-64 lg:w-full">
+              <Reveal immediate className="relative mx-auto w-1/2 max-w-64 lg:w-full">
                 <ImageSlot id={w.bottleSlot as ImageSlotId} priority sizes="(min-width: 1024px) 25vw, 50vw" />
                 <Seal text="VICELIĆ · DINGAČ · PELJEŠAC · ORGANIC · " center={no} className="absolute -right-6 -bottom-6 size-24 rotate-[-12deg] text-plavac/70 md:size-28 lg:-right-10" />
               </Reveal>
               <dl className="mt-12 grid grid-cols-2 gap-px bg-basalt/15 font-mono text-sm">
                 <div className="bg-limestone p-4">
-                  <dt className="text-[0.6875rem] tracking-[0.14em] text-ink-soft uppercase">{l(W.vintage)}</dt>
+                  <dt className="text-xs tracking-[0.14em] text-ink-soft uppercase">{l(W.vintage)}</dt>
                   <dd className="mt-2">{w.vintage === 'TBD' ? tbd : w.vintage}</dd>
                 </div>
                 <div className="bg-limestone p-4">
-                  <dt className="text-[0.6875rem] tracking-[0.14em] text-ink-soft uppercase">{l(W.price)}</dt>
+                  <dt className="text-xs tracking-[0.14em] text-ink-soft uppercase">{l(W.price)}</dt>
                   <dd className="mt-2">{w.price === 'TBD' ? tbd : formatEur(w.price, locale)}</dd>
                 </div>
               </dl>
@@ -106,7 +113,7 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
 
           {/* The file */}
           <div className="lg:col-span-8">
-            <Reveal>
+            <Reveal immediate>
               <p className="label text-sun-deep">{l(w.style)}</p>
               <h1 className="mt-5 text-display-xl font-light">{w.name}</h1>
               <p className="mt-8 max-w-2xl text-lede text-ink-soft">{l(w.summary)}</p>
@@ -129,14 +136,18 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
               <dl className="mt-6 border-t-2 border-basalt font-mono text-sm">
                 {sheet.map(([k, v], i) => (
                   <div key={k} className="grid grid-cols-[2rem_1fr] gap-x-4 gap-y-1 border-b border-basalt/15 py-3.5 sm:grid-cols-[3rem_13rem_1fr]">
-                    <span className="text-ink-soft">{String(i + 1).padStart(2, '0')}</span>
-                    <dt className="text-[0.75rem] tracking-[0.14em] text-ink-soft uppercase">{l(W.fields[k])}</dt>
+                    <dt className="contents">
+                      <span className="text-ink-soft">{String(i + 1).padStart(2, '0')}</span>
+                      <span className="text-[0.75rem] tracking-[0.14em] text-ink-soft uppercase">{l(W.fields[k])}</span>
+                    </dt>
                     <dd className="col-start-2 sm:col-start-auto">{val(v)}</dd>
                   </div>
                 ))}
                 <div className="grid grid-cols-[2rem_1fr] items-baseline gap-x-4 gap-y-1 border-b-2 border-basalt py-5 sm:grid-cols-[3rem_13rem_1fr]">
-                  <span className="text-ink-soft">{String(sheet.length + 1).padStart(2, '0')}</span>
-                  <dt className="text-[0.75rem] tracking-[0.14em] text-ink-soft uppercase">{l(W.fields.bottles)}</dt>
+                  <dt className="contents">
+                    <span className="text-ink-soft">{String(sheet.length + 1).padStart(2, '0')}</span>
+                    <span className="text-[0.75rem] tracking-[0.14em] text-ink-soft uppercase">{l(W.fields.bottles)}</span>
+                  </dt>
                   <dd className="col-start-2 text-display-s font-light sm:col-start-auto" style={{ fontFamily: 'var(--font-display)' }}>
                     {n(w.sheet.bottles)}
                   </dd>
@@ -152,7 +163,7 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
               <dl className="mt-6 grid gap-px bg-basalt/15 sm:grid-cols-2 lg:grid-cols-4">
                 {serve.map(([k, v]) => (
                   <div key={k} className="bg-limestone p-5">
-                    <dt className="font-mono text-[0.6875rem] tracking-[0.14em] text-ink-soft uppercase">{l(W.fields[k])}</dt>
+                    <dt className="font-mono text-xs tracking-[0.14em] text-ink-soft uppercase">{l(W.fields[k])}</dt>
                     <dd className="mt-3">{val(v)}</dd>
                   </div>
                 ))}

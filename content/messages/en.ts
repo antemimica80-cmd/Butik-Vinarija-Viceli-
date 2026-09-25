@@ -18,6 +18,7 @@ const en = {
     shop: 'Shop',
     visit: 'Visit',
     book: 'Book a tasting',
+    bookShort: 'Book',
     menu: 'Menu',
     close: 'Close',
     cart: 'Cart',

@@ -1,4 +1,3 @@
-import '@fontsource-variable/hanken-grotesk/wght.css';
 import '@fontsource/ibm-plex-mono/400.css';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';

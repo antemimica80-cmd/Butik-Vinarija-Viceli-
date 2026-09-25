@@ -43,7 +43,10 @@ const views: View[] = [
   },
   { name: 'home-hr', path: '/hr' },
   { name: 'design', path: '/en/design', fullPage: true },
-  { name: 'stub-dingac', path: '/en/dingac', fullPage: true },
+  { name: 'dingac', path: '/en/dingac', fullPage: true },
+  { name: 'experience', path: '/en/experience', fullPage: true },
+  { name: 'visit-hr', path: '/hr/posjet', fullPage: true },
+  { name: 'legal-terms', path: '/en/legal/terms', fullPage: true },
   {
     name: 'menu',
     path: '/en/wines',

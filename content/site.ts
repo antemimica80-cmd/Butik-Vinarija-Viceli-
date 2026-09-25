@@ -15,6 +15,7 @@ export const site = {
     city: 'Kuna',
     region: 'Pelješac',
     country: 'Croatia',
+    countryHr: 'Hrvatska',
     countryCode: 'HR',
     // TODO: exact coordinates of the tasting room (for map + schema.org)
     geo: null as { lat: number; lng: number } | null,

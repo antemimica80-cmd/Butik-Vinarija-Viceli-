@@ -9,11 +9,12 @@ import { ImageSlot } from '@/components/ui/ImageSlot';
 import { Reveal } from '@/components/ui/Reveal';
 import { ArrowRight } from '@/components/ui/icons';
 import { ThreeSuns } from '@/components/signature/ThreeSuns';
+import { alternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: PageProps<'/[locale]/dingac'>): Promise<Metadata> {
   const { locale } = await params;
   const l = (x: { en: string; hr: string }) => x[locale as Locale];
-  return { title: `Dingač — ${l(D.hero.eyebrow)}`, description: l(D.meta.description) };
+  return { title: `Dingač — ${l(D.hero.eyebrow)}`, description: l(D.meta.description), alternates: alternates(locale as Locale, '/dingac') };
 }
 
 /** Claims in the order they appear on the page → footnote numbers. */

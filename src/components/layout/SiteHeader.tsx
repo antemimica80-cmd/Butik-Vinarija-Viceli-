@@ -96,7 +96,7 @@ export function SiteHeader() {
           </Link>
 
           <nav aria-label={t('primary')} className="hidden lg:block">
-            <ul className="flex items-center gap-8">
+            <ul className="flex items-center gap-4 xl:gap-8">
               {navItems.map((item) => {
                 const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
                 return (
@@ -104,7 +104,7 @@ export function SiteHeader() {
                     <Link
                       href={item.href}
                       aria-current={active ? 'page' : undefined}
-                      className={`label relative py-2 transition-opacity duration-500 hover:opacity-100 ${active ? 'opacity-100' : 'opacity-75'}`}
+                      className={`label relative py-2 tracking-[0.16em] transition-opacity duration-500 hover:opacity-100 xl:tracking-[0.22em] ${active ? 'opacity-100' : 'opacity-75'}`}
                     >
                       {t(item.key)}
                       {active && <span aria-hidden className="absolute inset-x-0 -bottom-0.5 h-px bg-current" />}
@@ -119,7 +119,8 @@ export function SiteHeader() {
             <LocaleSwitch className="hidden sm:flex" />
             <CartButton />
             <Link href="/experience" className={`btn hidden min-h-11 px-5 lg:inline-flex ${overlay ? 'btn-sun' : 'btn-primary'}`}>
-              {t('book')}
+              <span className="xl:hidden">{t('bookShort')}</span>
+              <span className="hidden xl:inline">{t('book')}</span>
             </Link>
             <button
               ref={toggleRef}

@@ -12,7 +12,7 @@ export function CartButton({ className = '' }: { className?: string }) {
     <Link href="/shop/cart" aria-label={t('cartCount', { count })} className={`relative inline-flex size-11 items-center justify-center ${className}`}>
       <CartIcon size={22} />
       {count > 0 && (
-        <span className="absolute top-1.5 right-1 flex size-4 items-center justify-center rounded-full bg-sun text-[0.625rem] font-semibold text-basalt">
+        <span className="absolute top-1.5 right-1 flex size-4 items-center justify-center rounded-full bg-sun text-xs font-semibold text-basalt">
           {count}
         </span>
       )}

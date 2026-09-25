@@ -14,7 +14,7 @@ import { getConsent, CONSENT_COOKIE, setCookie } from '@/lib/consent';
 export function MapBlock({ locale }: { locale: 'en' | 'hr' }) {
   const [allowed, setAllowed] = useState(false);
   const geo = site.address.geo;
-  const address = `${site.address.street}, ${site.address.postalCode} ${site.address.city}, ${site.address.country}`;
+  const address = `${site.address.street}, ${site.address.postalCode} ${site.address.city}, ${locale === 'hr' ? site.address.countryHr : site.address.country}`;
 
   useEffect(() => {
     const sync = () => setAllowed(getConsent() === 'all');

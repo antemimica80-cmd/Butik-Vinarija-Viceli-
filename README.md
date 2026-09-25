@@ -16,7 +16,10 @@ npm run dev                  # http://localhost:3000 → /en
 | `npm run build` | Validates content, then builds a production bundle |
 | `npm run check:content` | Validates every content file against its schema |
 | `npm run typecheck` / `npm run lint` | TypeScript / ESLint |
+| `npm test` | Unit tests (availability, pricing) |
 | `npm run screenshots` | With `npm start` running: screenshots at 390 px and 1440 px into `screenshots/` |
+| `node scripts/e2e-booking.mjs` / `node scripts/e2e-shop.mjs` | Book a tasting / buy wine end to end in a real browser (demo payment) |
+| `node scripts/a11y.mjs` | axe-core WCAG 2.1 AA audit of the main pages |
 
 ## Booking
 
@@ -92,3 +95,28 @@ Order emails go to the customer and to `WINERY_NOTIFY_EMAIL`. `/admin` shows pai
 | adriatic | `#0E2A3D` | Almost never |
 
 Type: **Newsreader** (display, variable with optical sizes), **Hanken Grotesk** (body/UI), **IBM Plex Mono** (technical sheets). All are self-hosted and cover Croatian diacritics.
+
+## SEO
+
+- Per-page titles and descriptions, canonical URLs and `hreflang` (en, hr, x-default) — `src/lib/seo.ts`
+- `sitemap.xml` (both languages, with alternates) and `robots.txt` (checkout, cart, admin excluded)
+- Open Graph images generated at build time (`opengraph-image.tsx`: one site-wide, one per wine dossier)
+- JSON-LD: `Winery` + `WebSite` (home, visit), `TouristAttraction` with offers and `FAQPage` (experience),
+  `Product` with offers (dossiers, shop)
+- Set `NEXT_PUBLIC_SITE_URL` to the production domain before deploying — every absolute URL derives from it.
+
+## Quality (proposal build, measured locally)
+
+- Lighthouse mobile (simulated slow 4G): Accessibility 100, Best practices 100, SEO 100; Performance 85–91
+  depending on the page and run (median ≈ 88). Re-measure on the real host with real photography.
+- axe-core: 0 WCAG 2.1 AA violations on the 12 main pages. No horizontal scroll at 360 px on any page.
+- Fonts are self-hosted; Newsreader is instanced at its display optical size (`scripts/build-fonts.py`).
+
+## Before going live
+
+1. Owner fills everything in `CONTENT_TODO.md` (🔴 first): prices, stock, photos, verified history, legal details.
+2. A lawyer reviews `content/legal.ts` (pages show a draft notice until `draft: false`).
+3. Stripe account in the OPG's name → live keys + webhook endpoint `/api/stripe/webhook`.
+4. Postgres (`DATABASE_URL`), Resend with a verified domain, `WINERY_NOTIFY_EMAIL`, `ADMIN_PASSWORD`.
+5. EU shipping only once excise / tax representation is arranged (`content/shipping.ts` → `enabled`).
+6. Domain + redirects from the old vicelic.hr WordPress URLs; Plausible site.

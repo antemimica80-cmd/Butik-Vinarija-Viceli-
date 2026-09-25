@@ -26,7 +26,7 @@ export function ConsentBanner() {
       id="consent-banner"
       role="region"
       aria-label={t('title')}
-      className="fixed inset-x-3 bottom-[calc(5.25rem+env(safe-area-inset-bottom))] z-40 md:inset-x-auto md:bottom-6 md:left-6 md:max-w-md"
+      className="fixed inset-x-3 bottom-[calc(5.25rem+env(safe-area-inset-bottom))] z-40 md:inset-x-auto md:left-6 md:max-w-md lg:bottom-6"
     >
       <div className="surface-shade grain p-5 shadow-[0_20px_60px_rgb(0_0_0/0.35)] ring-1 ring-bone/10 md:p-6">
         <p className="label text-sun">{t('title')}</p>

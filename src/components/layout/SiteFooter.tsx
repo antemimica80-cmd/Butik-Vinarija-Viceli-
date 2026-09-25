@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { site } from '@content/site';
 import { navItems } from './nav-items';
@@ -14,10 +14,11 @@ const legal = [
 
 export function SiteFooter() {
   const t = useTranslations();
+  const locale = useLocale();
   const year = new Date().getFullYear();
 
   return (
-    <footer className="surface-shade grain pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0">
+    <footer className="surface-shade grain pb-[calc(5rem+env(safe-area-inset-bottom))] lg:pb-0">
       <div className="container-x pt-20 pb-12 md:pt-28">
         <p className="font-display max-w-3xl text-display-m font-light">{t('masterLine')}</p>
         <p className="mt-6 max-w-md text-stone-light">{t('footer.tagline')}</p>
@@ -32,7 +33,7 @@ export function SiteFooter() {
               <br />
               {site.address.postalCode} {site.address.city}, {site.address.region}
               <br />
-              {site.address.country}
+              {locale === 'hr' ? site.address.countryHr : site.address.country}
             </address>
             <p className="mt-4 text-sm text-stone-light">{t('footer.season')}</p>
           </div>

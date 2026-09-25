@@ -81,10 +81,16 @@ Proposal values chosen for the pitch. The owner must confirm them all.
 ## Reviews
 - 🟡 Real Tripadvisor/Google reviews with permission (placeholders are clearly marked)
 
-## Legal (stage 8)
-- 🔴 Terms of purchase, returns & complaints — needs the owner's or a lawyer's review
-- 🔴 Privacy policy — data controller details
-- 🔴 Imprint — OPG registration details
+## Legal (content/legal.ts — drafts, shown with a "draft for review" notice)
+- 🔴 Lawyer review of all four pages: terms of purchase & booking, privacy, cookies, imprint
+- 🔴 OIB, MIBPG, VAT ID, organic certification body and certificate number (imprint)
+- 🔴 Courier and delivery times; retention period for accounting records (with the accountant)
+- 🔴 Hosting / database providers to name in the privacy policy
+- 🟡 "Last updated" dates
+
+## Visit page (content/visit.ts)
+- 🔴 Exact opening hours
+- 🟡 Parking, accessibility of the tasting room
 
 ## Croatian copy
 - 🟡 Every string marked `// REVIEW` in `content/messages/hr.ts` and elsewhere needs a native speaker's check.

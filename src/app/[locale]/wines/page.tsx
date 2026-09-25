@@ -7,11 +7,12 @@ import type { ImageSlotId } from '@content/image-slots';
 import { ImageSlot } from '@/components/ui/ImageSlot';
 import { Reveal } from '@/components/ui/Reveal';
 import { ArrowRight } from '@/components/ui/icons';
+import { alternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: PageProps<'/[locale]/wines'>): Promise<Metadata> {
   const { locale } = await params;
   const l = (x: { en: string; hr: string }) => x[locale as Locale];
-  return { title: l(W.overview.eyebrow), description: l(W.overview.lede) };
+  return { title: l(W.overview.eyebrow), description: l(W.overview.lede), alternates: alternates(locale as Locale, '/wines') };
 }
 
 export default async function WinesPage({ params }: PageProps<'/[locale]/wines'>) {
@@ -25,11 +26,11 @@ export default async function WinesPage({ params }: PageProps<'/[locale]/wines'>
     <>
       <section data-nav-tone="dark" className="surface-cellar grain pt-[calc(var(--nav-h)+4rem)] pb-16 md:pt-[calc(var(--nav-h)+7rem)] md:pb-24">
         <div className="container-x">
-          <Reveal>
+          <Reveal immediate>
             <p className="label text-sun">{l(W.overview.eyebrow)}</p>
             <h1 className="mt-6 max-w-5xl text-display-xl font-light">{l(W.overview.title)}</h1>
           </Reveal>
-          <Reveal delay={150} className="mt-10 grid gap-8 md:grid-cols-12">
+          <Reveal immediate delay={150} className="mt-10 grid gap-8 md:grid-cols-12">
             <p className="text-lede text-bone/80 md:col-span-7">{l(W.overview.lede)}</p>
             <p className="font-mono text-sm text-sun-pale md:col-span-4 md:col-start-9 md:text-right">
               <span className="block text-display-m font-light" style={{ fontFamily: 'var(--font-display)' }}>

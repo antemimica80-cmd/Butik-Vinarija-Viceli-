@@ -17,6 +17,13 @@ import { experiences } from '@content/experiences';
 import { testimonials } from '@content/testimonials';
 import { site } from '@content/site';
 import type { ImageSlotId } from '@content/image-slots';
+import type { Metadata } from 'next';
+import { absolute, alternates, jsonLd, siteUrl, wineryLd } from '@/lib/seo';
+
+export async function generateMetadata({ params }: PageProps<'/[locale]'>): Promise<Metadata> {
+  const { locale } = await params;
+  return { alternates: alternates(locale as Locale, '/') };
+}
 
 type L = { en: string; hr: string };
 
@@ -62,6 +69,20 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(wineryLd(locale))} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd({
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          '@id': `${siteUrl}/#website`,
+          name: site.nameEn,
+          alternateName: site.nameHr,
+          url: absolute(locale, '/'),
+          inLanguage: locale === 'hr' ? 'hr-HR' : 'en',
+          publisher: { '@id': `${siteUrl}/#winery` },
+        })}
+      />
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section data-nav-tone="dark" className="surface-shade relative flex min-h-[100svh] items-end overflow-hidden">
         <HeroVideo />

@@ -17,6 +17,7 @@ const hr: Messages = {
     shop: 'Trgovina', // REVIEW
     visit: 'Posjet', // REVIEW
     book: 'Rezerviraj degustaciju', // REVIEW
+    bookShort: 'Rezerviraj',
     menu: 'Izbornik',
     close: 'Zatvori',
     cart: 'Košarica',

@@ -9,11 +9,12 @@ import { products } from '@/lib/shop/catalog';
 import { formatEur } from '@/lib/format';
 import { ImageSlot } from '@/components/ui/ImageSlot';
 import { Reveal } from '@/components/ui/Reveal';
+import { alternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: PageProps<'/[locale]/shop'>): Promise<Metadata> {
   const { locale } = await params;
   const l = (x: { en: string; hr: string }) => x[locale as Locale];
-  return { title: l(S.eyebrow), description: l(S.lede) };
+  return { title: l(S.eyebrow), description: l(S.lede), alternates: alternates(locale as Locale, '/shop') };
 }
 
 export default async function ShopPage({ params }: PageProps<'/[locale]/shop'>) {
@@ -26,7 +27,7 @@ export default async function ShopPage({ params }: PageProps<'/[locale]/shop'>) 
     <>
       <section className="surface-sun grain pt-[calc(var(--nav-h)+4rem)] pb-12 md:pt-[calc(var(--nav-h)+6rem)] md:pb-16">
         <div className="container-x">
-          <Reveal>
+          <Reveal immediate>
             <p className="label text-sun-deep">{l(S.eyebrow)}</p>
             <h1 className="mt-6 max-w-4xl text-display-l font-light">{l(S.title)}</h1>
             <p className="mt-6 max-w-xl text-lede text-ink-soft">{l(S.lede)}</p>

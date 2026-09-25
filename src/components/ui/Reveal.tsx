@@ -10,15 +10,17 @@ type Props = {
   delay?: number;
   /** Fade only, no rise. */
   fade?: boolean;
+  /** Above the fold: animate on load with CSS only, so it never waits for JavaScript (better LCP). */
+  immediate?: boolean;
 };
 
 /** Slow, weighted fade-and-rise when the element enters the viewport. */
-export function Reveal({ as: Tag = 'div', children, className = '', delay = 0, fade }: Props) {
+export function Reveal({ as: Tag = 'div', children, className = '', delay = 0, fade, immediate }: Props) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || immediate) return;
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -30,7 +32,15 @@ export function Reveal({ as: Tag = 'div', children, className = '', delay = 0, f
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [immediate]);
+
+  if (immediate) {
+    return (
+      <Tag className={`gate-in ${className}`} style={{ animationDelay: `${150 + delay}ms` }}>
+        {children}
+      </Tag>
+    );
+  }
 
   return (
     <Tag

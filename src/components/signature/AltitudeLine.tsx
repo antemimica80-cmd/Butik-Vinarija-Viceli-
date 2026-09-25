@@ -80,7 +80,7 @@ export function AltitudeLine({ stations, label }: { stations: Station[]; label: 
         </span>
       </div>
       <div className="hidden flex-col justify-between lg:flex">
-        <p className="font-mono text-[0.6875rem] tabular-nums">
+        <p className="font-mono text-xs tabular-nums">
           <span ref={valueRef}>{stations[0].altitude}</span> m
           <span className="label mt-1 block text-[0.5625rem] opacity-60">{label}</span>
         </p>

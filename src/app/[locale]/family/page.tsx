@@ -7,11 +7,12 @@ import { historyClaims } from '@content/history-claims';
 import { ImageSlot } from '@/components/ui/ImageSlot';
 import { Reveal } from '@/components/ui/Reveal';
 import { ArrowRight } from '@/components/ui/icons';
+import { alternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: PageProps<'/[locale]/family'>): Promise<Metadata> {
   const { locale } = await params;
   const l = (x: { en: string; hr: string }) => x[locale as Locale];
-  return { title: `${l(F.hero.title)} — ${l(F.hero.eyebrow)}`.replace('. —', ' —'), description: l(F.meta.description) };
+  return { title: `${l(F.hero.title)} — ${l(F.hero.eyebrow)}`.replace('. —', ' —'), description: l(F.meta.description), alternates: alternates(locale as Locale, '/family') };
 }
 
 export default async function FamilyPage({ params }: PageProps<'/[locale]/family'>) {
@@ -25,7 +26,7 @@ export default async function FamilyPage({ params }: PageProps<'/[locale]/family
       {/* ── Hero ── */}
       <section data-nav-tone="dark" className="surface-shade grain pt-[calc(var(--nav-h)+4rem)] pb-16 md:pt-[calc(var(--nav-h)+7rem)] md:pb-28">
         <div className="container-x">
-          <Reveal>
+          <Reveal immediate>
             <p className="label text-sun">{l(F.hero.eyebrow)}</p>
             <h1 className="mt-6 text-[clamp(4.5rem,2rem+13vw,14rem)] leading-[0.85] font-light tracking-[-0.03em]">{l(F.hero.title)}</h1>
             <p className="mt-10 max-w-2xl text-display-s font-light text-bone/80 italic">{l(F.hero.lede)}</p>
@@ -88,7 +89,7 @@ export default async function FamilyPage({ params }: PageProps<'/[locale]/family
                   {title && <h3 className="mt-3 text-display-s font-light">{title}</h3>}
                   <p className={`mt-3 max-w-xl ${title ? 'text-ink-soft' : 'text-display-s font-light'}`}>{text}</p>
                   {claim && !claim.verified && (
-                    <p className="mt-2 font-mono text-[0.6875rem] text-ink-soft">{locale === 'hr' ? 'Izvor će biti dodan' : 'Source to be added'}</p>
+                    <p className="mt-2 font-mono text-xs text-ink-soft">{locale === 'hr' ? 'Izvor će biti dodan' : 'Source to be added'}</p>
                   )}
                 </Reveal>
               );

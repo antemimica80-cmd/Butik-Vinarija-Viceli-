@@ -15,6 +15,9 @@ import { TradeForm } from '@/components/booking/TradeForm';
 import { fill, formatEur } from '@/lib/format';
 import { todayIn } from '@/lib/booking/time';
 import { stripeEnabled } from '@/lib/stripe';
+import { alternates, jsonLd } from '@/lib/seo';
+import { site } from '@content/site';
+import { absolute, siteUrl } from '@/lib/seo';
 
 export async function generateMetadata({ params }: PageProps<'/[locale]/experience'>): Promise<Metadata> {
   const { locale } = await params;
@@ -22,6 +25,7 @@ export async function generateMetadata({ params }: PageProps<'/[locale]/experien
   return {
     title: l(P.title),
     description: l(P.lede),
+    alternates: alternates(locale as Locale, '/experience'),
   };
 }
 
@@ -65,16 +69,33 @@ export default async function ExperiencePage({ params }: PageProps<'/[locale]/ex
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqLd)} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd({
+          '@context': 'https://schema.org',
+          '@type': 'TouristAttraction',
+          name: locale === 'hr' ? `Degustacija vina — ${site.nameHr}` : `Wine tasting — ${site.nameEn}`,
+          description: l(P.lede),
+          url: absolute(locale, '/experience'),
+          touristType: ['Wine lovers', 'Visitors to Dubrovnik and Pelješac'],
+          isAccessibleForFree: false,
+          address: { '@type': 'PostalAddress', streetAddress: site.address.street, postalCode: site.address.postalCode, addressLocality: site.address.city, addressCountry: 'HR' },
+          provider: { '@id': `${siteUrl}/#winery` },
+          makesOffer: experiences
+            .filter((e) => typeof e.pricePerPerson === 'number')
+            .map((e) => ({ '@type': 'Offer', name: e.name, description: l(e.tagline), price: e.pricePerPerson, priceCurrency: 'EUR', url: `${absolute(locale, '/experience')}#${e.slug}` })),
+        })}
+      />
 
       {/* ── Intro ── */}
       <section data-nav-tone="dark" className="surface-shade grain pt-[calc(var(--nav-h)+4rem)] pb-16 md:pt-[calc(var(--nav-h)+7rem)] md:pb-24">
         <div className="container-x">
-          <Reveal>
+          <Reveal immediate>
             <p className="label text-sun">{l(P.eyebrow)}</p>
             <h1 className="mt-6 text-display-xl font-light">{l(P.title)}</h1>
           </Reveal>
-          <Reveal delay={150} className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <Reveal immediate delay={150} className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <p className="max-w-2xl text-lede text-bone/80">{l(P.lede)}</p>
             <a href="#book" className="btn btn-sun shrink-0">
               {l(P.jump)} <ArrowRight size={16} />

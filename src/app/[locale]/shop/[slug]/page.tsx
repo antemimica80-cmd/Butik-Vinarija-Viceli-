@@ -10,6 +10,8 @@ import { products } from '@/lib/shop/catalog';
 import { ImageSlot } from '@/components/ui/ImageSlot';
 import { AddToCart } from '@/components/shop/AddToCart';
 import { ArrowRight } from '@/components/ui/icons';
+import { absolute, alternates, jsonLd } from '@/lib/seo';
+import { productLd } from '@/lib/shop/ld';
 
 export const dynamicParams = false;
 
@@ -21,7 +23,7 @@ export async function generateMetadata({ params }: PageProps<'/[locale]/shop/[sl
   const { locale, slug } = await params;
   const p = products.find((x) => x.slug === slug);
   if (!p) return {};
-  return { title: p.name, description: p.summary[locale as Locale] };
+  return { title: p.name, description: p.summary[locale as Locale], alternates: alternates(locale as Locale, { pathname: '/shop/[slug]', params: { slug } }) };
 }
 
 export default async function ProductPage({ params }: PageProps<'/[locale]/shop/[slug]'>) {
@@ -35,6 +37,8 @@ export default async function ProductPage({ params }: PageProps<'/[locale]/shop/
   const contents = p.kind === 'gift' ? wines : [];
 
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(productLd(p.slug, locale, absolute(locale, { pathname: '/shop/[slug]', params: { slug: p.slug } })))} />
     <section className="surface-limestone grain pt-[calc(var(--nav-h)+2rem)] pb-20 md:pt-[calc(var(--nav-h)+4rem)] md:pb-32">
       <div className="container-x">
         <Link href="/shop" className="label text-ink-soft hover:text-basalt">
@@ -75,5 +79,6 @@ export default async function ProductPage({ params }: PageProps<'/[locale]/shop/
         </div>
       </div>
     </section>
+    </>
   );
 }

@@ -1,6 +1,3 @@
-import '@fontsource-variable/newsreader/opsz.css';
-import '@fontsource-variable/newsreader/opsz-italic.css';
-import '@fontsource-variable/hanken-grotesk/wght.css';
 import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/500.css';
 import '@/styles/globals.css';
@@ -52,6 +49,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
     <html lang={locale} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: prePaintScript }} />
+        <link rel="preload" href="/fonts/newsreader-display-latin-normal.woff2" as="font" type="font/woff2" crossOrigin="" />
+        <link rel="preload" href="/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossOrigin="" />
       </head>
       <body>
         <NextIntlClientProvider>
