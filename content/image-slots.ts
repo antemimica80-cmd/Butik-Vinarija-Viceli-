@@ -266,6 +266,18 @@ export const imageSlots = {
     },
     src: '/media/gift-box-dingac.jpg',
   },
+  'dingac-features': {
+    kind: 'image',
+    ratio: '2/3',
+    tone: 'shade',
+    shot: 'Dingač bottle with "single vineyard · limited · hand harvested" callouts. TODO: replace with a real photograph before launch.',
+    light: 'Cellar.',
+    alt: {
+      en: 'A bottle of Vicelić Dingač: single vineyard, limited, hand harvested.',
+      hr: 'Boca vina Vicelić Dingač: jedan položaj, ograničena količina, ručna berba.', // REVIEW
+    },
+    src: '/media/dingac-features.jpg',
+  },
   'dingac-highlights': {
     kind: 'image',
     ratio: '2/3',

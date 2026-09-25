@@ -95,7 +95,7 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">
               <Reveal immediate className="relative mx-auto w-1/2 max-w-64 lg:w-full">
-                <ImageSlot id={w.bottleSlot as ImageSlotId} priority sizes="(min-width: 1024px) 25vw, 50vw" />
+                <ImageSlot id={(("dossierSlot" in w && w.dossierSlot) || w.bottleSlot) as ImageSlotId} priority sizes="(min-width: 1024px) 25vw, 50vw" />
                 <Seal text="VICELIĆ · DINGAČ · PELJEŠAC · ORGANIC · " center={no} className="absolute -right-6 -bottom-6 size-24 rotate-[-12deg] text-plavac/70 md:size-28 lg:-right-10" />
               </Reveal>
               <dl className="mt-12 grid grid-cols-2 gap-px bg-basalt/15 font-mono text-sm">

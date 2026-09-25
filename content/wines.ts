@@ -12,6 +12,7 @@ export const wines = [
     vintage: 'TBD',
     price: 'TBD',
     bottleSlot: 'bottle-dingac',
+    dossierSlot: 'dingac-features',
     summary: {
       en: 'The estate wine. Old gobelet vines on shallow red soil and white stone, above the sea.',
       hr: 'Vino imanja. Stari trsovi u gobeletu na plitkoj crvenici i bijelom kamenu, iznad mora.', // REVIEW

@@ -35,6 +35,8 @@ export const wineSchema = z.object({
   vintage: z.union([z.number().int(), z.literal('TBD')]),
   price: tbd,
   bottleSlot: z.string().min(1),
+  /** Optional different image for the dossier page. */
+  dossierSlot: z.string().min(1).optional(),
   summary: localized,
   sheet: z.object({
     parcel: localized,
