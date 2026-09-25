@@ -7,6 +7,8 @@ import { imageSlots } from '../content/image-slots';
 import { historyClaims } from '../content/history-claims';
 import { wines } from '../content/wines';
 import { experiences } from '../content/experiences';
+import { bottlePrice, giftBox, initialStock } from '../content/products';
+import { zones } from '../content/shipping';
 import { experienceSchema, historyClaimSchema, imageSlotSchema, wineSchema } from '../src/lib/content-schema';
 
 let failed = false;
@@ -40,6 +42,14 @@ for (const e of experiences) {
   if (e.wines.length !== e.winesIncluded) fail(`experiences.${e.slug}: winesIncluded (${e.winesIncluded}) ≠ wines listed (${e.wines.length})`);
   if (e.minGuests > e.maxGuests) fail(`experiences.${e.slug}: minGuests > maxGuests`);
 }
+
+for (const w of wines) {
+  if (!(bottlePrice[w.slug] > 0)) fail(`products: no bottle price for ${w.slug}`);
+  if (!(w.slug in initialStock)) fail(`products: no initial stock for ${w.slug}`);
+}
+for (const wine of Object.keys(giftBox.formats[0].bottles)) if (!wines.some((w) => w.slug === wine)) fail(`gift box → unknown wine ${wine}`);
+for (const z of zones) if (z.rate < 0 || z.maxBottles < 1) fail(`shipping zone ${z.id}: bad rate or maxBottles`);
+console.log('✓ products & shipping');
 
 const unverified = Object.entries(historyClaims).filter(([, c]) => !c.verified).map(([id]) => id);
 if (unverified.length) console.log(`  ${unverified.length} history claims are unverified: ${unverified.join(', ')}`);

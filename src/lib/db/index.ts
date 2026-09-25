@@ -41,6 +41,35 @@ CREATE TABLE IF NOT EXISTS blocked (
   reason text NOT NULL DEFAULT '',
   created_at timestamptz NOT NULL DEFAULT now()
 );
+CREATE TABLE IF NOT EXISTS orders (
+  id text PRIMARY KEY,
+  token text NOT NULL,
+  lines jsonb NOT NULL,
+  bottles jsonb NOT NULL,
+  subtotal_cents integer NOT NULL,
+  shipping_cents integer NOT NULL,
+  total_cents integer NOT NULL,
+  vat_cents integer NOT NULL,
+  zone text NOT NULL,
+  country text NOT NULL,
+  name text NOT NULL,
+  email text NOT NULL,
+  phone text NOT NULL DEFAULT '',
+  address jsonb NOT NULL,
+  notes text NOT NULL DEFAULT '',
+  locale text NOT NULL DEFAULT 'en',
+  status text NOT NULL,
+  stock_ok boolean,
+  stripe_session_id text,
+  payment_mode text NOT NULL DEFAULT 'demo',
+  created_at timestamptz NOT NULL DEFAULT now(),
+  paid_at timestamptz,
+  emails_sent_at timestamptz
+);
+CREATE TABLE IF NOT EXISTS stock (
+  wine text PRIMARY KEY,
+  bottles integer NOT NULL CHECK (bottles >= 0)
+);
 CREATE TABLE IF NOT EXISTS enquiries (
   id text PRIMARY KEY,
   kind text NOT NULL,

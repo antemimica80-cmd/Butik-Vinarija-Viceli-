@@ -6,7 +6,7 @@ import { ArrowRight, WhatsAppIcon } from '@/components/ui/icons';
 import { site } from '@content/site';
 
 /** Pages where the sticky booking bar would duplicate the page's own booking flow. */
-const hideBookBarOn = (p: string) => p === '/experience' || p.startsWith('/experience/');
+const hideBookBarOn = (p: string) => p === '/experience' || p.startsWith('/experience/') || p === '/shop/cart' || p === '/shop/checkout' || p === '/shop/ordered';
 
 /**
  * Persistent actions: a sticky "Book a tasting" bar on mobile and a floating

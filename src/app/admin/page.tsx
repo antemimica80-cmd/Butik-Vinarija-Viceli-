@@ -4,6 +4,8 @@ import { availability } from '@content/availability';
 import { listBlocked, listBookings, setBlocked } from '@/lib/booking/store';
 import { formatDate, todayIn } from '@/lib/booking/time';
 import { formatEur } from '@/lib/format';
+import { getStock, listOrders } from '@/lib/shop/store';
+import { addressLines } from '@/lib/shop/confirm';
 
 export const dynamic = 'force-dynamic';
 
@@ -26,7 +28,7 @@ async function unblock(form: FormData) {
 
 export default async function Admin() {
   const today = todayIn(availability.timezone);
-  const [bookings, blocked] = await Promise.all([listBookings(today), listBlocked()]);
+  const [bookings, blocked, orders, stock] = await Promise.all([listBookings(today), listBlocked(), listOrders(50), getStock()]);
   const byDate = Map.groupBy(bookings, (b) => b.date);
   const paid = bookings.filter((b) => b.status === 'paid');
 
@@ -91,6 +93,53 @@ export default async function Admin() {
             </div>
           </div>
         ))}
+      </section>
+
+      <section className="mt-14">
+        <div className="flex flex-wrap items-baseline justify-between gap-4">
+          <h2 className="text-display-s font-light" style={{ fontFamily: 'Georgia, serif' }}>
+            Narudžbe
+          </h2>
+          <p className="font-mono text-sm text-ink-soft">
+            Zalihe: {Object.entries(stock).map(([w, n]) => `${w} ${n}`).join(' · ')}
+          </p>
+        </div>
+        {orders.length === 0 && <p className="mt-4 text-ink-soft">Nema plaćenih narudžbi.</p>}
+        <div className="mt-4 overflow-x-auto">
+          <table className="w-full min-w-[56rem] border-collapse text-sm">
+            <tbody>
+              {orders.map((o) => (
+                <tr key={o.id} className="border-b border-basalt/10 align-top">
+                  <td className="py-2 pr-3 font-mono text-xs">
+                    {o.id}
+                    <br />
+                    {o.paid_at && new Date(o.paid_at).toLocaleString('hr-HR', { timeZone: 'Europe/Zagreb' })}
+                  </td>
+                  <td className="py-2 pr-3">
+                    {o.lines.map((x) => (
+                      <span key={x.sku} className="block">
+                        {x.qty} × {x.name} · {x.format}
+                      </span>
+                    ))}
+                  </td>
+                  <td className="py-2 pr-3">
+                    {o.name}
+                    <br />
+                    <a className="text-ink-soft underline" href={`mailto:${o.email}`}>
+                      {o.email}
+                    </a>{' '}
+                    {o.phone}
+                  </td>
+                  <td className="py-2 pr-3 text-ink-soft">{'pickup' in o.address ? 'Preuzimanje na imanju' : addressLines(o).slice(1).join(', ')}</td>
+                  <td className="py-2 pr-3 font-mono">{formatEur(o.total_cents / 100, 'hr')}</td>
+                  <td className="py-2 font-mono text-xs">
+                    {o.stock_ok === false ? <span className="text-plavac">⚠ ZALIHE</span> : 'OK'} · {o.payment_mode}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section className="mt-14 grid gap-10 lg:grid-cols-2">

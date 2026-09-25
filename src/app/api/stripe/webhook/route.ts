@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import type Stripe from 'stripe';
 import { finalizeBooking } from '@/lib/booking/confirm';
 import { releaseHold } from '@/lib/booking/store';
+import { finalizeOrder } from '@/lib/shop/confirm';
+import { cancelOrder } from '@/lib/shop/store';
 import { stripe, stripeEnabled } from '@/lib/stripe';
 
 export const dynamic = 'force-dynamic';
@@ -26,6 +28,14 @@ export async function POST(req: Request) {
   }
 
   const session = event.data.object as Stripe.Checkout.Session;
+
+  if (session.metadata?.kind === 'order' && session.metadata.order_id) {
+    const orderId = session.metadata.order_id;
+    if ((event.type === 'checkout.session.completed' || event.type === 'checkout.session.async_payment_succeeded') && session.payment_status === 'paid') await finalizeOrder(orderId);
+    if (event.type === 'checkout.session.expired' || event.type === 'checkout.session.async_payment_failed') await cancelOrder(orderId);
+    return NextResponse.json({ received: true });
+  }
+
   const id = session.metadata?.booking_id;
   if (!id || session.metadata?.kind !== 'tasting') return NextResponse.json({ received: true });
 

@@ -53,6 +53,16 @@ end to end in a real browser (needs `npm start` running).
 booking code sits behind one module (`src/lib/booking/store.ts`), so moving to Bókun when
 Viator / GetYourGuide are added means replacing that module, not the pages.
 
+## Shop
+
+`content/products.ts` (prices, stock at launch), `content/shipping.ts` (zones). Three wines ×
+bottle / case of 3 / case of 6, plus the gift box. The cart lives in the browser; the server
+re-prices every checkout from the catalogue (VAT-inclusive, 25 %), checks the delivery zone
+(Croatia, EU, pickup — the US and non-EU are refused with a note) and stock, then opens Stripe
+Checkout (or the demo checkout). Stock is decremented once, when payment is confirmed.
+Order emails go to the customer and to `WINERY_NOTIFY_EMAIL`. `/admin` shows paid orders and stock.
+`node scripts/e2e-shop.mjs` buys a case and a gift box end to end.
+
 ## Where things live
 
 - `content/` — **all copy and data**. Edit here, never in components.

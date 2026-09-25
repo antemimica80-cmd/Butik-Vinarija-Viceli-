@@ -20,13 +20,15 @@ type Props = {
   compact?: boolean;
   /** Put the placeholder label at the top (when text overlays the bottom). */
   labelTop?: boolean;
+  /** No placeholder label at all (tiny thumbnails). */
+  bare?: boolean;
 };
 
 /**
  * A named photography slot. Renders the real image when `src` is set in
  * content/image-slots.ts, otherwise a neutral tone with the art-direction label.
  */
-export function ImageSlot({ id, sizes = '100vw', priority, className = '', fill, compact, labelTop }: Props) {
+export function ImageSlot({ id, sizes = '100vw', priority, className = '', fill, compact, labelTop, bare }: Props) {
   const locale = useLocale() as 'en' | 'hr';
   const slot = imageSlots[id];
   const style = {
@@ -51,8 +53,9 @@ export function ImageSlot({ id, sizes = '100vw', priority, className = '', fill,
       className={`${frame} grain overflow-hidden ${toneClass[slot.tone]} ${className}`}
       style={style}
     >
-      <div className="absolute inset-3 border border-current opacity-20 md:inset-5" aria-hidden />
+      {!bare && <div className="absolute inset-3 border border-current opacity-20 md:inset-5" aria-hidden />}
       <div
+        hidden={bare}
         className={`absolute inset-x-5 max-w-md md:inset-x-8 ${labelTop ? 'top-[calc(var(--nav-h)+1.25rem)] md:top-[calc(var(--nav-h)+2rem)]' : 'bottom-5 md:bottom-8'}`}
         aria-hidden
       >

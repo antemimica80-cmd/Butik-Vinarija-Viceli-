@@ -52,11 +52,13 @@ Proposal values chosen for the pitch. The owner must confirm them all.
 - 🟡 Trade enquiries: who answers, and the promised reply time (one working day)
 
 ## Wines & shop (stages 5–6)
-- 🔴 All bottle prices (`TBD`)
-- 🔴 Case prices (3 and 6 bottles) and gift box price (3 wines, wooden box)
+- 🔴 Bottle prices — proposal values in content/products.ts: Dingač €55, Plavac Mali €28, Opolo Rosé €22
+- 🔴 Cases are priced as n × bottle (no discount) — confirm, or set a case discount
+- 🔴 Gift box: name ("The Three Suns Box" is a proposal), price (proposal €115), photo
 - 🔴 Current vintage for each wine
-- 🔴 Stock counts
-- 🔴 Shipping rates per zone (Croatia, EU)
+- 🔴 Stock counts (proposal: 600 / 300 / 240 bottles in content/products.ts)
+- 🔴 Shipping rates — proposal in content/shipping.ts: Croatia €7 (free from 6 bottles), EU €25; courier and parcel limits (36 HR / 18 EU bottles)
+- 🟡 Pickup at the estate — confirm this is offered
 - 🔴 **EU shipping of wine**: excise duty is due in the buyer's country, and a tax representative is usually required. The owner must confirm this is in place before EU zones are switched on.
 - 🟡 Technical sheet details for Plavac Mali and Opolo Rosé (confirm against labels)
 - 🟡 Parcel names for Plavac Mali and Opolo Rosé (`TBD` in content/wines.ts)
