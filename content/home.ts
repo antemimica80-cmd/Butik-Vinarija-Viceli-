@@ -78,8 +78,8 @@ export const home = {
     eyebrow: { en: 'Dingač · Pelješac', hr: 'Dingač · Pelješac' },
     title: { en: 'One terroir. Three suns.', hr: 'Jedan terroir. Tri sunca.' }, // REVIEW
     body: {
-      en: 'Dingač falls steeply from the ridge to the sea. The vines get three suns: from the sky, off the sea, and from the white stone that holds the heat. This is where the Vicelić family keeps its vines.',
-      hr: 'Dingač se strmo spušta od grebena do mora. Loza dobiva tri sunca: s neba, s mora i iz bijelog kamena koji čuva toplinu. Ovdje obitelj Vicelić čuva svoje vinograde.', // REVIEW
+      en: 'Dingač falls steeply from the ridge to the sea. The vines get three suns: from the sky, off the sea, and from the white stone that holds the heat. This is where the Vicelić family tends its vines.',
+      hr: 'Dingač se strmo spušta od grebena do mora. Loza dobiva tri sunca: s neba, s mora i iz bijelog kamena koji drži toplinu. Ovdje obitelj Vicelić obrađuje svoje vinograde.', // REVIEW
     },
     family: { en: 'The family', hr: 'Obitelj' },
     dingac: { en: 'Discover Dingač', hr: 'Otkrijte Dingač' }, // REVIEW

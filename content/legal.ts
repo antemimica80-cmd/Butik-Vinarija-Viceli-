@@ -126,11 +126,11 @@ export const legal: Record<'terms' | 'privacy' | 'cookies' | 'imprint', LegalPag
           hr: 'Stripe (plaćanja), Resend (e-pošta), pružatelji hostinga i baze podataka (TODO: potvrditi, npr. Vercel i Neon), Plausible (analitika). Neki su izvan EU i koriste standardne ugovorne klauzule EU.',
         },
       },
-      { h: { en: 'How long we keep it', hr: 'Koliko dugo čuvamo podatke' } },
+      { h: { en: 'How long we keep it', hr: 'Koliko dugo pohranjujemo podatke' } },
       {
         p: {
           en: 'Booking and order records are kept as long as accounting law requires (TODO: confirm the period with the accountant). Enquiries are deleted after 2 years without contact.',
-          hr: 'Evidencija rezervacija i narudžbi čuva se onoliko koliko propisuje zakon o računovodstvu (TODO: rok potvrditi s računovođom). Upiti se brišu nakon 2 godine bez kontakta.',
+          hr: 'Evidencija rezervacija i narudžbi pohranjuje se onoliko koliko propisuje zakon o računovodstvu (TODO: rok potvrditi s računovođom). Upiti se brišu nakon 2 godine bez kontakta.',
         },
       },
       { h: { en: 'Your rights', hr: 'Vaša prava' } },

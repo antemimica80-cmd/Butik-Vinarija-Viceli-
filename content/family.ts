@@ -10,16 +10,16 @@ export type Beat = { claim: ClaimId } | { year: L; title: L; text: L; placeholde
 export const familyPage = {
   meta: {
     description: {
-      en: 'The Vicelić family keeps something rare alive on Dingač: organic Plavac Mali, wild yeast, nothing added. The family behind the only certified organic Dingač.',
-      hr: 'Obitelj Vicelić čuva nešto rijetko na Dingaču: ekološki plavac mali, divlji kvasci, ništa dodano. Obitelj iza jedinog ekološki certificiranog Dingača.', // REVIEW
+      en: 'The Vicelić family makes something rare on Dingač: organic Plavac Mali, wild yeast, nothing added. The family behind the only certified organic Dingač.',
+      hr: 'Obitelj Vicelić stvara nešto rijetko na Dingaču: ekološki plavac mali, divlji kvasci, ništa dodano. Obitelj iza jedinog ekološki certificiranog Dingača.', // REVIEW
     },
   },
   hero: {
     eyebrow: { en: 'The Family', hr: 'Obitelj' },
-    title: { en: 'Vicelić.', hr: 'Vicelić.' }, // REVIEW
+    title: { en: 'The Winemaker.', hr: 'Vinar.' }, // REVIEW
     lede: {
-      en: 'Some families make wine. This one keeps a place — and the way of working it — alive.',
-      hr: 'Neke obitelji rade vino. Ova čuva mjesto — i način na koji se ono obrađuje.', // REVIEW
+      en: 'Some families make wine. This one makes it from Dingač — organically, by hand, with no shortcuts.',
+      hr: 'Neke obitelji rade vino. Ova ga radi s Dingača — ekološki, rukama, bez prečaca.', // REVIEW
     },
   },
   mateo: {

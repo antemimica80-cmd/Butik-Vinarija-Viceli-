@@ -133,7 +133,7 @@ export default async function DesignPage({ params }: PageProps<'/[locale]/design
               <p className="label mb-3 text-ink-soft">Body · 17 / 1.65</p>
               <p>
                 Plavac Mali only. Certified organic. Spontaneous fermentation with the yeasts that live on the grapes. No enzymes, no additives,
-                nothing corrected. The terroir decides; the family keeps.
+                nothing corrected. The terroir decides; the family makes the wine.
               </p>
               <p className="mt-4 text-ink-soft">
                 Hrvatski: Samo plavac mali. Ekološki certificirano. Spontana fermentacija divljim kvascima — čćđšž ČĆĐŠŽ.
