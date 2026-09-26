@@ -285,3 +285,26 @@ html:not([data-js]) .three-suns .ts-labels { opacity: 1; }
 @media (max-width: 63.99rem) {
   html[data-booking-bar] .wa-fab { bottom: calc(5.25rem + env(safe-area-inset-bottom)); }
 }
+
+/* ───────────── Organic ledger: inputs struck through one by one ───────────── */
+.organic-ledger .ledger-strike {
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-sun), var(--color-sun));
+  background-repeat: no-repeat;
+  background-position: 0 58%;
+  background-size: 0% 1.5px;
+  transition: background-size 0.7s var(--ease-weighted), color 0.7s ease;
+  transition-delay: calc(400ms + var(--i) * 260ms);
+}
+.organic-ledger[data-visible='true'] .ledger-strike { background-size: 100% 1.5px; }
+.organic-ledger .ledger-is { opacity: 0; transition: opacity 1.2s var(--ease-weighted) 2.3s; }
+.organic-ledger[data-visible='true'] .ledger-is { opacity: 1; }
+.organic-ledger .ledger-seal { animation: ledger-spin 60s linear infinite; }
+@keyframes ledger-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .organic-ledger .ledger-strike { background-size: 100% 1.5px; }
+  .organic-ledger .ledger-is { opacity: 1; }
+  .organic-ledger .ledger-seal { animation: none; }
+}
+html:not([data-js]) .organic-ledger .ledger-strike { background-size: 100% 1.5px; }
+html:not([data-js]) .organic-ledger .ledger-is { opacity: 1; }

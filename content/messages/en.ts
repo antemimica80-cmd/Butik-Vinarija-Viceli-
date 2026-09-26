@@ -77,7 +77,7 @@ const en = {
   stub: {
     experience: { eyebrow: 'Tastings', title: 'The Experience' },
     dingac: { eyebrow: 'The grand cru of the Adriatic', title: 'Dingač' },
-    family: { eyebrow: 'The Keeper', title: 'The Family' },
+    family: { eyebrow: 'Dingač · Pelješac', title: 'The Family' },
     wines: { eyebrow: 'Three wines', title: 'The Wines' },
     shop: { eyebrow: 'Bottles', title: 'Shop' },
     visit: { eyebrow: 'Pijavičino, Pelješac', title: 'Visit' },

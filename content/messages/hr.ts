@@ -76,7 +76,7 @@ const hr: Messages = {
   stub: {
     experience: { eyebrow: 'Degustacije', title: 'Iskustvo' }, // REVIEW
     dingac: { eyebrow: 'Grand cru Jadrana', title: 'Dingač' }, // REVIEW
-    family: { eyebrow: 'Čuvar', title: 'Obitelj' }, // REVIEW
+    family: { eyebrow: 'Dingač · Pelješac', title: 'Obitelj' },
     wines: { eyebrow: 'Tri vina', title: 'Vina' },
     shop: { eyebrow: 'Boce', title: 'Trgovina' },
     visit: { eyebrow: 'Pijavičino, Pelješac', title: 'Posjet' },

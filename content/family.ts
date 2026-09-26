@@ -1,5 +1,5 @@
 /**
- * The Family page — the Keeper story. Dated history comes from history-claims.ts.
+ * The Family page — the people behind the only certified organic Dingač. Dated history comes from history-claims.ts.
  * Anything the owner has not yet told us is a visible placeholder, never invented.
  */
 import type { ClaimId } from './history-claims';
@@ -10,13 +10,13 @@ export type Beat = { claim: ClaimId } | { year: L; title: L; text: L; placeholde
 export const familyPage = {
   meta: {
     description: {
-      en: 'The Vicelić family keeps something rare alive on Dingač: organic Plavac Mali, wild yeast, nothing added. The story of the Keeper.',
-      hr: 'Obitelj Vicelić čuva nešto rijetko na Dingaču: ekološki plavac mali, divlji kvasci, ništa dodano. Priča o Čuvaru.', // REVIEW
+      en: 'The Vicelić family keeps something rare alive on Dingač: organic Plavac Mali, wild yeast, nothing added. The family behind the only certified organic Dingač.',
+      hr: 'Obitelj Vicelić čuva nešto rijetko na Dingaču: ekološki plavac mali, divlji kvasci, ništa dodano. Obitelj iza jedinog ekološki certificiranog Dingača.', // REVIEW
     },
   },
   hero: {
     eyebrow: { en: 'The Family', hr: 'Obitelj' },
-    title: { en: 'The Keeper.', hr: 'Čuvar.' }, // REVIEW
+    title: { en: 'Vicelić.', hr: 'Vicelić.' }, // REVIEW
     lede: {
       en: 'Some families make wine. This one keeps a place — and the way of working it — alive.',
       hr: 'Neke obitelji rade vino. Ova čuva mjesto — i način na koji se ono obrađuje.', // REVIEW
@@ -87,7 +87,7 @@ export const familyPage = {
     ],
   },
   cta: {
-    title: { en: 'Meet the Keeper.', hr: 'Upoznajte Čuvara.' }, // REVIEW
+    title: { en: 'Meet Mateo.', hr: 'Upoznajte Matea.' }, // REVIEW
     body: {
       en: 'Dingač Private is a morning in the vineyard and the cellar with Mateo himself.',
       hr: 'Dingač Private je jutro u vinogradu i podrumu s Mateom osobno.', // REVIEW

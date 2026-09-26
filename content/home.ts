@@ -22,6 +22,21 @@ export const organic = {
     { en: 'Wild yeast, nothing added', hr: 'Divlji kvasci, ništa dodano' },
   ],
   cta: { en: 'Read the Dingač dossier', hr: 'Pročitajte dosje Dingača' }, // REVIEW
+  /** The "not in the bottle" card that stands in for a photo in the organic sections. */
+  ledger: {
+    notTitle: { en: 'What is not in the bottle', hr: 'Čega nema u boci' }, // REVIEW
+    not: [
+      { en: 'Herbicides', hr: 'Herbicidi' },
+      { en: 'Synthetic pesticides', hr: 'Sintetički pesticidi' },
+      { en: 'Artificial fertilisers', hr: 'Umjetna gnojiva' },
+      { en: 'Cultured yeast', hr: 'Selekcionirani kvasci' }, // REVIEW
+      { en: 'Enzymes', hr: 'Enzimi' },
+      { en: 'Additives', hr: 'Aditivi' },
+    ],
+    isTitle: { en: 'What is', hr: 'Što jest' }, // REVIEW
+    is: { en: 'Sun. Stone. Sea. Hands. Wild yeast.', hr: 'Sunce. Kamen. More. Ruke. Divlji kvasci.' }, // REVIEW
+    seal: 'CERTIFIED ORGANIC · DINGAČ · VICELIĆ · ',
+  },
 };
 
 export const home = {

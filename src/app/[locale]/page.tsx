@@ -7,6 +7,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { ArrowRight, WhatsAppIcon } from '@/components/ui/icons';
 import { home, organic } from '@content/home';
 import { Leaf, OrganicBadge } from '@/components/ui/OrganicBadge';
+import { OrganicLedger } from '@/components/signature/OrganicLedger';
 import { site } from '@content/site';
 import type { ImageSlotId } from '@content/image-slots';
 import type { Metadata } from 'next';
@@ -96,9 +97,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
               {l(home.farming.cta)} <ArrowRight size={14} />
             </Link>
           </Reveal>
-          <Reveal delay={150} className="mx-auto w-full max-w-md lg:col-span-5 lg:col-start-8">
-            <ImageSlot id="dingac-organic" sizes="(min-width: 1024px) 36vw, 90vw" />
-          </Reveal>
+          <OrganicLedger locale={locale} className="mx-auto w-full max-w-md lg:col-span-5 lg:col-start-8" />
         </div>
       </section>
 
