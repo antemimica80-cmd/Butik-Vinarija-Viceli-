@@ -41,7 +41,7 @@ export function TradeForm({ locale }: { locale: 'en' | 'hr' }) {
   );
 
   return (
-    <form onSubmit={submit} className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={submit} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       {field('company', 'text', true, 'organization')}
       <div>
         <label htmlFor="t-role" className="text-sm text-bone/80">
@@ -67,7 +67,7 @@ export function TradeForm({ locale }: { locale: 'en' | 'hr' }) {
       </div>
       <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
       <div className="sm:col-span-2">
-        <button type="submit" className="btn btn-sun" disabled={state === 'loading'}>
+        <button type="submit" className="btn btn-sun w-full whitespace-normal text-center sm:w-auto" disabled={state === 'loading'}>
           {l(t.submit)}
         </button>
         {state === 'preview' && (

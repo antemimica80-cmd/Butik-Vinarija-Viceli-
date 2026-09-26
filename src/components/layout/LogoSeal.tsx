@@ -11,7 +11,7 @@ export function LogoSeal({ className = '', small, label }: { className?: string;
       role={label ? 'img' : undefined}
       aria-label={label}
       aria-hidden={label ? undefined : true}
-      className={`inline-block shrink-0 bg-current ${className}`}
+      className={`${/(^|\s)hidden(\s|$)/.test(className) ? '' : 'inline-block'} shrink-0 bg-current ${className}`}
       style={{ WebkitMask: `url(${url}) center / contain no-repeat`, mask: `url(${url}) center / contain no-repeat` }}
     />
   );

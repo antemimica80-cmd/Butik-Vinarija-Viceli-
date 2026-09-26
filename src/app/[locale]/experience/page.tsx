@@ -191,7 +191,7 @@ export default async function ExperiencePage({ params }: PageProps<'/[locale]/ex
       <section id="tastings" className="surface-sun grain scroll-mt-[var(--nav-h)] py-28 md:py-40" aria-label={l(P.heroSecondary)}>
         <div className="container-x space-y-32 md:space-y-40">
           {editorial.map((e, i) => (
-            <article key={e.slug} id={e.slug} className="grid scroll-mt-[calc(var(--nav-h)+2rem)] items-center gap-12 lg:grid-cols-12 lg:gap-20">
+            <article key={e.slug} id={e.slug} className="grid scroll-mt-[calc(var(--nav-h)+2rem)] grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-20">
               <Reveal className={`lg:col-span-7 ${i % 2 ? 'lg:order-2' : ''}`}>
                 <ImageSlot id={e.imageSlot as ImageSlotId} ratio="4/5" sizes="(min-width: 1024px) 58vw, 100vw" />
               </Reveal>
@@ -206,7 +206,7 @@ export default async function ExperiencePage({ params }: PageProps<'/[locale]/ex
                 </Reveal>
                 <Reveal delay={120} className="mt-10">
                   <Price e={e} locale={locale} />
-                  <a href={`#book=${e.slug}`} className="btn btn-primary mt-6">
+                  <a href={`#book=${e.slug}`} className="btn btn-primary mt-6 max-w-full whitespace-normal text-center">
                     {fill(l(P.bookNamed), { name: e.name })} <ArrowRight size={16} />
                   </a>
                   <Details e={e} locale={locale} />
@@ -226,7 +226,7 @@ export default async function ExperiencePage({ params }: PageProps<'/[locale]/ex
               <span aria-hidden className="h-px w-12 bg-sun/60" />
               <p className="label text-bone/60">{fill(l(P.signature.detail), { max: signature.maxGuests })}</p>
             </Reveal>
-            <div className="mt-12 grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
+            <div className="mt-12 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-20">
               <Reveal className="lg:col-span-7">
                 <ImageSlot id="dingac-slope" ratio="4/5" sizes="(min-width: 1024px) 58vw, 100vw" />
               </Reveal>
@@ -243,7 +243,7 @@ export default async function ExperiencePage({ params }: PageProps<'/[locale]/ex
                   <div className="border-t border-bone/15 pt-8">
                     <Price e={signature} locale={locale} dark />
                   </div>
-                  <a href={`#book=${signature.slug}`} className="btn btn-sun mt-6">
+                  <a href={`#book=${signature.slug}`} className="btn btn-sun mt-6 max-w-full whitespace-normal text-center">
                     {fill(l(P.bookNamed), { name: signature.name })} <ArrowRight size={16} />
                   </a>
                   <Details e={signature} locale={locale} dark />
@@ -286,7 +286,7 @@ export default async function ExperiencePage({ params }: PageProps<'/[locale]/ex
           </div>
         </div>
         <div className="surface-sun grain py-20 md:py-28">
-          <div className="container-x grid gap-14 lg:grid-cols-12 lg:gap-20">
+          <div className="container-x grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-5">
               <ol className="flex items-start justify-between gap-2 sm:gap-4" aria-label={l(P.where.eyebrow)}>
                 {P.route.map((stop, i) => (
@@ -314,7 +314,7 @@ export default async function ExperiencePage({ params }: PageProps<'/[locale]/ex
 
       {/* ── FAQ: light accordion ── */}
       <section className="surface-limestone grain py-20 md:py-28" aria-labelledby="faq-title">
-        <div className="container-x grid gap-10 lg:grid-cols-12 lg:gap-16">
+        <div className="container-x grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
           <h2 id="faq-title" className="text-display-s font-light lg:col-span-4">
             {l(P.faqTitle)}
           </h2>
@@ -348,7 +348,7 @@ export default async function ExperiencePage({ params }: PageProps<'/[locale]/ex
               {l(P.tradeBanner.cta)} <ArrowRight size={14} />
             </span>
           </summary>
-          <div className="grid gap-10 border-t border-bone/15 py-12 lg:grid-cols-12 lg:gap-16">
+          <div className="grid grid-cols-1 gap-10 border-t border-bone/15 py-12 lg:grid-cols-12 lg:gap-16">
             <p className="text-bone/75 lg:col-span-4">{l(P.trade.body)}</p>
             <div className="lg:col-span-8">
               <TradeForm locale={locale} />

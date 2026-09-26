@@ -28,7 +28,7 @@ export default async function FamilyPage({ params }: PageProps<'/[locale]/family
         <div className="container-x">
           <Reveal immediate>
             <p className="label text-sun">{l(F.hero.eyebrow)}</p>
-            <h1 className="mt-10 pt-[0.12em] text-[clamp(4.5rem,2rem+13vw,14rem)] leading-[0.85] font-light tracking-[-0.03em]">{l(F.hero.title)}</h1>
+            <h1 className="mt-10 pt-[0.12em] text-[clamp(3.25rem,1rem+12vw,12rem)] leading-[0.85] font-light tracking-[-0.03em]">{l(F.hero.title)}</h1>
             <p className="mt-10 max-w-2xl text-display-s font-light text-bone/80 italic">{l(F.hero.lede)}</p>
           </Reveal>
         </div>
