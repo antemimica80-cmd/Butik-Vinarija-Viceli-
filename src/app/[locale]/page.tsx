@@ -125,7 +125,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
         </ul>
       </section>
 
-      {/* ── The place: one slope, three suns ─────────────────── */}
+      {/* ── The place: one terroir, three suns ─────────────────── */}
       <section className="surface-sun grain py-24 md:py-36" aria-labelledby="story-title">
         <div className="container-x grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-6">

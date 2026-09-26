@@ -16,7 +16,7 @@ export const availability = {
   ] as string[],
   /**
    * Whether all experiences share one pool of seats per time slot.
-   * false = each experience has its own capacity (e.g. The Slope on the terrace and
+   * false = each experience has its own capacity (e.g. The Terroir on the terrace and
    * Dingač Private in the vineyard can run at the same time).
    */
   sharedCapacity: false,

@@ -126,7 +126,7 @@ export const shopCopy = {
   ordered: {
     eyebrow: { en: 'Order confirmed', hr: 'Narudžba potvrđena' },
     title: { en: 'The bottles are on their way.', hr: 'Boce su na putu.' }, // REVIEW
-    pickupTitle: { en: 'Your bottles are waiting on the slope.', hr: 'Vaše boce čekaju na obronku.' }, // REVIEW
+    pickupTitle: { en: 'Your bottles are waiting at the estate.', hr: 'Vaše boce čekaju na imanju.' }, // REVIEW
     sentTo: { en: 'A confirmation has been sent to {email}.', hr: 'Potvrda je poslana na {email}.' },
     reference: { en: 'Order', hr: 'Narudžba' },
     pendingTitle: { en: 'Confirming your payment…', hr: 'Potvrđujemo vaše plaćanje…' },

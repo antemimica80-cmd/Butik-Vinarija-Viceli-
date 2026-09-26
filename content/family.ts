@@ -48,7 +48,7 @@ export const familyPage = {
       {
         year: { en: 'The return · year TBD', hr: 'Povratak · godina TBD' },
         title: { en: 'Mateo replants', hr: 'Mateo ponovno sadi' }, // REVIEW
-        text: { en: 'Mateo Vicelić replants and revives the family’s vineyards on the slope.', hr: 'Mateo Vicelić ponovno sadi i oživljava obiteljske vinograde na obronku.' }, // REVIEW
+        text: { en: 'Mateo Vicelić replants and revives the family’s vineyards on the terroir.', hr: 'Mateo Vicelić ponovno sadi i oživljava obiteljske vinograde na terroiru.' }, // REVIEW
         placeholder: true,
       },
       {
@@ -70,7 +70,7 @@ export const familyPage = {
     rules: [
       {
         name: { en: 'Organic', hr: 'Ekološki' },
-        text: { en: 'Certified. No pesticides, no herbicides, no synthetic fertilisers on the slope.', hr: 'Certificirano. Na obronku nema pesticida, herbicida ni umjetnih gnojiva.' }, // REVIEW
+        text: { en: 'Certified. No pesticides, no herbicides, no synthetic fertilisers on the terroir.', hr: 'Certificirano. Na terroiru nema pesticida, herbicida ni umjetnih gnojiva.' }, // REVIEW
       },
       {
         name: { en: 'Wild yeast', hr: 'Divlji kvasci' },

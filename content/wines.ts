@@ -55,8 +55,8 @@ export const wines = [
     price: 'TBD',
     bottleSlot: 'bottle-plavac',
     summary: {
-      en: 'Light, almost translucent. The slope at its most direct. Serve it slightly cool.',
-      hr: 'Lagano, gotovo prozirno. Obronak u najizravnijem obliku. Poslužite lagano rashlađeno.', // REVIEW
+      en: 'Light, almost translucent. The terroir at its most direct. Serve it slightly cool.',
+      hr: 'Lagano, gotovo prozirno. Terroir u najizravnijem obliku. Poslužite lagano rashlađeno.', // REVIEW
     },
     sheet: {
       parcel: { en: 'TBD', hr: 'TBD' }, // TODO: parcel name
@@ -172,7 +172,7 @@ export const winesCopy = {
   worldwide: { en: 'Worldwide.', hr: 'Na cijelom svijetu.' }, // REVIEW
   buy: { en: 'Buy bottles', hr: 'Kupite boce' },
   gallery: { en: 'More of this wine', hr: 'Još o ovom vinu' }, // REVIEW
-  taste: { en: 'Taste it on the slope', hr: 'Kušajte ga na obronku' }, // REVIEW
+  taste: { en: 'Taste it on its terroir', hr: 'Kušajte ga na njegovom terroiru' }, // REVIEW
   shopSoon: { en: 'Online shop: prices to be confirmed.', hr: 'Web-trgovina: cijene za potvrdu.' }, // REVIEW
   prev: { en: 'Previous dossier', hr: 'Prethodni dosje' },
   next: { en: 'Next dossier', hr: 'Sljedeći dosje' },

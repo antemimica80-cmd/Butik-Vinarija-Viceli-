@@ -8,8 +8,8 @@ import type { ClaimId } from './history-claims';
 export const dingacPage = {
   meta: {
     description: {
-      en: 'Dingač: one steep slope on Pelješac, Croatia’s first protected wine origin. Three suns, white stone, a tunnel dug by hand.',
-      hr: 'Dingač: jedan strmi obronak na Pelješcu, prvo zaštićeno podrijetlo vina u Hrvatskoj. Tri sunca, bijeli kamen, tunel iskopan rukama.', // REVIEW
+      en: 'Dingač: a singular terroir on Pelješac, Croatia’s first protected wine origin. Three suns, white stone, a tunnel dug by hand.',
+      hr: 'Dingač: jedinstven terroir na Pelješcu, prvo zaštićeno podrijetlo vina u Hrvatskoj. Tri sunca, bijeli kamen, tunel iskopan rukama.', // REVIEW
     },
   },
   hero: {
@@ -21,11 +21,11 @@ export const dingacPage = {
     },
   },
   slope: {
-    label: { en: 'I · The slope', hr: 'I · Obronak' },
+    label: { en: 'I · The terroir', hr: 'I · Terroir' },
     title: { en: 'Too steep for machines. Just right for the vine.', hr: 'Prestrmo za strojeve. Taman za lozu.' }, // REVIEW
     body: {
-      en: 'The vines stand alone, each one trained low as a bush — en gobelet — so the wind cannot take them and the stone can warm them. Everything is done by hand: pruning, tending, harvest. The slope decides how much it will give.',
-      hr: 'Trsovi stoje sami, svaki uzgojen nisko kao grm — u gobelet — da ih vjetar ne odnese, a kamen ugrije. Sve se radi rukama: rezidba, njega, berba. Obronak odlučuje koliko će dati.', // REVIEW
+      en: 'The vines stand alone, each one trained low as a bush — en gobelet — so the wind cannot take them and the stone can warm them. Everything is done by hand: pruning, tending, harvest. The terroir decides how much it will give.',
+      hr: 'Trsovi stoje sami, svaki uzgojen nisko kao grm — u gobelet — da ih vjetar ne odnese, a kamen ugrije. Sve se radi rukama: rezidba, njega, berba. Terroir odlučuje koliko će dati.', // REVIEW
     },
   },
   stone: {
@@ -49,8 +49,8 @@ export const dingacPage = {
     claim: 'pdo-1961' as ClaimId,
     title: { en: 'Croatia’s first protected wine origin.', hr: 'Prvo zaštićeno podrijetlo vina u Hrvatskoj.' }, // REVIEW
     positioning: {
-      en: 'Croatia has no legal classification of great vineyards, and we do not pretend otherwise. When we call Dingač the grand cru of the Adriatic, we mean what the history and the research say about this slope — not a label on a map.',
-      hr: 'Hrvatska nema zakonsku klasifikaciju velikih vinograda i ne pravimo se da je ima. Kad Dingač zovemo grand cru Jadrana, mislimo na ono što o ovom obronku govore povijest i istraživanja — ne na oznaku na karti.', // REVIEW
+      en: 'Croatia has no legal classification of great vineyards, and we do not pretend otherwise. When we call Dingač the grand cru of the Adriatic, we mean what the history and the research say about this terroir — not a label on a map.',
+      hr: 'Hrvatska nema zakonsku klasifikaciju velikih vinograda i ne pravimo se da je ima. Kad Dingač zovemo grand cru Jadrana, mislimo na ono što o ovom terroiru govore povijest i istraživanja — ne na oznaku na karti.', // REVIEW
     },
   },
   tunnel: {
@@ -72,7 +72,7 @@ export const dingacPage = {
   },
   cta: {
     title: { en: 'Stand on it.', hr: 'Stanite na njega.' }, // REVIEW
-    body: { en: 'The best way to understand Dingač is a glass of it, on the slope.', hr: 'Dingač se najbolje razumije uz čašu, na obronku.' }, // REVIEW
+    body: { en: 'The best way to understand Dingač is a glass of it, on its terroir.', hr: 'Dingač se najbolje razumije uz čašu, na njegovom terroiru.' }, // REVIEW
     book: { en: 'Book a tasting', hr: 'Rezerviraj degustaciju' },
     wines: { en: 'The wines', hr: 'Vina' },
   },

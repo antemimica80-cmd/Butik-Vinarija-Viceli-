@@ -60,7 +60,7 @@ export default async function DesignPage({ params }: PageProps<'/[locale]/design
           <p className="label text-sun">Stage 1 · Design system</p>
           <h1 className="mt-6 text-display-xl font-light">Stone, sun, silence, weight.</h1>
           <p className="mt-8 max-w-2xl text-lede text-bone/80">
-            The palette is taken from the slope: limestone, basalt, the black-red of Plavac, sun-bleached gold. Dark and light sections
+            The palette is taken from the terroir: limestone, basalt, the black-red of Plavac, sun-bleached gold. Dark and light sections
             alternate like shade and sun on Dingač.
           </p>
         </div>
@@ -133,7 +133,7 @@ export default async function DesignPage({ params }: PageProps<'/[locale]/design
               <p className="label mb-3 text-ink-soft">Body · 17 / 1.65</p>
               <p>
                 Plavac Mali only. Certified organic. Spontaneous fermentation with the yeasts that live on the grapes. No enzymes, no additives,
-                nothing corrected. The slope decides; the family keeps.
+                nothing corrected. The terroir decides; the family keeps.
               </p>
               <p className="mt-4 text-ink-soft">
                 Hrvatski: Samo plavac mali. Ekološki certificirano. Spontana fermentacija divljim kvascima — čćđšž ČĆĐŠŽ.

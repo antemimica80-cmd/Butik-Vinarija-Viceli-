@@ -9,8 +9,8 @@ export const experiencePage = {
   title: { en: 'The Experience', hr: 'Degustacije' }, // REVIEW — used for the page title / SEO
   heroTitle: { en: ['Taste Dingač', 'where it is born.'], hr: ['Kušajte Dingač', 'ondje gdje nastaje.'] }, // REVIEW
   heroLede: {
-    en: 'Three tastings on the slope above the Adriatic. Choose a date, pay securely, and the family will be waiting.',
-    hr: 'Tri degustacije na obronku iznad Jadrana. Odaberite datum, platite sigurno, a obitelj vas čeka.', // REVIEW
+    en: 'Three tastings on the Dingač terroir, above the Adriatic. Choose a date, pay securely, and the family will be waiting.',
+    hr: 'Tri degustacije na terroiru Dingača, iznad Jadrana. Odaberite datum, platite sigurno, a obitelj vas čeka.', // REVIEW
   },
   heroCta: { en: 'Book a tasting', hr: 'Rezerviraj degustaciju' },
   heroSecondary: { en: 'The three tastings', hr: 'Tri degustacije' }, // REVIEW
@@ -26,7 +26,7 @@ export const experiencePage = {
     detail: { en: 'Private · max {max} guests', hr: 'Privatno · najviše {max} gostiju' }, // REVIEW
   },
   bookingEyebrow: { en: 'Reserve', hr: 'Rezervacija' },
-  bookingTitle: { en: 'Choose your day on the slope.', hr: 'Odaberite svoj dan na obronku.' }, // REVIEW
+  bookingTitle: { en: 'Choose your day on the terroir.', hr: 'Odaberite svoj dan na terroiru.' }, // REVIEW
   whereOverlay: {
     en: ['Above the Adriatic.', 'On the southern slopes of Pelješac.'],
     hr: ['Iznad Jadrana.', 'Na južnim obroncima Pelješca.'], // REVIEW
@@ -42,8 +42,8 @@ export const experiencePage = {
     cta: { en: 'Enquire', hr: 'Upit' },
   },
   lede: {
-    en: 'Three tastings, one slope. Choose a date, choose a time, pay securely. You will have a confirmation in your inbox before you close this page.',
-    hr: 'Tri degustacije, jedan obronak. Odaberite datum i vrijeme, platite sigurno. Potvrda će vam stići e-poštom prije nego zatvorite ovu stranicu.', // REVIEW
+    en: 'Three tastings, one terroir. Choose a date, choose a time, pay securely. You will have a confirmation in your inbox before you close this page.',
+    hr: 'Tri degustacije, jedan terroir. Odaberite datum i vrijeme, platite sigurno. Potvrda će vam stići e-poštom prije nego zatvorite ovu stranicu.', // REVIEW
   },
   jump: { en: 'Choose a date', hr: 'Odaberite datum' }, // REVIEW
   perPerson: { en: 'per person', hr: 'po osobi' },
@@ -163,7 +163,7 @@ export const widget = {
 
 export const confirmation = {
   eyebrow: { en: 'Booking confirmed', hr: 'Rezervacija potvrđena' }, // REVIEW
-  title: { en: 'The slope is expecting you.', hr: 'Obronak vas očekuje.' }, // REVIEW
+  title: { en: 'The terroir is expecting you.', hr: 'Terroir vas očekuje.' }, // REVIEW
   pendingTitle: { en: 'Confirming your payment…', hr: 'Potvrđujemo vaše plaćanje…' }, // REVIEW
   pendingBody: { en: 'This takes a few seconds. You can refresh this page.', hr: 'To traje nekoliko sekundi. Možete osvježiti stranicu.' }, // REVIEW
   failedTitle: { en: 'This booking was not completed.', hr: 'Ova rezervacija nije dovršena.' }, // REVIEW
@@ -196,7 +196,7 @@ export const email = {
     hr: 'Vaša degustacija na Dingaču je rezervirana. Veselimo se vašem dolasku.', // REVIEW
   },
   ics: { en: 'The calendar invitation is attached.', hr: 'Pozivnica za kalendar je u privitku.' }, // REVIEW
-  signoff: { en: 'See you on the slope,', hr: 'Vidimo se na obronku,' }, // REVIEW
+  signoff: { en: 'See you on the terroir,', hr: 'Vidimo se na terroiru,' }, // REVIEW
   family: { en: 'The Vicelić family', hr: 'Obitelj Vicelić' },
   wineryNew: { en: 'New booking', hr: 'Nova rezervacija' },
   wineryOverbooked: {

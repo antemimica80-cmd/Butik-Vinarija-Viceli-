@@ -12,8 +12,8 @@ export const organic = {
   badge: { en: 'The only certified organic Dingač', hr: 'Jedini ekološki certificirani Dingač' }, // REVIEW
   title: { en: ['The only Dingač', 'grown organically.'], hr: ['Jedini Dingač', 'uzgojen ekološki.'] }, // REVIEW
   body: {
-    en: 'On a slope where every vine is tended by hand, we went one step further: no synthetic pesticides, no herbicides, no artificial fertilisers — certified and inspected. Of all the wines that carry the name Dingač, ours is the only one with organic certification.',
-    hr: 'Na obronku gdje se svaki trs njeguje rukama, otišli smo korak dalje: bez sintetičkih pesticida, bez herbicida, bez umjetnih gnojiva — certificirano i nadzirano. Od svih vina koja nose ime Dingač, naše je jedino s ekološkim certifikatom.', // REVIEW
+    en: 'On a terroir where every vine is tended by hand, we went one step further: no synthetic pesticides, no herbicides, no artificial fertilisers — certified and inspected. Of all the wines that carry the name Dingač, ours is the only one with organic certification.',
+    hr: 'Na terroiru gdje se svaki trs njeguje rukama, otišli smo korak dalje: bez sintetičkih pesticida, bez herbicida, bez umjetnih gnojiva — certificirano i nadzirano. Od svih vina koja nose ime Dingač, naše je jedino s ekološkim certifikatom.', // REVIEW
   },
   points: [
     { en: 'No synthetic pesticides', hr: 'Bez sintetičkih pesticida' },
@@ -27,8 +27,8 @@ export const organic = {
 export const home = {
   hero: {
     lede: {
-      en: 'Plavac Mali from our own vines on the Dingač slope of Pelješac. Certified organic, picked by hand, fermented with wild yeast.',
-      hr: 'Plavac mali s vlastitih trsova na obronku Dingača na Pelješcu. Ekološki certificiran, ručno bran, fermentiran divljim kvascima.', // REVIEW
+      en: 'Plavac Mali from our own vines on the Dingač terroir of Pelješac. Certified organic, picked by hand, fermented with wild yeast.',
+      hr: 'Plavac mali s vlastitih trsova na terroiru Dingača na Pelješcu. Ekološki certificiran, ručno bran, fermentiran divljim kvascima.', // REVIEW
     },
     secondary: { en: 'Shop the wines', hr: 'Kupite vina' }, // REVIEW
   },
@@ -61,7 +61,7 @@ export const home = {
   ],
   story: {
     eyebrow: { en: 'Dingač · Pelješac', hr: 'Dingač · Pelješac' },
-    title: { en: 'One slope. Three suns.', hr: 'Jedan obronak. Tri sunca.' }, // REVIEW
+    title: { en: 'One terroir. Three suns.', hr: 'Jedan terroir. Tri sunca.' }, // REVIEW
     body: {
       en: 'Dingač falls steeply from the ridge to the sea. The vines get three suns: from the sky, off the sea, and from the white stone that holds the heat. This is where the Vicelić family keeps its vines.',
       hr: 'Dingač se strmo spušta od grebena do mora. Loza dobiva tri sunca: s neba, s mora i iz bijelog kamena koji čuva toplinu. Ovdje obitelj Vicelić čuva svoje vinograde.', // REVIEW
@@ -108,7 +108,7 @@ export const home = {
     directions: { en: 'Directions and map', hr: 'Upute i karta' },
   },
   final: {
-    title: { en: 'The slope is open.', hr: 'Obronak je otvoren.' }, // REVIEW
+    title: { en: 'The terroir is open.', hr: 'Terroir je otvoren.' }, // REVIEW
     body: {
       en: 'Tastings all year. In summer, every day. In winter, by appointment.',
       hr: 'Degustacije tijekom cijele godine. Ljeti svaki dan. Zimi uz najavu.', // REVIEW

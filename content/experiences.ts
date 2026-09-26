@@ -13,7 +13,7 @@ const summer = { en: 'April – October', hr: 'Travanj – listopad' };
 export const experiences = [
   {
     slug: 'the-slope',
-    name: 'The Slope',
+    name: 'The Terroir',
     tier: 1,
     tagline: {
       en: 'The estate wines, above the sea.',
@@ -48,7 +48,7 @@ export const experiences = [
     capacityPerSlot: 12,
     schedule: [
       { minute: 0, text: { en: 'Welcome on the terrace. A glass of Opolo Rosé.', hr: 'Dobrodošlica na terasi. Čaša Opolo roséa.' } }, // REVIEW
-      { minute: 10, text: { en: 'Dingač in front of you: the slope, the stone, the three suns.', hr: 'Dingač pred vama: obronak, kamen, tri sunca.' } }, // REVIEW
+      { minute: 10, text: { en: 'Dingač in front of you: the terroir, the stone, the three suns.', hr: 'Dingač pred vama: terroir, kamen, tri sunca.' } }, // REVIEW
       { minute: 25, text: { en: 'Plavac Mali, slightly cool. How the grape changes with the soil.', hr: 'Plavac mali, lagano rashlađen. Kako se sorta mijenja s tlom.' } }, // REVIEW
       { minute: 45, text: { en: 'Dingač. The estate wine, and why it ages.', hr: 'Dingač. Vino imanja i zašto može odležati.' } }, // REVIEW
       { minute: 65, text: { en: 'Questions, bottles to take home, the view.', hr: 'Pitanja, boce za ponijeti, pogled.' } }, // REVIEW

@@ -7,7 +7,7 @@ Legend: 🔴 blocks launch · 🟡 needed for a convincing proposal · ⚪ nice 
 Real photography only. Drop files into `public/media/` and set `src` on the slot.
 
 ✅ In use: aerial of Dingač (hero), terrace & sea (ridge), slope to the sea (tunnel exit, Dingač hero),
-guests toasting (The Slope), cheese & prosciutto (Keeper's Table), pouring wine (Dingač Private);
+guests toasting (The Terroir), cheese & prosciutto (Keeper's Table), pouring wine (Dingač Private);
 a couple toasting is uploaded and not yet placed.
 - 🟡 Higher-resolution originals (current files are ~1180 px wide; the hero is shown up to 1440+ px)
 - 🔴 The bottle, gift-box and "Dingač highlights" images appear AI-generated (label typos such as "VEHUNSKO", 1024×1536). Used in the proposal at the owner's request — replace with real packshots before launch. The "top 1% of all wines" claim on dingac-highlights.jpg is unverified.
@@ -45,7 +45,7 @@ Each claim has a `source` field (currently TODO) and `verified: false`. The home
 
 ## Tastings (content/experiences.ts, content/availability.ts, content/booking.ts)
 Proposal values chosen for the pitch. The owner must confirm them all.
-- 🔴 Prices: The Slope €45 · The Keeper's Table €95 · Dingač Private €220 (per person)
+- 🔴 Prices: The Terroir €45 · The Keeper's Table €95 · Dingač Private €220 (per person)
 - 🔴 Wines per tier: 3 / 3 / 4
 - 🔴 Durations, min/max guests, slot times, capacity per slot
 - 🔴 Cancellation policy (proposal: full payment, full refund up to 48 h before)
