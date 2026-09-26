@@ -83,9 +83,10 @@ Proposal values chosen for the pitch. The owner must confirm them all.
 - 🟡 Archive document or photo for 1935, if one exists
 
 ## Home page (content/home.ts)
+- 🟡 New master line (proposal): "Certified organic. Grown on Dingač." / "Ekološki certificirano. Uzgojeno na Dingaču." — owner to approve. "Three suns" is kept as the story of the place (home, Dingač page), no longer the slogan.
 - 🟡 "The silence" beat (war, collectivisation) — confirm the family's story in these words
 - 🟡 Year of "The return" (Mateo's replanting)
-- 🟡 Route descriptions from Dubrovnik, Ston and Split, and real driving times (`~TODO`)
+- 🟡 Route descriptions from Dubrovnik, Ston and Split, and real driving times (`~TODO`, shown on /visit)
 - ⚪ All English copy is a proposal in the brand voice — the owner should read it once end to end
 
 ## Reviews

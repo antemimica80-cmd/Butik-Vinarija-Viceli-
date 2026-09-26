@@ -108,7 +108,7 @@ export default async function DesignPage({ params }: PageProps<'/[locale]/design
           <div className="space-y-12 overflow-hidden">
             <div>
               <p className="label mb-3 text-ink-soft">Display XL · Newsreader 300 (display optical size)</p>
-              <p className="text-display-xl font-light">Three suns. One family.</p>
+              <p className="text-display-xl font-light">Certified organic. Grown on Dingač.</p>
             </div>
             <div>
               <p className="label mb-3 text-ink-soft">Display L · 300 italic</p>

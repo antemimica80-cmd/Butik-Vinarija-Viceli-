@@ -82,7 +82,7 @@ export const shopCopy = {
   cart: {
     title: { en: 'Your cart', hr: 'Vaša košarica' },
     empty: { en: 'Your cart is empty.', hr: 'Vaša je košarica prazna.' },
-    browse: { en: 'Back to the shop', hr: 'Natrag u trgovinu' },
+    browse: { en: 'Browse the wines', hr: 'Pogledajte vina' }, // REVIEW
     remove: { en: 'Remove', hr: 'Ukloni' },
     subtotal: { en: 'Subtotal', hr: 'Međuzbroj' },
     shipping: { en: 'Shipping', hr: 'Dostava' },

@@ -11,21 +11,25 @@ import { Reveal } from '@/components/ui/Reveal';
 import { ArrowRight } from '@/components/ui/icons';
 import { Seal } from '@/components/wines/Seal';
 import { OrganicBadge } from '@/components/ui/OrganicBadge';
-import { formatEur } from '@/lib/format';
+import { AddToCart } from '@/components/shop/AddToCart';
+import { proposalPrices, shopCopy as S } from '@content/products';
+import { products } from '@/lib/shop/catalog';
 import { absolute, alternates, jsonLd } from '@/lib/seo';
 import { productLd } from '@/lib/shop/ld';
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return routing.locales.flatMap((locale) => wines.map((w) => ({ locale, slug: w.slug })));
+  return routing.locales.flatMap((locale) => products.map((p) => ({ locale, slug: p.slug })));
 }
 
 export async function generateMetadata({ params }: PageProps<'/[locale]/wines/[slug]'>): Promise<Metadata> {
   const { locale, slug } = await params;
   const w = wines.find((x) => x.slug === slug);
-  if (!w) return {};
+  const p = products.find((x) => x.slug === slug);
+  if (!p) return {};
   const l = (x: { en: string; hr: string }) => x[locale as Locale];
+  if (!w) return { title: p.name, description: l(p.summary), alternates: alternates(locale as Locale, { pathname: '/wines/[slug]', params: { slug } }) };
   return {
     title: `${w.name} — ${l(W.dossier)}`,
     description: `${l(w.summary)} ${l(w.tasting)}`,
@@ -39,8 +43,10 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
   const { locale: raw, slug } = await params;
   const locale = raw as Locale;
   setRequestLocale(locale);
+  const product = products.find((x) => x.slug === slug);
+  if (!product) notFound();
+  if (product.kind === 'gift') return <GiftPage slug={slug} locale={locale} />;
   const index = wines.findIndex((x) => x.slug === slug);
-  if (index < 0) notFound();
   const w = wines[index];
   const l = (x: L) => x[locale];
   const n = (x: number) => new Intl.NumberFormat(locale === 'hr' ? 'hr-HR' : 'en-US').format(x);
@@ -99,16 +105,18 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
                 <ImageSlot id={(("dossierSlot" in w && w.dossierSlot) || w.bottleSlot) as ImageSlotId} priority sizes="(min-width: 1024px) 25vw, 50vw" />
                 <Seal text="VICELIĆ · DINGAČ · PELJEŠAC · ORGANIC · " center={no} className="absolute -right-6 -bottom-6 size-24 rotate-[-12deg] text-plavac/70 md:size-28 lg:-right-10" />
               </Reveal>
-              <dl className="mt-12 grid grid-cols-2 gap-px bg-basalt/15 font-mono text-sm">
-                <div className="bg-limestone p-4">
-                  <dt className="text-xs tracking-[0.14em] text-ink-soft uppercase">{l(W.vintage)}</dt>
-                  <dd className="mt-2">{w.vintage === 'TBD' ? tbd : w.vintage}</dd>
+              <div id="buy" className="mt-12 scroll-mt-[calc(var(--nav-h)+1rem)] border-t-2 border-basalt pt-6">
+                <p className="font-mono text-xs tracking-[0.14em] text-ink-soft uppercase">
+                  {l(W.vintage)}: {w.vintage === 'TBD' ? tbd : w.vintage}
+                </p>
+                <div className="mt-6">
+                  <AddToCart formats={product.formats} locale={locale} />
                 </div>
-                <div className="bg-limestone p-4">
-                  <dt className="text-xs tracking-[0.14em] text-ink-soft uppercase">{l(W.price)}</dt>
-                  <dd className="mt-2">{w.price === 'TBD' ? tbd : formatEur(w.price, locale)}</dd>
+                <div className="mt-6 space-y-1 text-xs text-ink-soft">
+                  <p>{l(S.shipsTo)}</p>
+                  {proposalPrices && <p>{l(S.proposal)}</p>}
                 </div>
-              </dl>
+              </div>
             </div>
           </div>
 
@@ -171,6 +179,22 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
                 ))}
               </dl>
             </Reveal>
+
+            {product.detailSlots && product.detailSlots.length > 0 && (
+              <Reveal delay={150} className="mt-16">
+                <h2 className="label flex items-center gap-4 text-basalt">
+                  <span className="font-mono tracking-normal text-sun-deep">D</span>
+                  {l(W.gallery)}
+                </h2>
+                <ul className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
+                  {product.detailSlots.map((id) => (
+                    <li key={id}>
+                      <ImageSlot id={id as ImageSlotId} compact sizes="(min-width: 1024px) 20vw, 45vw" />
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            )}
           </div>
         </div>
       </article>
@@ -187,15 +211,14 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
             </p>
           </Reveal>
           <Reveal delay={150} className="flex flex-col gap-3 lg:col-span-4 lg:col-start-9">
-            <Link href="/shop" className="btn btn-sun">
+            <a href="#buy" className="btn btn-sun">
               {l(W.buy)} <ArrowRight size={16} />
-            </Link>
+            </a>
             {tastingWith > 0 && (
               <Link href="/experience" className="btn btn-ghost">
                 {l(W.taste)}
               </Link>
             )}
-            {w.price === 'TBD' && <p className="mt-2 text-sm text-bone/70">{l(W.shopSoon)}</p>}
           </Reveal>
         </div>
       </section>
@@ -226,6 +249,54 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
           })}
         </div>
       </nav>
+    </>
+  );
+}
+
+/** The gift box: no dossier of its own — what is inside, and the buy box. */
+function GiftPage({ slug, locale }: { slug: string; locale: Locale }) {
+  const p = products.find((x) => x.slug === slug)!;
+  const l = (x: L) => x[locale];
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(productLd(p.slug, locale, absolute(locale, { pathname: '/wines/[slug]', params: { slug: p.slug } })))} />
+      <section className="surface-limestone grain pt-[calc(var(--nav-h)+2rem)] pb-20 md:pt-[calc(var(--nav-h)+4rem)] md:pb-32">
+        <div className="container-x">
+          <Link href="/wines" className="label text-ink-soft hover:text-basalt">
+            ← {l(W.all)}
+          </Link>
+          <div className="mt-8 grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
+            <div className="md:col-span-5">
+              <div className="mx-auto w-3/4 max-w-80 md:w-full">
+                <ImageSlot id={p.bottleSlot as ImageSlotId} priority sizes="(min-width: 768px) 30vw, 75vw" />
+              </div>
+            </div>
+            <div className="min-w-0 md:col-span-7 lg:col-span-6">
+              <p className="label text-sun-deep">{l(S.giftEyebrow)}</p>
+              <h1 className="mt-4 text-display-l font-light">{p.name}</h1>
+              <p className="mt-6 text-lede text-ink-soft">{l(p.summary)}</p>
+              <ul className="mt-8 border-t border-basalt/15">
+                {wines.map((w) => (
+                  <li key={w.slug} className="border-b border-basalt/15">
+                    <Link href={{ pathname: '/wines/[slug]', params: { slug: w.slug } }} className="flex items-baseline justify-between gap-4 py-3 hover:text-plavac">
+                      <span className="font-mono text-sm">1 × {w.name}</span>
+                      <span className="text-sm text-ink-soft">{l(w.style)}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-10">
+                <AddToCart formats={p.formats} locale={locale} />
+              </div>
+              <div className="mt-10 space-y-2 border-t border-basalt/15 pt-6 text-sm text-ink-soft">
+                <p>{l(S.shipsTo)}</p>
+                <p>{l(W.method)}</p>
+                {proposalPrices && <p>{l(S.proposal)}</p>}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

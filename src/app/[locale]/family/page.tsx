@@ -99,7 +99,7 @@ export default async function FamilyPage({ params }: PageProps<'/[locale]/family
       </section>
 
       {/* ── Philosophy ── */}
-      <section className="surface-shade grain py-24 md:py-36">
+      <section id="farming" className="surface-shade grain scroll-mt-[var(--nav-h)] py-24 md:py-36">
         <div className="container-x">
           <Reveal>
             <p className="label text-sun">{l(F.philosophy.label)}</p>

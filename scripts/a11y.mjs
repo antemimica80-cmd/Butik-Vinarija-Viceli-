@@ -2,7 +2,7 @@
 import { chromium } from 'playwright';
 import { AxeBuilder } from '@axe-core/playwright';
 const base = process.argv[2] ?? 'http://localhost:3000';
-const pages = ['/en', '/hr', '/en/experience', '/en/dingac', '/en/family', '/en/wines', '/en/wines/dingac', '/en/shop', '/en/shop/dingac', '/en/shop/cart', '/en/visit', '/en/legal/terms'];
+const pages = ['/en', '/hr', '/en/experience', '/en/dingac', '/en/family', '/en/wines', '/en/wines/dingac', '/en/wines/gift-box', '/en/shop/cart', '/en/visit', '/en/legal/terms'];
 const b = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
 const c = await b.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
 const host = new URL(base).hostname;

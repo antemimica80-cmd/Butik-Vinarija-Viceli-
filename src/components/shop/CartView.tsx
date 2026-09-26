@@ -79,7 +79,7 @@ export function CartView({ locale, demo }: { locale: 'en' | 'hr'; demo: boolean 
     return (
       <div className="py-10">
         <p className="text-lede text-ink-soft">{l(S.cart.empty)}</p>
-        <Link href="/shop" className="btn btn-primary mt-8">
+        <Link href="/wines" className="btn btn-primary mt-8">
           {l(S.cart.browse)}
         </Link>
       </div>

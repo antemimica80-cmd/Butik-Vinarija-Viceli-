@@ -5,6 +5,5 @@ export const navItems = [
   { href: '/dingac', key: 'dingac' },
   { href: '/family', key: 'family' },
   { href: '/wines', key: 'wines' },
-  { href: '/shop', key: 'shop' },
   { href: '/visit', key: 'visit' },
 ] as const satisfies ReadonlyArray<{ href: AppPathname; key: string }>;

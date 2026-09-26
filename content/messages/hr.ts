@@ -4,11 +4,11 @@ import type { Messages } from './en';
 const hr: Messages = {
   meta: {
     siteName: 'Butik vinarija Vicelić', // REVIEW
-    defaultTitle: 'Vicelić — Dingač, Pelješac. Tri sunca. Jedna obitelj.', // REVIEW
+    defaultTitle: 'Vicelić — jedini ekološki certificirani Dingač. Pelješac, Hrvatska.', // REVIEW
     defaultDescription:
       'Jedini ekološki certificirani Dingač. Obiteljska vinarija na obroncima Dingača na Pelješcu — vođene degustacije iznad Jadrana, s rezervacijom online.', // REVIEW
   },
-  masterLine: 'Tri sunca. Jedna obitelj.', // REVIEW
+  masterLine: 'Ekološki certificirano. Uzgojeno na Dingaču.', // REVIEW
   nav: {
     experience: 'Degustacije', // REVIEW
     dingac: 'Dingač',
@@ -54,7 +54,7 @@ const hr: Messages = {
     prefill: 'Dobar dan, zanima me degustacija vina u vinariji Vicelić.', // REVIEW
   },
   footer: {
-    tagline: 'Ekološki certificirano. Samo plavac mali. Divlji kvasci. Ništa dodano.', // REVIEW
+    tagline: 'Samo plavac mali. Ručna berba. Divlji kvasci. Ništa dodano.', // REVIEW
     visit: 'Posjet',
     contact: 'Kontakt',
     explore: 'Istražite', // REVIEW

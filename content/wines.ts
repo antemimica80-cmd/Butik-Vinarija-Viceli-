@@ -133,10 +133,10 @@ export const winesCopy = {
     eyebrow: { en: 'The Wines', hr: 'Vina' },
     title: { en: 'Three wines. One grape. No shortcuts.', hr: 'Tri vina. Jedna sorta. Bez prečaca.' }, // REVIEW
     lede: {
-      en: 'Plavac Mali from three different grounds of the same family: the steep stone of Dingač, a deeper red soil, and limestone terraces. Wild yeast, nothing added, very little of each.',
-      hr: 'Plavac mali s tri različita tla iste obitelji: strmi kamen Dingača, dublja crvenica i vapnenačke terase. Divlji kvasci, ništa dodano, vrlo malo svakoga.', // REVIEW
+      en: 'Certified organic Plavac Mali from three grounds of the same family: the steep stone of Dingač, a deeper red soil, and limestone terraces. Wild yeast, nothing added, very little of each — shipped from the estate across Croatia and the EU.',
+      hr: 'Ekološki certificiran plavac mali s tri tla iste obitelji: strmi kamen Dingača, dublja crvenica i vapnenačke terase. Divlji kvasci, ništa dodano, vrlo malo svakoga — šaljemo s imanja diljem Hrvatske i EU.', // REVIEW
     },
-    open: { en: 'Open the dossier', hr: 'Otvorite dosje' }, // REVIEW
+    open: { en: 'View & buy', hr: 'Pogledajte i kupite' }, // REVIEW
     total: { en: 'bottles in all, the three wines together', hr: 'boca ukupno, sva tri vina zajedno' }, // REVIEW
   },
   dossier: { en: 'Dossier', hr: 'Dosje' },
@@ -171,6 +171,7 @@ export const winesCopy = {
   bottlesLine: { en: 'bottles.', hr: 'boca.' },
   worldwide: { en: 'Worldwide.', hr: 'Na cijelom svijetu.' }, // REVIEW
   buy: { en: 'Buy bottles', hr: 'Kupite boce' },
+  gallery: { en: 'More of this wine', hr: 'Još o ovom vinu' }, // REVIEW
   taste: { en: 'Taste it on the slope', hr: 'Kušajte ga na obronku' }, // REVIEW
   shopSoon: { en: 'Online shop: prices to be confirmed.', hr: 'Web-trgovina: cijene za potvrdu.' }, // REVIEW
   prev: { en: 'Previous dossier', hr: 'Prethodni dosje' },

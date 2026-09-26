@@ -21,29 +21,12 @@ const views: View[] = [
   { name: 'age-gate', path: '/en', age: false },
   { name: 'consent', path: '/en', age: true, consent: false },
   { name: 'home', path: '/en', fullPage: true },
-  ...[0.2, 0.55, 0.97].map((p) => ({
-    name: `tunnel-${Math.round(p * 100)}`,
-    path: '/en',
-    action: async (page: Page) => {
-      await page.evaluate((p) => {
-        const el = document.querySelector<HTMLElement>('.tunnel')!;
-        const top = el.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo(0, top + (el.offsetHeight - window.innerHeight) * p);
-      }, p);
-    },
-  })),
-  {
-    name: 'three-suns',
-    path: '/en',
-    action: async (page: Page) => {
-      await page.locator('#st-stone').scrollIntoViewIfNeeded();
-      await page.evaluate(() => window.scrollBy(0, -80));
-      await page.waitForTimeout(5500);
-    },
-  },
   { name: 'home-hr', path: '/hr' },
   { name: 'design', path: '/en/design', fullPage: true },
   { name: 'dingac', path: '/en/dingac', fullPage: true },
+  { name: 'wines', path: '/en/wines', fullPage: true },
+  { name: 'wine-dingac', path: '/en/wines/dingac', fullPage: true },
+  { name: 'gift-box', path: '/en/wines/gift-box', fullPage: true },
   { name: 'experience', path: '/en/experience', fullPage: true },
   { name: 'visit-hr', path: '/hr/posjet', fullPage: true },
   { name: 'legal-terms', path: '/en/legal/terms', fullPage: true },
@@ -73,6 +56,14 @@ async function main() {
       if (v.fullPage) {
         // Reveal everything so full-page captures are not blank below the fold
         await page.evaluate(() => document.querySelectorAll('.reveal, .three-suns').forEach((el) => el.setAttribute('data-visible', 'true')));
+        // Scroll through once so lazy images load
+        await page.evaluate(async () => {
+          for (let y = 0; y < document.body.scrollHeight; y += 600) {
+            window.scrollTo(0, y);
+            await new Promise((r) => setTimeout(r, 60));
+          }
+          window.scrollTo(0, 0);
+        });
       }
       if (v.action) await v.action(page);
       await page.waitForTimeout(1800);

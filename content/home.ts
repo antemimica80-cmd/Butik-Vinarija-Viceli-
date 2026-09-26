@@ -1,21 +1,11 @@
 /**
- * Home page copy — "the descent", from the ridge to the sea.
+ * Home page copy — short and organic-first: hero, how we farm, three doors
+ * (visit, wines, Dingač), the place, and a final call.
  * Historical facts are NOT written here: they come from history-claims.ts by id.
- * Altitudes are illustrative (see CONTENT_TODO.md).
  */
 import type { ClaimId } from './history-claims';
 
 type L = { en: string; hr: string };
-
-export const stations = [
-  { id: 'ridge', altitude: 350, name: { en: 'Ridge', hr: 'Greben' } },
-  { id: 'stone', altitude: 250, name: { en: 'Stone', hr: 'Kamen' } },
-  { id: 'vine', altitude: 150, name: { en: 'Vine', hr: 'Loza' } },
-  { id: 'cellar', altitude: 50, name: { en: 'Cellar', hr: 'Podrum' } },
-  { id: 'sea', altitude: 0, name: { en: 'Sea', hr: 'More' } },
-] as const satisfies ReadonlyArray<{ id: string; altitude: number; name: L }>;
-
-export type StationId = (typeof stations)[number]['id'];
 
 export const organic = {
   claim: 'only-organic-dingac' as ClaimId,
@@ -35,23 +25,49 @@ export const organic = {
 };
 
 export const home = {
-  ridge: {
-    title: { en: 'The grand cru of the Adriatic.', hr: 'Grand cru Jadrana.' }, // REVIEW
-    body: {
-      en: 'Dingač is one slope on the Pelješac peninsula, falling steeply from the ridge to the sea. Croatia has no official classification of great vineyards. Dingač has never needed one.',
-      hr: 'Dingač je jedan obronak na poluotoku Pelješcu koji se strmo spušta od grebena do mora. Hrvatska nema službenu klasifikaciju velikih vinograda. Dingaču nikad nije ni trebala.', // REVIEW
+  hero: {
+    lede: {
+      en: 'Plavac Mali from our own vines on the Dingač slope of Pelješac. Certified organic, picked by hand, fermented with wild yeast.',
+      hr: 'Plavac mali s vlastitih trsova na obronku Dingača na Pelješcu. Ekološki certificiran, ručno bran, fermentiran divljim kvascima.', // REVIEW
     },
-    claims: ['pdo-1961', 'bordeaux-19c', 'mirosevic-research'] as ClaimId[],
-    cta: { en: 'Discover Dingač', hr: 'Otkrijte Dingač' }, // REVIEW
+    secondary: { en: 'Shop the wines', hr: 'Kupite vina' }, // REVIEW
   },
-  tunnel: {
-    eyebrow: { en: 'The tunnel', hr: 'Tunel' },
-    claim: 'tunnel-1973' as ClaimId,
-    lines: [
-      { en: 'On one side, the world.', hr: 'S jedne strane, svijet.' }, // REVIEW
-      { en: 'On the other, the slope.', hr: 'S druge strane, obronak.' }, // REVIEW
-    ],
-    emerge: { en: 'Dingač.', hr: 'Dingač.' },
+  farming: {
+    eyebrow: { en: 'How we farm', hr: 'Kako uzgajamo' }, // REVIEW
+    cta: { en: 'Our organic farming', hr: 'Naš ekološki uzgoj' }, // REVIEW
+  },
+  tiles: [
+    {
+      href: '/experience',
+      slot: 'guests-couple',
+      eyebrow: { en: 'Visit', hr: 'Posjet' },
+      title: { en: 'Taste it where it grows.', hr: 'Kušajte ga ondje gdje raste.' }, // REVIEW
+      cta: { en: 'Book a tasting', hr: 'Rezervirajte degustaciju' }, // REVIEW
+    },
+    {
+      href: '/wines',
+      slot: 'three-wines',
+      eyebrow: { en: 'Wines', hr: 'Vina' },
+      title: { en: 'Three wines. One grape.', hr: 'Tri vina. Jedna sorta.' }, // REVIEW
+      cta: { en: 'Shop the wines', hr: 'Kupite vina' }, // REVIEW
+    },
+    {
+      href: '/dingac',
+      slot: 'dingac-slope',
+      eyebrow: { en: 'The place', hr: 'Mjesto' }, // REVIEW
+      title: { en: 'Croatia\'s grand cru.', hr: 'Hrvatski grand cru.' }, // REVIEW
+      cta: { en: 'Discover Dingač', hr: 'Otkrijte Dingač' }, // REVIEW
+    },
+  ],
+  story: {
+    eyebrow: { en: 'Dingač · Pelješac', hr: 'Dingač · Pelješac' },
+    title: { en: 'One slope. Three suns.', hr: 'Jedan obronak. Tri sunca.' }, // REVIEW
+    body: {
+      en: 'Dingač falls steeply from the ridge to the sea. The vines get three suns: from the sky, off the sea, and from the white stone that holds the heat. This is where the Vicelić family keeps its vines.',
+      hr: 'Dingač se strmo spušta od grebena do mora. Loza dobiva tri sunca: s neba, s mora i iz bijelog kamena koji čuva toplinu. Ovdje obitelj Vicelić čuva svoje vinograde.', // REVIEW
+    },
+    family: { en: 'The family', hr: 'Obitelj' },
+    dingac: { en: 'Discover Dingač', hr: 'Otkrijte Dingač' }, // REVIEW
   },
   stone: {
     title: { en: 'Three suns.', hr: 'Tri sunca.' }, // REVIEW
@@ -64,61 +80,6 @@ export const home = {
       { numeral: 'II', name: { en: 'Sea', hr: 'More' }, text: { en: 'Light thrown back from the Adriatic below.', hr: 'Svjetlo koje se odbija od Jadrana ispod.' } }, // REVIEW
       { numeral: 'III', name: { en: 'Stone', hr: 'Kamen' }, text: { en: 'Heat held in the white limestone and released into the vines.', hr: 'Toplina koju drži bijeli vapnenac i predaje lozi.' } }, // REVIEW
     ],
-  },
-  vine: {
-    title: { en: 'The Keeper.', hr: 'Čuvar.' }, // REVIEW
-    lede: {
-      en: 'Some families make wine. This one keeps a place.',
-      hr: 'Neke obitelji rade vino. Ova čuva mjesto.', // REVIEW
-    },
-    // Story beats — the owner verifies each one. `claim` beats come from history-claims.ts.
-    beats: [
-      { claim: 'prague-1935' as ClaimId },
-      {
-        year: { en: 'The silence', hr: 'Tišina' }, // REVIEW
-        text: { en: 'Decades of war and collectivisation. The vineyards wait.', hr: 'Desetljeća rata i kolektivizacije. Vinogradi čekaju.' }, // REVIEW — owner to confirm
-      },
-      {
-        year: { en: 'The return', hr: 'Povratak' }, // REVIEW — add the year when known
-        text: { en: 'Mateo Vicelić replants the family vineyards and brings them back.', hr: 'Mateo Vicelić ponovno sadi obiteljske vinograde i vraća ih u život.' }, // REVIEW
-      },
-      {
-        year: { en: 'Today', hr: 'Danas' },
-        text: { en: 'Certified organic. Wild yeast. Nothing added. Very little of it.', hr: 'Ekološki certificirano. Divlji kvasci. Ništa dodano. I vrlo malo toga.' }, // REVIEW
-      },
-    ],
-    cta: { en: 'The family', hr: 'Obitelj' },
-  },
-  cellar: {
-    title: { en: 'Three wines. One grape.', hr: 'Tri vina. Jedna sorta.' }, // REVIEW
-    lede: { en: 'Plavac Mali, and nothing else.', hr: 'Plavac mali i ništa drugo.' }, // REVIEW
-    bottlesLabel: { en: 'bottles', hr: 'boca' },
-    dossier: { en: 'Read the dossier', hr: 'Pročitajte dosje' }, // REVIEW
-    counter: {
-      unit: { en: 'bottles.', hr: 'boca.' },
-      tail: { en: 'Worldwide.', hr: 'Na cijelom svijetu.' }, // REVIEW
-      note: { en: 'One vintage of Dingač. That is all there is.', hr: 'Jedna berba Dingača. To je sve što postoji.' }, // REVIEW
-    },
-  },
-  sea: {
-    title: { en: 'Taste it where it grows.', hr: 'Kušajte ga ondje gdje raste.' }, // REVIEW
-    lede: {
-      en: 'Three ways to taste the slope, from a glass on the terrace to a morning in the vineyard with the winemaker.',
-      hr: 'Tri načina da kušate obronak, od čaše na terasi do jutra u vinogradu s vinarom.', // REVIEW
-    },
-    from: { en: 'From', hr: 'Od' },
-    perPerson: { en: 'per person', hr: 'po osobi' },
-    wines: { en: 'wines', hr: 'vina' },
-    guests: { en: 'guests', hr: 'gostiju' }, // REVIEW
-    minutes: { en: 'min', hr: 'min' },
-    hours: { en: 'h', hr: 'h' },
-    allTastings: { en: 'See all tastings', hr: 'Sve degustacije' }, // REVIEW
-    book: { en: 'Book', hr: 'Rezerviraj' },
-    proposalNote: { en: 'Proposal prices — to be confirmed.', hr: 'Predložene cijene — za potvrdu.' },
-  },
-  reviews: {
-    eyebrow: { en: 'Guests', hr: 'Gosti' },
-    title: { en: 'What they said on the way down.', hr: 'Što su rekli na putu dolje.' }, // REVIEW
   },
   route: {
     eyebrow: { en: 'Getting here', hr: 'Kako doći' },

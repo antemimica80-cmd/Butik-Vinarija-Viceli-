@@ -32,7 +32,7 @@ export function productLd(slug: string, locale: 'en' | 'hr', url: string) {
       price: f.price,
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
-      url: absolute(locale, { pathname: '/shop/[slug]', params: { slug: p.slug } }),
+      url: absolute(locale, { pathname: '/wines/[slug]', params: { slug: p.slug } }),
       eligibleRegion: ['HR', 'EU'],
     })),
   };

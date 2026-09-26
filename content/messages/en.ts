@@ -5,11 +5,11 @@
 const en = {
   meta: {
     siteName: 'Vicelić Boutique Winery',
-    defaultTitle: 'Vicelić — Dingač, Pelješac. Three suns. One family.',
+    defaultTitle: 'Vicelić — the only certified organic Dingač. Pelješac, Croatia.',
     defaultDescription:
       'The only certified organic Dingač. A family winery on the Dingač slopes of Pelješac, Croatia — guided tastings above the Adriatic, bookable online.',
   },
-  masterLine: 'Three suns. One family.',
+  masterLine: 'Certified organic. Grown on Dingač.',
   nav: {
     experience: 'The Experience',
     dingac: 'Dingač',
@@ -55,7 +55,7 @@ const en = {
     prefill: 'Hello, I would like to ask about a wine tasting at Vicelić.',
   },
   footer: {
-    tagline: 'Certified organic. Plavac Mali only. Wild yeast. Nothing added.',
+    tagline: 'Plavac Mali only. Hand-harvested. Wild yeast. Nothing added.',
     visit: 'Visit',
     contact: 'Contact',
     explore: 'Explore',

@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { routing } from '@/i18n/routing';
 import { absolute } from '@/lib/seo';
-import { wines } from '@content/wines';
 import { products } from '@/lib/shop/catalog';
 
 /** Plain file, also in the static export. */
@@ -15,10 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { href: '/experience', priority: 0.95 },
     { href: '/dingac', priority: 0.8 },
     { href: '/wines', priority: 0.8 },
-    ...wines.map((w) => ({ href: { pathname: '/wines/[slug]', params: { slug: w.slug } } as Href, priority: 0.7 })),
+    ...products.map((p) => ({ href: { pathname: '/wines/[slug]', params: { slug: p.slug } } as Href, priority: 0.7 })),
     { href: '/family', priority: 0.6 },
-    { href: '/shop', priority: 0.7 },
-    ...products.map((p) => ({ href: { pathname: '/shop/[slug]', params: { slug: p.slug } } as Href, priority: 0.6 })),
     { href: '/visit', priority: 0.7 },
   ];
   const now = new Date();
