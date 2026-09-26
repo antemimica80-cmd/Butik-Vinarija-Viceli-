@@ -11,6 +11,7 @@ PHOTOS = {
     'IMG_2308_Original.jpeg': 'guests-toast-couple.jpg',
     'IMG_2309_Original.jpeg': 'guests-toast-table.jpg',
     'IMG_2310_Original.jpeg': 'pouring-wine.jpg',
+    'IMG_0271_Original.jpeg': 'mateo-portrait.jpg',
 }
 
 def curve(v):
@@ -29,6 +30,14 @@ def grade(im):
     b = b.point(lambda v: int(v * 0.93))
     return Image.merge('RGB', (r, g, b))
 
+# Optional crop (left, top, right, bottom) after the grade, e.g. to make a portrait
+CROPS = {
+    'mateo-portrait.jpg': (930, 0, 1920, 1238),  # 4:5, Mateo against the stone wall, poster left out
+}
+
 for src, out in PHOTOS.items():
-    grade(Image.open(f'media-inbox/{src}')).save(f'public/media/{out}', 'JPEG', quality=84, optimize=True, progressive=True)
+    im = grade(Image.open(f'media-inbox/{src}'))
+    if out in CROPS:
+        im = im.crop(CROPS[out])
+    im.save(f'public/media/{out}', 'JPEG', quality=84, optimize=True, progressive=True)
     print('✓', out)

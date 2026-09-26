@@ -18,7 +18,7 @@ a couple toasting is uploaded and not yet placed.
 - 🟡 `hero-video` — ridge-to-sea descent, 12–20 s loop (the aerial still is used until then)
 - 🟡 `stone-macro`, `vine-gobelet`
 - 🟡 `tunnel-interior` — the Dingač tunnel
-- 🟡 `mateo-portrait`, `hands-harvest`, `cellar-barrels`
+- ✅ `mateo-portrait` in use (uploaded photo, cropped to 4:5; ~990 px wide — a larger original would be sharper). 🟡 `hands-harvest`, `cellar-barrels`
 - 🟡 `bottle-dingac`, `bottle-plavac`, `bottle-rose` — straight packshots
 - 🟡 `road-peljesac`
 - ⚪ `archive-1935` — only if a real document or photograph exists

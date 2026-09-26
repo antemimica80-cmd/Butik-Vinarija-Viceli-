@@ -105,10 +105,10 @@ export const imageSlots = {
     shot: 'Mateo Vicelić, environmental portrait in the cellar or vineyard. Unposed, looking away.',
     light: 'Window light or single source, deep shadow side.',
     alt: {
-      en: 'Winemaker Mateo Vicelić in the cellar.',
-      hr: 'Vinar Mateo Vicelić u podrumu.', // REVIEW
+      en: 'Winemaker Mateo Vicelić with a glass of red wine, against an old stone wall.',
+      hr: 'Vinar Mateo Vicelić s čašom crnog vina, uz stari kameni zid.', // REVIEW
     },
-    src: null,
+    src: '/media/mateo-portrait.jpg',
   },
   'hands-harvest': {
     kind: 'image',
