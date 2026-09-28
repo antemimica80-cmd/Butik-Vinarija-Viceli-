@@ -377,6 +377,54 @@ export const imageSlots = {
     },
     src: '/media/dingac-organic.jpg',
   },
+  'dingac-notes': {
+    kind: 'image',
+    ratio: '2/3',
+    tone: 'shade',
+    shot: 'Dingač bottle with its tasting notes around it (proposal image, appears AI-generated).',
+    light: 'As supplied.',
+    alt: {
+      en: 'A bottle of Vicelić Dingač surrounded by its aromas: black cherry, plum, spice, Mediterranean herbs, tobacco, oak.',
+      hr: 'Boca vina Vicelić Dingač okružena svojim aromama: crna trešnja, šljiva, začini, mediteransko bilje, duhan, hrast.', // REVIEW
+    },
+    src: '/media/dingac-notes.jpg',
+  },
+  'rose-terrace': {
+    kind: 'image',
+    ratio: '2/3',
+    tone: 'sun',
+    shot: 'Opolo Rosé on a sunny terrace with a glass and strawberries (proposal image, appears AI-generated).',
+    light: 'As supplied.',
+    alt: {
+      en: 'A bottle and a glass of Vicelić Opolo Rosé on a sunlit terrace above the sea, with strawberries and citrus peel.',
+      hr: 'Boca i čaša vina Vicelić Opolo rosé na sunčanoj terasi iznad mora, uz jagode i koricu naranče.', // REVIEW
+    },
+    src: '/media/rose-terrace.jpg',
+  },
+  'rose-notes': {
+    kind: 'image',
+    ratio: '2/3',
+    tone: 'shade',
+    shot: 'Opolo Rosé with tasting notes and pairings (proposal image, appears AI-generated).',
+    light: 'As supplied.',
+    alt: {
+      en: 'A bottle of Vicelić Opolo Rosé surrounded by its aromas: wild strawberries, citrus peel, Mediterranean herbs.',
+      hr: 'Boca vina Vicelić Opolo rosé okružena svojim aromama: šumske jagode, korica citrusa, mediteransko bilje.', // REVIEW
+    },
+    src: '/media/rose-notes.jpg',
+  },
+  'cellar-glass': {
+    kind: 'image',
+    ratio: '2/3',
+    tone: 'shade',
+    shot: 'A glass of Dingač in a candlelit stone cellar (proposal image, appears AI-generated; not a real person from the estate).',
+    light: 'As supplied.',
+    alt: {
+      en: 'A glass of red wine and a bottle of Vicelić Dingač in a candlelit stone cellar.',
+      hr: 'Čaša crnog vina i boca vina Vicelić Dingač u kamenom podrumu uz svijeće.', // REVIEW
+    },
+    src: '/media/cellar-glass.jpg',
+  },
 } satisfies Record<string, ImageSlotDef>;
 
 export type ImageSlotId = keyof typeof imageSlots;

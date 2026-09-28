@@ -92,6 +92,7 @@ export const wines = [
     vintage: 'TBD',
     price: 'TBD',
     bottleSlot: 'bottle-rose',
+    dossierSlot: 'rose-terrace',
     summary: {
       en: 'Plavac Mali, pale and dry. Limestone terraces, a short time on the skins.',
       hr: 'Plavac mali, blijed i suh. Vapnenačke terase, kratka maceracija.', // REVIEW

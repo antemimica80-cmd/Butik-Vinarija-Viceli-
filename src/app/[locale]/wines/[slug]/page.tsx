@@ -186,7 +186,7 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
                   <span className="font-mono tracking-normal text-sun-deep">D</span>
                   {l(W.gallery)}
                 </h2>
-                <ul className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
+                <ul className={`mt-6 grid grid-cols-2 gap-4 ${product.detailSlots.length === 3 ? 'sm:grid-cols-3' : product.detailSlots.length === 4 ? 'sm:grid-cols-4' : ''}`}>
                   {product.detailSlots.map((id) => (
                     <li key={id}>
                       <ImageSlot id={id as ImageSlotId} compact sizes="(min-width: 1024px) 20vw, 45vw" />

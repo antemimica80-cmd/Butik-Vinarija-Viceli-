@@ -28,11 +28,14 @@ export default async function WinesPage({ params }: PageProps<'/[locale]/wines'>
   return (
     <>
       <section className="surface-sun grain pt-[calc(var(--nav-h)+4rem)] pb-12 md:pt-[calc(var(--nav-h)+6rem)] md:pb-16">
-        <div className="container-x">
-          <Reveal immediate>
+        <div className="container-x grid grid-cols-1 items-end gap-10 md:grid-cols-12">
+          <Reveal immediate className="md:col-span-7 lg:col-span-8">
             <p className="label text-sun-deep">{l(W.overview.eyebrow)}</p>
             <h1 className="mt-6 max-w-4xl text-display-l font-light">{l(W.overview.title)}</h1>
             <p className="mt-6 max-w-2xl text-lede text-ink-soft">{l(W.overview.lede)}</p>
+          </Reveal>
+          <Reveal immediate delay={150} className="mx-auto w-2/3 max-w-xs md:col-span-5 md:w-full lg:col-span-4">
+            <ImageSlot id="cellar-glass" priority sizes="(min-width: 768px) 30vw, 66vw" />
           </Reveal>
         </div>
       </section>
