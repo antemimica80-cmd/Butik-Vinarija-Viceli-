@@ -228,7 +228,7 @@ export default async function ExperiencePage({ params }: PageProps<'/[locale]/ex
             </Reveal>
             <div className="mt-12 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-20">
               <Reveal className="lg:col-span-7">
-                <ImageSlot id="dingac-slope" zoom="experience" ratio="4/5" sizes="(min-width: 1024px) 58vw, 100vw" />
+                <ImageSlot id="vineyard-tasting" zoom="experience" ratio="1/1" sizes="(min-width: 1024px) 58vw, 100vw" />
               </Reveal>
               <div className="lg:col-span-5">
                 <Reveal>

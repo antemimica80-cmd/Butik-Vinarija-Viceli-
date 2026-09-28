@@ -69,7 +69,7 @@ export default async function DingacPage({ params }: PageProps<'/[locale]/dingac
             <p className="mt-8 max-w-xl text-lede text-ink-soft">{l(D.slope.body)}</p>
           </Reveal>
           <Reveal delay={150} className="lg:col-span-5 lg:col-start-8">
-            <ImageSlot id="vine-gobelet" zoom="dingac" sizes="(min-width: 1024px) 40vw, 100vw" />
+            <ImageSlot id="dingac-harvest" zoom="dingac" sizes="(min-width: 1024px) 40vw, 100vw" />
           </Reveal>
         </div>
       </section>
@@ -83,7 +83,7 @@ export default async function DingacPage({ params }: PageProps<'/[locale]/dingac
             <p className="mt-8 max-w-xl text-lede text-ink-soft">{l(D.stone.body)}</p>
           </Reveal>
           <Reveal delay={150} className="lg:order-1 lg:col-span-5">
-            <ImageSlot id="stone-macro" zoom="dingac" sizes="(min-width: 1024px) 40vw, 100vw" />
+            <ImageSlot id="dingac-stony-vines" zoom="dingac" sizes="(min-width: 1024px) 40vw, 100vw" />
           </Reveal>
         </div>
       </section>
@@ -110,6 +110,9 @@ export default async function DingacPage({ params }: PageProps<'/[locale]/dingac
               </Reveal>
             ))}
           </ol>
+          <Reveal className="mx-auto mt-16 max-w-4xl">
+            <ImageSlot id="dingac-vines-sea" zoom="dingac" sizes="(min-width: 1024px) 900px, 100vw" />
+          </Reveal>
         </div>
       </section>
 

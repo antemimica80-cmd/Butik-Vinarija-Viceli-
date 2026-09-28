@@ -425,6 +425,54 @@ export const imageSlots = {
     },
     src: '/media/cellar-glass.jpg',
   },
+  'dingac-harvest': {
+    kind: 'image',
+    ratio: '3/2',
+    tone: 'sun',
+    shot: 'Harvest on the Dingač slope: a picker carrying a full sack up through the vines, the sea below.',
+    light: 'Natural daylight.',
+    alt: {
+      en: 'A picker carrying a full sack of grapes up the steep Dingač slope, the sea and the mountains behind.',
+      hr: 'Berač nosi punu vreću grožđa uz strmi obronak Dingača, iza njega more i planine.', // REVIEW
+    },
+    src: '/media/dingac-harvest.jpg',
+  },
+  'dingac-vines-sea': {
+    kind: 'image',
+    ratio: '4/3',
+    tone: 'sun',
+    shot: 'Young Plavac Mali vines above the Adriatic on a clear day.',
+    light: 'Natural daylight.',
+    alt: {
+      en: 'Young Plavac Mali vines on Dingač above the blue Adriatic, islands on the horizon.',
+      hr: 'Mladi trsovi plavca malog na Dingaču iznad plavog Jadrana, otoci na obzoru.', // REVIEW
+    },
+    src: '/media/dingac-vines-sea.jpg',
+  },
+  'vineyard-tasting': {
+    kind: 'image',
+    ratio: '4/5',
+    tone: 'sun',
+    shot: 'Tasting among the vines on the slope.',
+    light: 'Natural daylight.',
+    alt: {
+      en: 'Two people tasting wine among the vines on the slope, the mountain behind.',
+      hr: 'Dvoje ljudi kuša vino među trsovima na obronku, iza njih planina.', // REVIEW
+    },
+    src: '/media/vineyard-tasting.jpg',
+  },
+  'dingac-stony-vines': {
+    kind: 'image',
+    ratio: '4/5',
+    tone: 'sun',
+    shot: 'Vines growing out of white stony ground above the sea; a guest tasting among them.',
+    light: 'Natural daylight.',
+    alt: {
+      en: 'Low vines growing out of white, stony ground on Dingač, a guest with a glass among them and the sea beyond.',
+      hr: 'Niski trsovi rastu iz bijelog kamenitog tla na Dingaču, gošća s čašom među njima, a iza more.', // REVIEW
+    },
+    src: '/media/dingac-stony-vines.jpg',
+  },
 } satisfies Record<string, ImageSlotDef>;
 
 export type ImageSlotId = keyof typeof imageSlots;

@@ -12,6 +12,10 @@ PHOTOS = {
     'IMG_2309_Original.jpeg': 'guests-toast-table.jpg',
     'IMG_2310_Original.jpeg': 'pouring-wine.jpg',
     'IMG_0271_Original.jpeg': 'mateo-portrait.jpg',
+    'IMG_7075.jpeg': 'dingac-harvest.jpg',
+    'IMG_7076.jpeg': 'dingac-vines-sea.jpg',
+    'IMG_7077.jpeg': 'vineyard-tasting.jpg',
+    'IMG_7078.jpeg': 'dingac-stony-vines.jpg',
 }
 
 def curve(v):

@@ -17,7 +17,7 @@ a couple toasting is uploaded and not yet placed.
 - 🔴 Who is the man serving cheese in `serving-cheese-prosciutto.jpg`? (Not labelled as Mateo until confirmed.)
 - ✅ Logo seal in use (header, age gate, footer, favicon). ⚪ A vector (SVG) version would be sharper at large sizes
 - 🟡 `hero-video` — ridge-to-sea descent, 12–20 s loop (the aerial still is used until then)
-- 🟡 `stone-macro`, `vine-gobelet`
+- ✅ Real Dingač photos in use (28 Sep): harvest on the slope (I · Terroir), stony ground with vines (II · Stone), vines above the sea (III · Three suns), tasting in the vineyard (Dingač Private). `IMG_7075` is only 800 px wide — a larger original would be sharper. Permission/credit still needed. ⚪ `stone-macro`, `vine-gobelet` no longer shown
 - 🟡 `tunnel-interior` — the Dingač tunnel
 - ✅ `mateo-portrait` in use (uploaded photo, cropped to 4:5; ~990 px wide — a larger original would be sharper). 🟡 `hands-harvest`, `cellar-barrels`
 - 🟡 `bottle-dingac`, `bottle-plavac`, `bottle-rose` — straight packshots
