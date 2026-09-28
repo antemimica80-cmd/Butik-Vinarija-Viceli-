@@ -102,7 +102,7 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">
               <Reveal immediate className="relative mx-auto w-1/2 max-w-64 lg:w-full">
-                <ImageSlot id={(("dossierSlot" in w && w.dossierSlot) || w.bottleSlot) as ImageSlotId} priority sizes="(min-width: 1024px) 25vw, 50vw" />
+                <ImageSlot id={(("dossierSlot" in w && w.dossierSlot) || w.bottleSlot) as ImageSlotId} zoom={`wine-${w.slug}`} priority sizes="(min-width: 1024px) 25vw, 50vw" />
                 <Seal text="VICELIĆ · DINGAČ · PELJEŠAC · ORGANIC · " center={no} className="absolute -right-6 -bottom-6 size-24 rotate-[-12deg] text-plavac/70 md:size-28 lg:-right-10" />
               </Reveal>
               <div id="buy" className="mt-12 scroll-mt-[calc(var(--nav-h)+1rem)] border-t-2 border-basalt pt-6">
@@ -189,7 +189,7 @@ export default async function Dossier({ params }: PageProps<'/[locale]/wines/[sl
                 <ul className={`mt-6 grid grid-cols-2 gap-4 ${product.detailSlots.length === 3 ? 'sm:grid-cols-3' : product.detailSlots.length === 4 ? 'sm:grid-cols-4' : ''}`}>
                   {product.detailSlots.map((id) => (
                     <li key={id}>
-                      <ImageSlot id={id as ImageSlotId} compact sizes="(min-width: 1024px) 20vw, 45vw" />
+                      <ImageSlot id={id as ImageSlotId} zoom={`wine-${w.slug}`} compact sizes="(min-width: 1024px) 20vw, 45vw" />
                     </li>
                   ))}
                 </ul>
@@ -268,7 +268,7 @@ function GiftPage({ slug, locale }: { slug: string; locale: Locale }) {
           <div className="mt-8 grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
             <div className="md:col-span-5">
               <div className="mx-auto w-3/4 max-w-80 md:w-full">
-                <ImageSlot id={p.bottleSlot as ImageSlotId} priority sizes="(min-width: 768px) 30vw, 75vw" />
+                <ImageSlot id={p.bottleSlot as ImageSlotId} zoom priority sizes="(min-width: 768px) 30vw, 75vw" />
               </div>
             </div>
             <div className="min-w-0 md:col-span-7 lg:col-span-6">

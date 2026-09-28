@@ -128,7 +128,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       <section className="surface-sun grain py-24 md:py-36" aria-labelledby="story-title">
         <div className="container-x grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-6">
-            <ImageSlot id="ridge-view" sizes="(min-width: 1024px) 50vw, 100vw" />
+            <ImageSlot id="ridge-view" zoom sizes="(min-width: 1024px) 50vw, 100vw" />
           </Reveal>
           <Reveal delay={150} className="lg:col-span-5 lg:col-start-8">
             <p className="label text-sun-deep">{l(home.story.eyebrow)}</p>

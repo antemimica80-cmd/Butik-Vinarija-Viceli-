@@ -3,6 +3,7 @@ import { useLocale } from 'next-intl';
 import type { CSSProperties } from 'react';
 import { imageSlots, type ImageSlotId } from '@content/image-slots';
 import { BASE_PATH } from '@/lib/static';
+import { Zoom } from './Zoom';
 
 const toneClass = {
   sun: 'bg-[#d9d1c3] text-ink-soft',
@@ -25,13 +26,15 @@ type Props = {
   bare?: boolean;
   /** Override the slot's aspect ratio (e.g. to line up cards), e.g. "4/5". */
   ratio?: string;
+  /** Click to enlarge. A string groups images so they can be paged together. */
+  zoom?: boolean | string;
 };
 
 /**
  * A named photography slot. Renders the real image when `src` is set in
  * content/image-slots.ts, otherwise a neutral tone with the art-direction label.
  */
-export function ImageSlot({ id, sizes = '100vw', priority, className = '', fill, compact, labelTop, bare, ratio }: Props) {
+export function ImageSlot({ id, sizes = '100vw', priority, className = '', fill, compact, labelTop, bare, ratio, zoom }: Props) {
   const locale = useLocale() as 'en' | 'hr';
   const slot = imageSlots[id];
   const style = {
@@ -64,10 +67,16 @@ export function ImageSlot({ id, sizes = '100vw', priority, className = '', fill,
   }
 
   if (slot.src) {
-    return (
+    const image = (
       <div className={`${frame} overflow-hidden ${className}`} style={style}>
         <Image src={`${BASE_PATH}${slot.src}`} alt={slot.alt[locale]} fill sizes={sizes} priority={priority} className="object-cover" />
       </div>
+    );
+    if (!zoom || fill) return image;
+    return (
+      <Zoom src={`${BASE_PATH}${slot.src}`} alt={slot.alt[locale]} group={typeof zoom === 'string' ? zoom : undefined}>
+        {image}
+      </Zoom>
     );
   }
 

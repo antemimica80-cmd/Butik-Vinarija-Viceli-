@@ -38,7 +38,7 @@ export default async function FamilyPage({ params }: PageProps<'/[locale]/family
       <section className="surface-sun grain py-24 md:py-36">
         <div className="container-x grid items-end gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
-            <ImageSlot id="mateo-portrait" priority sizes="(min-width: 1024px) 40vw, 100vw" />
+            <ImageSlot id="mateo-portrait" zoom="family" priority sizes="(min-width: 1024px) 40vw, 100vw" />
           </Reveal>
           <div className="lg:col-span-6 lg:col-start-7">
             <Reveal>
@@ -115,7 +115,7 @@ export default async function FamilyPage({ params }: PageProps<'/[locale]/family
             ))}
           </ol>
           <Reveal className="mt-16">
-            <ImageSlot id="dingac-slope" ratio="16/9" sizes="100vw" />
+            <ImageSlot id="dingac-slope" zoom="family" ratio="16/9" sizes="100vw" />
           </Reveal>
         </div>
       </section>

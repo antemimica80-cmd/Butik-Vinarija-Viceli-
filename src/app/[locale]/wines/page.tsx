@@ -35,7 +35,7 @@ export default async function WinesPage({ params }: PageProps<'/[locale]/wines'>
             <p className="mt-6 max-w-2xl text-lede text-ink-soft">{l(W.overview.lede)}</p>
           </Reveal>
           <Reveal immediate delay={150} className="mx-auto w-2/3 max-w-xs md:col-span-5 md:w-full lg:col-span-4">
-            <ImageSlot id="cellar-glass" priority sizes="(min-width: 768px) 30vw, 66vw" />
+            <ImageSlot id="cellar-glass" zoom priority sizes="(min-width: 768px) 30vw, 66vw" />
           </Reveal>
         </div>
       </section>

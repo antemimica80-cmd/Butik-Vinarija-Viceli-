@@ -308,3 +308,9 @@ html:not([data-js]) .three-suns .ts-labels { opacity: 1; }
 }
 html:not([data-js]) .organic-ledger .ledger-strike { background-size: 100% 1.5px; }
 html:not([data-js]) .organic-ledger .ledger-is { opacity: 1; }
+
+/* ───────────────────────────── Zoom (lightbox) ───────────────────────────── */
+.zoom-dialog::backdrop { background: transparent; }
+.zoom-dialog[open] { animation: zoom-in 0.35s var(--ease-weighted); }
+@keyframes zoom-in { from { opacity: 0; } to { opacity: 1; } }
+html:has(.zoom-dialog[open]) { overflow: hidden; }

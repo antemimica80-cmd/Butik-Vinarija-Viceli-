@@ -193,7 +193,7 @@ export default async function ExperiencePage({ params }: PageProps<'/[locale]/ex
           {editorial.map((e, i) => (
             <article key={e.slug} id={e.slug} className="grid scroll-mt-[calc(var(--nav-h)+2rem)] grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-20">
               <Reveal className={`lg:col-span-7 ${i % 2 ? 'lg:order-2' : ''}`}>
-                <ImageSlot id={e.imageSlot as ImageSlotId} ratio="4/5" sizes="(min-width: 1024px) 58vw, 100vw" />
+                <ImageSlot id={e.imageSlot as ImageSlotId} zoom="experience" ratio="4/5" sizes="(min-width: 1024px) 58vw, 100vw" />
               </Reveal>
               <div className={`lg:col-span-5 ${i % 2 ? 'lg:order-1' : ''}`}>
                 <Reveal>
@@ -228,7 +228,7 @@ export default async function ExperiencePage({ params }: PageProps<'/[locale]/ex
             </Reveal>
             <div className="mt-12 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-20">
               <Reveal className="lg:col-span-7">
-                <ImageSlot id="dingac-slope" ratio="4/5" sizes="(min-width: 1024px) 58vw, 100vw" />
+                <ImageSlot id="dingac-slope" zoom="experience" ratio="4/5" sizes="(min-width: 1024px) 58vw, 100vw" />
               </Reveal>
               <div className="lg:col-span-5">
                 <Reveal>
@@ -251,8 +251,8 @@ export default async function ExperiencePage({ params }: PageProps<'/[locale]/ex
               </div>
             </div>
             <Reveal delay={150} className="mt-16 grid grid-cols-2 gap-4 sm:gap-6 lg:w-7/12">
-              <ImageSlot id="private-pour" ratio="1/1" compact sizes="(min-width: 1024px) 28vw, 50vw" />
-              <ImageSlot id="guests-couple" ratio="1/1" compact sizes="(min-width: 1024px) 28vw, 50vw" />
+              <ImageSlot id="private-pour" zoom="experience" ratio="1/1" compact sizes="(min-width: 1024px) 28vw, 50vw" />
+              <ImageSlot id="guests-couple" zoom="experience" ratio="1/1" compact sizes="(min-width: 1024px) 28vw, 50vw" />
             </Reveal>
           </div>
         </section>
