@@ -14,7 +14,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   const { locale } = await params;
   const hr = locale === 'hr';
   return new ImageResponse(
-    <OgCard label={hr ? 'Dingač · Pelješac · Hrvatska' : 'Dingač · Pelješac · Croatia'} title={hr ? 'Ekološki certificirano. Uzgojeno na Dingaču.' : 'Certified organic. Grown on Dingač.'} footer={hr ? 'Jedini ekološki certificirani Dingač' : 'The only certified organic Dingač'} />,
+    <OgCard label={hr ? 'Dingač · Pelješac · Hrvatska' : 'Dingač · Pelješac · Croatia'} title={hr ? 'Ekološki certificirano. Uzgojeno na Dingaču.' : 'Certified organic. Grown on Dingač.'} footer={hr ? 'Butik vinarija Vicelić · Pelješac' : 'Vicelić Boutique Winery · Pelješac'} />,
     { ...ogSize, fonts: await ogFonts() },
   );
 }

@@ -47,13 +47,14 @@ export const historyClaims = {
     source: 'TODO: local history source for the Dingač tunnel (year and how it was dug)',
     verified: false,
   },
-  'only-organic-dingac': {
+  'organic-certified': {
     year: 'Organic',
     yearHr: 'Ekološki',
     text: {
-      en: 'Vicelić is the only Dingač with organic certification.',
-      hr: 'Vicelić je jedini Dingač s ekološkim certifikatom.', // REVIEW
+      en: 'Vicelić Dingač is certified organic.',
+      hr: 'Vicelić Dingač ima ekološki certifikat.', // REVIEW
     },
+    // Corrected 24 Nov 2026: it is NOT the only certified organic Dingač — never claim exclusivity.
     source: 'Confirmed by the proposal author (25 Sep 2026). TODO: certifying body and certificate number.',
     verified: true,
   },

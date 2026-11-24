@@ -1,6 +1,6 @@
 import { organic } from '@content/home';
 
-/** Small seal-like badge: "The only certified organic Dingač". */
+/** Small seal-like badge: "Certified organic Dingač". */
 export function OrganicBadge({ locale, tone = 'light', className = '' }: { locale: 'en' | 'hr'; tone?: 'light' | 'dark'; className?: string }) {
   const ring = tone === 'dark' ? 'border-sun-pale/50 text-sun-pale' : 'border-sun-deep/40 text-sun-deep';
   return (

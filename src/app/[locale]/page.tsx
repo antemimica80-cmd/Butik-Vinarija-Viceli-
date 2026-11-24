@@ -73,7 +73,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
         </div>
       </section>
 
-      {/* ── How we farm: the only certified organic Dingač ───── */}
+      {/* ── How we farm: certified organic Dingač ───── */}
       <section className="surface-limestone grain py-24 md:py-36" aria-labelledby="organic-title">
         <div className="container-x grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-6">

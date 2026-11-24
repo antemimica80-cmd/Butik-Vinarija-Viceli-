@@ -8,12 +8,12 @@ import type { ClaimId } from './history-claims';
 type L = { en: string; hr: string };
 
 export const organic = {
-  claim: 'only-organic-dingac' as ClaimId,
-  badge: { en: 'The only certified organic Dingač', hr: 'Jedini ekološki certificirani Dingač' }, // REVIEW
-  title: { en: ['The only Dingač', 'grown organically.'], hr: ['Jedini Dingač', 'uzgojen ekološki.'] }, // REVIEW
+  claim: 'organic-certified' as ClaimId,
+  badge: { en: 'Certified organic Dingač', hr: 'Ekološki certificirani Dingač' }, // REVIEW
+  title: { en: ['Dingač,', 'grown organically.'], hr: ['Dingač,', 'uzgojen ekološki.'] }, // REVIEW
   body: {
-    en: 'On a terroir where every vine is tended by hand, we went one step further: no synthetic pesticides, no herbicides, no artificial fertilisers — certified and inspected. Of all the wines that carry the name Dingač, ours is the only one with organic certification.',
-    hr: 'Na terroiru gdje se svaki trs njeguje rukama, otišli smo korak dalje: bez sintetičkih pesticida, bez herbicida, bez umjetnih gnojiva — certificirano i nadzirano. Od svih vina koja nose ime Dingač, naše je jedino s ekološkim certifikatom.', // REVIEW
+    en: 'On a terroir where every vine is tended by hand, we went one step further: no synthetic pesticides, no herbicides, no artificial fertilisers — certified and inspected. From the vine to the bottle, nothing that does not belong there.',
+    hr: 'Na terroiru gdje se svaki trs njeguje rukama, otišli smo korak dalje: bez sintetičkih pesticida, bez herbicida, bez umjetnih gnojiva — certificirano i nadzirano. Od trsa do boce, ništa što tamo ne pripada.', // REVIEW
   },
   points: [
     { en: 'No synthetic pesticides', hr: 'Bez sintetičkih pesticida' },

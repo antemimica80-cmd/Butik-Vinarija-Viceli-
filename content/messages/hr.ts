@@ -4,9 +4,9 @@ import type { Messages } from './en';
 const hr: Messages = {
   meta: {
     siteName: 'Butik vinarija Vicelić', // REVIEW
-    defaultTitle: 'Vicelić — jedini ekološki certificirani Dingač. Pelješac, Hrvatska.', // REVIEW
+    defaultTitle: 'Vicelić — ekološki certificirani Dingač. Pelješac, Hrvatska.', // REVIEW
     defaultDescription:
-      'Jedini ekološki certificirani Dingač. Obiteljska vinarija na terroiru Dingača na Pelješcu — vođene degustacije iznad Jadrana, s rezervacijom online.', // REVIEW
+      'Ekološki certificirani Dingač. Obiteljska vinarija na terroiru Dingača na Pelješcu — vođene degustacije iznad Jadrana, s rezervacijom online.', // REVIEW
   },
   masterLine: 'Ekološki certificirano. Uzgojeno na Dingaču.', // REVIEW
   nav: {

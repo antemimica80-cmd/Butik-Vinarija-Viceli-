@@ -369,7 +369,7 @@ export const imageSlots = {
     kind: 'image',
     ratio: '2/3',
     tone: 'shade',
-    shot: 'Certified organic Dingač infographic. TODO: the only-Dingač-with-eco-certification claim is unverified.',
+    shot: 'Certified organic Dingač infographic. Not used: its "only Dingač with eco certification" text is wrong.',
     light: 'Cellar light.',
     alt: {
       en: 'A bottle of Vicelić Dingač with the EU organic logo: no synthetic pesticides, no herbicides, living soil.',

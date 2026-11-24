@@ -1,5 +1,5 @@
 /**
- * The Family page — the people behind the only certified organic Dingač. Dated history comes from history-claims.ts.
+ * The Family page — the people behind a certified organic Dingač. Dated history comes from history-claims.ts.
  * Anything the owner has not yet told us is a visible placeholder, never invented.
  */
 import type { ClaimId } from './history-claims';
@@ -10,8 +10,8 @@ export type Beat = { claim: ClaimId } | { year: L; title: L; text: L; placeholde
 export const familyPage = {
   meta: {
     description: {
-      en: 'The Vicelić family makes something rare on Dingač: organic Plavac Mali, wild yeast, nothing added. The family behind the only certified organic Dingač.',
-      hr: 'Obitelj Vicelić stvara nešto rijetko na Dingaču: ekološki plavac mali, divlji kvasci, ništa dodano. Obitelj iza jedinog ekološki certificiranog Dingača.', // REVIEW
+      en: 'The Vicelić family makes something rare on Dingač: organic Plavac Mali, wild yeast, nothing added. The family behind a certified organic Dingač.',
+      hr: 'Obitelj Vicelić stvara nešto rijetko na Dingaču: ekološki plavac mali, divlji kvasci, ništa dodano. Obitelj iza ekološki certificiranog Dingača.', // REVIEW
     },
   },
   hero: {
